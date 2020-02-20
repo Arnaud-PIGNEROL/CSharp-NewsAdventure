@@ -20,6 +20,6 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -=damage;
-        Debug.Log("damage taken");
+        Debug.Log("damage taken"+damage+"     pv ennemis"+health);
     }
 }

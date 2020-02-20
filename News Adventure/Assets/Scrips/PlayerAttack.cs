@@ -20,8 +20,14 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, WhatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
-                    enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                if(enemiesToDamage.Length >= 2) 
+                {
+                    for (int i = 1; i < enemiesToDamage.Length; i++)
+                    {
+                        enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                    }
+                }
+               
             }
             timeBtwAttack = startTimeBtwAttack;
         }
