@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Joystick : MonoBehaviour
 {
+    public Animator animator;
     public Transform player;
     public float speed = 5.0f;
     private bool touchStart = false;
@@ -36,7 +37,6 @@ public class Joystick : MonoBehaviour
             pointB = pointA;
             touchStart = false;
         }
-
     }
 
     private void FixedUpdate()
@@ -45,12 +45,17 @@ public class Joystick : MonoBehaviour
         {
             Vector2 direction = Vector2.ClampMagnitude(pointB - pointA, 1.0f);
             moveCharacter(direction);
-
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.y);
+            animator.SetFloat("Magnitude", direction.magnitude);
             circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
         }
         else
         {
             circle.transform.position = new Vector2(pointA.x, pointA.y);
+            animator.SetFloat("Horizontal", 0);
+            animator.SetFloat("Vertical", 0);
+            animator.SetFloat("Magnitude", 0);
         }
     }
 
