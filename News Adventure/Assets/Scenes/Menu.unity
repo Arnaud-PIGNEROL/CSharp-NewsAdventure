@@ -133,6 +133,8 @@ GameObject:
   - component: {fileID: 40958009}
   - component: {fileID: 40958008}
   - component: {fileID: 40958007}
+  - component: {fileID: 40958011}
+  - component: {fileID: 40958010}
   m_Layer: 5
   m_Name: News 1
   m_TagString: Untagged
@@ -217,6 +219,72 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 40958005}
   m_CullTransparentMesh: 0
+--- !u!114 &40958010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40958005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1bac4b76264bc40ba77267662fe6a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &40958011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40958005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 40958008}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 40958010}
+        m_MethodName: test
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &66480977
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +439,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1600005520}
   m_HandleRect: {fileID: 1600005519}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -472,7 +540,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a9cde75702023cc4fa54f27bbd3c3807, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a7b66668e26eb64b8fc2e1d4b0ed67c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -549,7 +617,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a9cde75702023cc4fa54f27bbd3c3807, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9a7b66668e26eb64b8fc2e1d4b0ed67c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -623,7 +691,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f1869fb336dd541888a2ad389a595b, type: 3}
+    m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
@@ -1038,7 +1106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: bdaea651d90a59c43b67178a371c8f6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f8528a412da5ee46a990c1373d266c0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1112,7 +1180,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f1869fb336dd541888a2ad389a595b, type: 3}
+    m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
@@ -1191,7 +1259,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f1869fb336dd541888a2ad389a595b, type: 3}
+    m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 1
@@ -1270,7 +1338,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f1869fb336dd541888a2ad389a595b, type: 3}
+    m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -1440,7 +1508,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f1869fb336dd541888a2ad389a595b, type: 3}
+    m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_BestFit: 0
@@ -2078,8 +2146,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 674069831}
   m_HandleRect: {fileID: 674069830}
   m_Direction: 0
-  m_Value: 0
-  m_Size: 0.6268372
+  m_Value: -0.000000070804504
+  m_Size: 0.59756577
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2176,7 +2244,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: c9f1869fb336dd541888a2ad389a595b, type: 3}
+    m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0
