@@ -194,6 +194,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1252666244842063516, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666244842063516, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -101.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666244842063516, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -101.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666244842063516, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.2000122
+      objectReference: {fileID: 0}
     - target: {fileID: 1252666244950948422, guid: 208d83d80595136479a2fb5fd648ec6f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,6 +278,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666245432431001, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.2000122
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666245432431001, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -2.300003
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666245432431001, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -103.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666245432431001, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -102.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666245432431001, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5000004
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252666245432431001, guid: 208d83d80595136479a2fb5fd648ec6f,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.49999994
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 208d83d80595136479a2fb5fd648ec6f, type: 3}
