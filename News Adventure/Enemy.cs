@@ -42,7 +42,8 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("Nom de lobjet attaqué : "+ this.name);/*
+        Debug.Log("Nom de lobjet attaqué : "+ this.name);
+        /*
         if (health <= 0)
         {
             if (string.Compare(this.name, "Braize(Clone)") == 0)
@@ -95,37 +96,23 @@ public class Enemy : MonoBehaviour
 
         if (player_targeted)
         {
-            if (Mathf.Abs(target.position.x - transform.position.x) < float.Epsilon)
-            {
-                xMoove = target.position.x > transform.position.x ? 1 : -1;
-                yMoove = target.position.y > transform.position.y ? 1 : -1;
+            
+            xMoove = target.position.x > transform.position.x ? 1 : -1;
+            yMoove = target.position.y > transform.position.y ? 1 : -1;
 
-                /*
-                // RaycastHit2D hit;
-                bool canMove = Move(xMoove, yMoove);//, out hit);
+            /*
+            // RaycastHit2D hit;
+            bool canMove = Move(xMoove, yMoove);//, out hit);
                 
-                if (!canMove)
-                {
-                    Debug.Log("Cant moove Y, moove X (even Y is technicly better)");
-                    yMoove = 0;
-                    xMoove = target.position.x > transform.position.x ? 1 : -1;
-                }*/
-            }
-            else
+            if (!canMove)
             {
+                Debug.Log("Cant moove Y, moove X (even Y is technicly better)");
+                yMoove = 0;
                 xMoove = target.position.x > transform.position.x ? 1 : -1;
-                yMoove = target.position.y > transform.position.y ? 1 : -1;
-
-                /*
-                bool canMove = Move(xMoove, yMoove);//, out hit);                
-                if (!canMove)
-                {
-                    Debug.Log("Cant moove X, moove Y (even X is technicly better)");
-                    xMoove = 0;
-                    yMoove = target.position.y > transform.position.y ? 1 : -1;
-                }*/
-            }
-
+            }*/
+            
+            X_end = xMoove;
+            Y_end = yMoove;
         }
         else // the enemy isn't in range detection
         {
@@ -159,10 +146,12 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        player_targeted = false;
         if(onMoove)
             Move(xMoove, yMoove);
- //     AttemptMove<Player>(xDir, yDir);
+
+        onMoove = false;
+        player_targeted = false;
+        //     AttemptMove<Player>(xDir, yDir);
     }
 /*
     protected virtual bool TryMove<T>(int xDir, int yDir)
@@ -228,7 +217,7 @@ public class Enemy : MonoBehaviour
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
         while (sqrRemainingDistance > float.Epsilon)
         {
-            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, speed * 3 * Time.deltaTime);
+            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, speed * 2 * Time.deltaTime);
             rb2D.MovePosition(newPosition);
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
