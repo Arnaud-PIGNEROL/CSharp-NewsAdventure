@@ -96,9 +96,14 @@ public class Enemy : MonoBehaviour
 
         if (player_targeted)
         {
+            int[] myVectors_target = new int[2];
+
+            if (this.name == "Braize(Clone)")
+                myVectors_target = ia_cac();
+            else if (this.name == "Vent(Clone)")
+                myVectors_target = ia_distance();
+
             
-            xMoove = target.position.x > transform.position.x ? 1 : -1;
-            yMoove = target.position.y > transform.position.y ? 1 : -1;
 
             /*
             // RaycastHit2D hit;
@@ -111,8 +116,8 @@ public class Enemy : MonoBehaviour
                 xMoove = target.position.x > transform.position.x ? 1 : -1;
             }*/
             
-            X_end = xMoove;
-            Y_end = yMoove;
+            X_end = xMoove = myVectors_target[0];
+            Y_end = yMoove = myVectors_target[1];
         }
         else // the enemy isn't in range detection
         {
@@ -231,4 +236,60 @@ public class Enemy : MonoBehaviour
         hitPlayer.LoseFood(playerDamage);
     }
 */
+    private int[] ia_cac()
+    {
+        int[] Path = new int[2];
+        Path[0] = target.position.x > transform.position.x ? 1 : -1;
+        Path[1] = target.position.y > transform.position.y ? 1 : -1;
+
+        return Path;
+    }
+    private int[] ia_distance()
+    {
+        int[] Path = new int[2];
+
+        // Xe = enemy posX --- Yj = player posY
+        // sqrt( (Xe-Xj)² + (Ye-Yj)² )
+        if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y))) > 1) // the Hypothénuse is >1 so the ennemi is safe
+        {
+            //function attack enemy()
+            Path[0] = target.position.x > transform.position.x ? 1 : -1;
+            Path[1] = target.position.y > transform.position.y ? 1 : -1;
+        }
+        else
+        {
+            if (transform.position.x - target.position.x < 0) // the player is on the right compared to the enemy
+            {
+                if (transform.position.y - target.position.y < 0) // the player is above the enemy
+                {
+                    Debug.Log("Haut Droite");
+                    Path[0] = -2;
+                    Path[1] = 21;
+                }
+                else // the player is under the enemy
+                {
+                    Debug.Log("Bas Droite");
+                    Path[0] = -2;
+                    Path[1] = 2;
+                }
+            }
+            else // the player is on the left compared to the enemy
+            {
+                if (transform.position.y - target.position.y < 0) // the player is above the enemy
+                {
+                    Debug.Log("Haut Gauche");
+                    Path[0] = 2;
+                    Path[1] = -2;
+                }
+                else // the player is under the enemy
+                {
+                    Debug.Log("Bas Gauche");
+                    Path[0] = 2;
+                    Path[1] = 2;
+                }
+            }
+        } 
+
+        return Path;
+    }
 }
