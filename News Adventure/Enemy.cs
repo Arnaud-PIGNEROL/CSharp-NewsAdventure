@@ -77,29 +77,31 @@ public class Enemy : MonoBehaviour
 
     public void MoveEnemy()
     {
-        bool same = false;
         int xMoove = 0; // vector of direction X
         int yMoove = 0; // vector of direction Y
+        bool player_targeted = false;
 
         for (int i = -2; i <= 2; i++) //check around
         {
             for (int j = -2; j <= 2; j++)
             {
-                if ((target.position.x == transform.position.x + i) && (target.position.y == transform.position.y + j))
+                if (((int)target.position.x == (int)transform.position.x + i) && ((int)target.position.y == (int)transform.position.y + j))
                 {
-                    same = true;
-                }
+                    player_targeted = true;
+                    onMoove = true;
+                }                    
             }
         }
 
-        //if (same)
-        if(false)
+        if (player_targeted)
         {
             if (Mathf.Abs(target.position.x - transform.position.x) < float.Epsilon)
             {
+                xMoove = target.position.x > transform.position.x ? 1 : -1;
                 yMoove = target.position.y > transform.position.y ? 1 : -1;
 
-//               RaycastHit2D hit;
+                /*
+                // RaycastHit2D hit;
                 bool canMove = Move(xMoove, yMoove);//, out hit);
                 
                 if (!canMove)
@@ -107,21 +109,21 @@ public class Enemy : MonoBehaviour
                     Debug.Log("Cant moove Y, moove X (even Y is technicly better)");
                     yMoove = 0;
                     xMoove = target.position.x > transform.position.x ? 1 : -1;
-                }
+                }*/
             }
             else
             {
                 xMoove = target.position.x > transform.position.x ? 1 : -1;
+                yMoove = target.position.y > transform.position.y ? 1 : -1;
 
-//                RaycastHit2D hit;
-                bool canMove = Move(xMoove, yMoove);//, out hit);
-                
+                /*
+                bool canMove = Move(xMoove, yMoove);//, out hit);                
                 if (!canMove)
                 {
                     Debug.Log("Cant moove X, moove Y (even X is technicly better)");
                     xMoove = 0;
                     yMoove = target.position.y > transform.position.y ? 1 : -1;
-                }
+                }*/
             }
 
         }
@@ -157,7 +159,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        same = false;
+        player_targeted = false;
         if(onMoove)
             Move(xMoove, yMoove);
  //     AttemptMove<Player>(xDir, yDir);
@@ -226,7 +228,7 @@ public class Enemy : MonoBehaviour
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
         while (sqrRemainingDistance > float.Epsilon)
         {
-            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, speed * speed * Time.deltaTime);
+            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, speed * 3 * Time.deltaTime);
             rb2D.MovePosition(newPosition);
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
