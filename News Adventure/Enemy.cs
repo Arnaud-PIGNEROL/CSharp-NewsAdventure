@@ -78,20 +78,17 @@ public class Enemy : MonoBehaviour
 
     public void MoveEnemy()
     {
+        if (out_of_range())
+            return;
+
         int xMoove = 0; // vector of direction X
         int yMoove = 0; // vector of direction Y
         bool player_targeted = false;
 
-        for (int i = -2; i <= 2; i++) //check around
+        if (player_around())
         {
-            for (int j = -2; j <= 2; j++)
-            {
-                if (((int)target.position.x == (int)transform.position.x + i) && ((int)target.position.y == (int)transform.position.y + j))
-                {
-                    player_targeted = true;
-                    onMoove = true;
-                }                    
-            }
+            player_targeted = true;
+            onMoove = true;
         }
 
         if (player_targeted)
@@ -102,8 +99,6 @@ public class Enemy : MonoBehaviour
                 myVectors_target = ia_cac();
             else if (this.name == "Vent(Clone)")
                 myVectors_target = ia_distance();
-
-            
 
             /*
             // RaycastHit2D hit;
@@ -236,6 +231,32 @@ public class Enemy : MonoBehaviour
         hitPlayer.LoseFood(playerDamage);
     }
 */
+
+    private bool out_of_range()
+    {
+        if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y))) > 20)
+            return true;
+        
+        return false;
+    }
+
+    private bool player_around()
+    {
+        for (int i = -2; i <= 2; i++) //check around
+        {
+            for (int j = -2; j <= 2; j++)
+            {
+                if (((int)target.position.x == (int)transform.position.x + i) && ((int)target.position.y == (int)transform.position.y + j))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
     private int[] ia_cac()
     {
         int[] Path = new int[2];
@@ -256,8 +277,8 @@ public class Enemy : MonoBehaviour
         if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y))) > 1.5) // the Hypothénuse is >1 so the ennemi is safe
         {
             //function attack enemy()
-            Path[0] = target.position.x > transform.position.x ? 1 : -1;
-            Path[1] = target.position.y > transform.position.y ? 1 : -1;
+            Path[0] = 0;
+            Path[1] = 0;
         }
         else
         {
