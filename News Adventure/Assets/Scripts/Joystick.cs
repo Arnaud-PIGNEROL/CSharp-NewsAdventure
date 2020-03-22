@@ -1,142 +1,151 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Joystick : MonoBehaviour
+public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    public Transform player;
-    public float speed = 5.0f;
-    public float touchArea = 2.6f;
-    public float button = 1.0f;
-    private bool touchStart = false;
-    private Vector2 pointA;
-    private Vector2 pointB;
+    public float Horizontal { get { return input.x; } }
+    public float Vertical { get { return input.y; } }
+    public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
 
-    private Vector2 pointCAC;
-    private Vector2 pointMid;
-    private Vector2 pointRange;
-        
-    public RectTransform circle;
-    public RectTransform outerCircle;
-
-    public RectTransform attackCAC;
-    public RectTransform attackMid;
-    public RectTransform attackRange;
-
-    private float timeBtwAttack;
-    public float startTimeBtwAttack;
-
-    void Start()
+    public float HandleRange
     {
-        //Crée un vecteur entre la position du cercle interne et du cercle externe
-        pointA = new Vector2(circle.transform.position.x, circle.transform.position.y);
-        Debug.Log("Position of a" + pointA.x + " " + pointA.y);
-        pointB = pointA;
-        
-        circle.transform.position = pointA;
-        outerCircle.transform.position = pointA;
-
-        circle.GetComponent<SpriteRenderer>().enabled = true;
-        outerCircle.GetComponent<SpriteRenderer>().enabled = true;
-        Debug.Log("Out of position of a");
-
-        /*pointCAC = new Vector2(attackCAC.transform.position.x, attackCAC.transform.position.y);
-        pointMid = new Vector2(attackMid.transform.position.x, attackMid.transform.position.y);
-        pointRange = new Vector2(attackRange.transform.position.x, attackRange.transform.position.y);
-
-        attackCAC.transform.position = pointCAC;
-        attackMid.transform.position = pointMid;
-        attackRange.transform.position = pointRange;
-
-        attackCAC.GetComponent<SpriteRenderer>().enabled = true;
-        attackMid.GetComponent<SpriteRenderer>().enabled = true;
-        attackRange.GetComponent<SpriteRenderer>().enabled = true;*/
+        get { return handleRange; }
+        set { handleRange = Mathf.Abs(value); }
     }
 
-    void Update()
+    public float DeadZone
     {
-        if (Input.GetMouseButton(0))
+        get { return deadZone; }
+        set { deadZone = Mathf.Abs(value); }
+    }
+
+    //public AxisOptions AxisOptions { get { return AxisOptions; } set { axisOptions = value; } }
+    //public bool SnapX { get { return snapX; } set { snapX = value; } }
+    //public bool SnapY { get { return snapY; } set { snapY = value; } }
+
+    [SerializeField] private float handleRange = 1;
+    [SerializeField] private float deadZone = 0;
+    [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
+    [SerializeField] private bool snapX = false;
+    [SerializeField] private bool snapY = false;
+
+    [SerializeField] protected RectTransform background = null;
+    [SerializeField] private RectTransform handle = null;
+    private RectTransform baseRect = null;
+
+    private Canvas canvas;
+    private Camera cam;
+
+    private Vector2 input = Vector2.zero;
+
+    protected virtual void Start()
+    {
+        HandleRange = handleRange;
+        DeadZone = deadZone;
+        baseRect = GetComponent<RectTransform>();
+        canvas = GetComponentInParent<Canvas>();
+        if (canvas == null)
+            Debug.LogError("The Joystick is not placed inside a canvas");
+
+        Vector2 center = new Vector2(0.5f, 0.5f);
+        background.pivot = center;
+        handle.anchorMin = center;
+        handle.anchorMax = center;
+        handle.pivot = center;
+        handle.anchoredPosition = Vector2.zero;
+    }
+
+    public virtual void OnPointerDown(PointerEventData eventData)
+    {
+        OnDrag(eventData);
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        cam = null;
+        if (canvas.renderMode == RenderMode.ScreenSpaceCamera)
+            cam = canvas.worldCamera;
+
+        Vector2 position = RectTransformUtility.WorldToScreenPoint(cam, background.position);
+        Vector2 radius = background.sizeDelta / 2;
+        input = (eventData.position - position) / (radius * canvas.scaleFactor);
+        //FormatInput();
+        HandleInput(input.magnitude, input.normalized, radius, cam);
+        handle.anchoredPosition = input * radius * handleRange;
+    }
+
+    //A partir de quand le bouton revient à sa position originale
+    protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
+    {
+        if (magnitude > deadZone)
         {
-            Debug.Log("Here !");
-            pointB = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.z));
-            Debug.Log("The point B is : " + pointB);
-            if ((pointB - pointCAC).sqrMagnitude <= button)             // cac attack
+            if (magnitude > 1)
+                input = normalised;
+        }
+        else
+            input = Vector2.zero;
+    }
+
+    /*private void FormatInput()
+    {
+        if (axisOptions == AxisOptions.Horizontal)
+            input = new Vector2(input.x, 0f);
+        else if (axisOptions == AxisOptions.Vertical)
+            input = new Vector2(0f, input.y);
+    }
+*/
+   /* private float SnapFloat(float value, AxisOptions snapAxis)
+    {
+        if (value == 0)
+            return value;
+
+        if (axisOptions == AxisOptions.Both)
+        {
+            float angle = Vector2.Angle(input, Vector2.up);
+            if (snapAxis == AxisOptions.Horizontal)
             {
-                if (timeBtwAttack <= 0)
-                {
-                    Debug.Log("cac");
-                    timeBtwAttack = startTimeBtwAttack;
-                }
+                if (angle < 22.5f || angle > 157.5f)
+                    return 0;
                 else
-                {
-                    Debug.Log("time : " + timeBtwAttack);
-                    timeBtwAttack -= Time.deltaTime;
-                }
+                    return (value > 0) ? 1 : -1;
             }
-            else if ((pointB - pointMid).sqrMagnitude <= button)        // mid range attack
+            else if (snapAxis == AxisOptions.Vertical)
             {
-                if (timeBtwAttack <= 0)
-                {
-                    Debug.Log("mid");
-                    timeBtwAttack = startTimeBtwAttack;
-                }
+                if (angle > 67.5f && angle < 112.5f)
+                    return 0;
                 else
-                {
-                    Debug.Log("time : " + timeBtwAttack);
-                    timeBtwAttack -= Time.deltaTime;
-                }
+                    return (value > 0) ? 1 : -1;
             }
-            else if ((pointB - pointRange).sqrMagnitude <= button)      // long range attack
-            {
-                if (timeBtwAttack <= 0)
-                {
-                    Debug.Log("range");
-                    timeBtwAttack = startTimeBtwAttack;
-                }
-                else
-                {
-                    Debug.Log("time : " + timeBtwAttack);
-                    timeBtwAttack -= Time.deltaTime;
-                }
-            }
-            else if ((pointB - pointA).sqrMagnitude <= touchArea)     //float Vector2.sqrMagnitude
-            {
-                touchStart = true;
-            }
-            else
-            {
-                pointB = pointA;
-                touchStart = false;
-            }
+            return value;
         }
         else
         {
-            Debug.Log("Hellow");
-            pointB = pointA;
-            touchStart = false;
+            if (value > 0)
+                return 1;
+            if (value < 0)
+                return -1;
         }
+        return 0;
     }
-
-    private void FixedUpdate()
-    { 
-        if (touchStart)
-        {
-            Debug.Log("Wtf");
-            Vector2 direction = Vector2.ClampMagnitude(pointB - pointA, 1.0f);  // empêche le boutton de quitter le cercle
-            moveCharacter(direction);
-            circle.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.x);
-            pointA = new Vector2(pointA.x + player.position.x, pointA.y + player.position.y);
-        }
-        else
-        {
-            Debug.Log("inside this");
-            circle.transform.position = new Vector2(pointA.x, pointA.y);
-            Debug.Log("position " + pointA.x + " " + pointA.y);
-        }
-    }
-
-    void moveCharacter(Vector2 direction)
+    */
+    public virtual void OnPointerUp(PointerEventData eventData)
     {
-        player.Translate(direction * speed * Time.deltaTime);
+        input = Vector2.zero;
+        handle.anchoredPosition = Vector2.zero;
+    }
+
+    protected Vector2 ScreenPointToAnchoredPosition(Vector2 screenPosition)
+    {
+        Vector2 localPoint = Vector2.zero;
+        if (RectTransformUtility.ScreenPointToLocalPointInRectangle(baseRect, screenPosition, cam, out localPoint))
+        {
+            Vector2 pivotOffset = baseRect.pivot * baseRect.sizeDelta;
+            return localPoint - (background.anchorMax * baseRect.sizeDelta) + pivotOffset;
+        }
+        return Vector2.zero;
     }
 }
+
+public enum AxisOptions { Both, Horizontal, Vertical }

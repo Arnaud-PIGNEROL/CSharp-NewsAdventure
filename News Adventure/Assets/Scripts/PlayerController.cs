@@ -1,28 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
-
-    private Rigidbody2D rb;
+     public float speed;
+    public FixedJoystick fixedJoystick;
+    public Rigidbody2D rb;
     private Vector2 moveVelocity;
-
-   void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
-
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        moveVelocity = moveInput.normalized * speed;    
+        Vector2 moveInput = new Vector2(fixedJoystick.Vertical, fixedJoystick.Horizontal);
+        moveVelocity = moveInput.normalized * speed;
     }
-
-    void FixedUpdate()
+    public void FixedUpdate()
     {
+        //Vector2 direction = new Vector3 (fixedJoystick.Vertical, fixedJoystick.Horizontal);
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
-
 }
