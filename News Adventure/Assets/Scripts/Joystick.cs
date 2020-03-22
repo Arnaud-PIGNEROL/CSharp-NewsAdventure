@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
-    public float Horizontal { get { return input.x; } }
-    public float Vertical { get { return input.y; } }
+    public float Horizontal { get { return input.y; } }
+    public float Vertical { get { return input.x; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
 
     public float HandleRange
@@ -28,8 +28,8 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     [SerializeField] private float handleRange = 1;
     [SerializeField] private float deadZone = 0;
     [SerializeField] private AxisOptions axisOptions = AxisOptions.Both;
-    [SerializeField] private bool snapX = false;
-    [SerializeField] private bool snapY = false;
+    //[SerializeField] private bool snapX = false;
+    //[SerializeField] private bool snapY = false;
 
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
@@ -57,7 +57,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         handle.anchoredPosition = Vector2.zero;
     }
 
-    public virtual void OnPointerDown(PointerEventData eventData)
+    public virtual void OnPointerDown(PointerEventData eventData)           // Quand j'appuie sur le BOUTON, il peut se passer qqch
     {
         OnDrag(eventData);
     }
@@ -73,10 +73,11 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         input = (eventData.position - position) / (radius * canvas.scaleFactor);
         //FormatInput();
         HandleInput(input.magnitude, input.normalized, radius, cam);
+
         handle.anchoredPosition = input * radius * handleRange;
     }
 
-    //A partir de quand le bouton revient à sa position originale
+    //A partir de quand le bouton revient à sa position originale ===========> Empêche le joystick de quitter la zone prévue à cet effet
     protected virtual void HandleInput(float magnitude, Vector2 normalised, Vector2 radius, Camera cam)
     {
         if (magnitude > deadZone)
@@ -130,7 +131,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         return 0;
     }
     */
-    public virtual void OnPointerUp(PointerEventData eventData)
+    public virtual void OnPointerUp(PointerEventData eventData)     // Quand je relache, tout revient à 0
     {
         input = Vector2.zero;
         handle.anchoredPosition = Vector2.zero;

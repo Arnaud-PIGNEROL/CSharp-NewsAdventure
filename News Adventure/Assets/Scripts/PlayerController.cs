@@ -2,7 +2,7 @@
 
 public class PlayerController : MonoBehaviour
 {
-     public float speed;
+    public float speed;
     public FixedJoystick fixedJoystick;
     public Rigidbody2D rb;
     private Vector2 moveVelocity;
@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     }
     public void FixedUpdate()
     {
-        //Vector2 direction = new Vector3 (fixedJoystick.Vertical, fixedJoystick.Horizontal);
+        Vector2 direction = new Vector3 (fixedJoystick.Vertical, fixedJoystick.Horizontal);
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
 }
