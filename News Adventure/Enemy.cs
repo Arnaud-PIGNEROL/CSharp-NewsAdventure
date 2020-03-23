@@ -14,15 +14,14 @@ public class Enemy : MonoBehaviour
     private int Y_end;      // Y coord of the point to reach
     private float time_next_move;
 
-    public float moveTime = 0.1f;
     private Rigidbody2D rb2D;
     private BoxCollider2D boxCollider;
     public int speed;
+    public int detection_dist;
+    public float moveTime;
 
     private void Start()
     {
-        //GameManager.instance.brasiers.Add(this);
-        //GameManager.instance.tornades.Add(this); 
         onMoove = false;
         time_next_move = 0;
         GameManager.instance.enemy.Add(this);
@@ -35,38 +34,12 @@ public class Enemy : MonoBehaviour
 
     void Update()
     {
-        
 
     }
 
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("Nom de lobjet attaqué : "+ this.name);
-        /*
-        if (health <= 0)
-        {
-            if (string.Compare(this.name, "Braize(Clone)") == 0)
-            {
-                Debug.Log("C'est un brasier");
-                int index = GameManager.instance.brasiers.IndexOf(this);
-                GameManager.instance.brasiers.RemoveAt(index);
-
-            }
-            else if (string.Compare(this.name, "Vent(Clone)") == 0)
-            {
-                Debug.Log("c'est une tornade");
-                int index = GameManager.instance.tornades.IndexOf(this);
-                GameManager.instance.tornades.RemoveAt(index);
-            }
-            else
-            {
-                Debug.Log("euuu problème car enemis pas reconnu");
-            }
-
-            Destroy(gameObject);
-        }
-        */
         if (health <= 0)
         {
             int index = GameManager.instance.enemy.IndexOf(this);
@@ -84,6 +57,7 @@ public class Enemy : MonoBehaviour
         int xMoove = 0; // vector of direction X
         int yMoove = 0; // vector of direction Y
         bool player_targeted = false;
+        int[] myVectors_target = new int[2];
 
         if (player_around())
         {
@@ -93,12 +67,12 @@ public class Enemy : MonoBehaviour
 
         if (player_targeted)
         {
-            int[] myVectors_target = new int[2];
-
             if (this.name == "Braize(Clone)")
                 myVectors_target = ia_cac();
             else if (this.name == "Vent(Clone)")
                 myVectors_target = ia_distance();
+            else if (this.name == "Boss(Clone)")
+                myVectors_target = ia_boss();
 
             /*
             // RaycastHit2D hit;
@@ -110,48 +84,46 @@ public class Enemy : MonoBehaviour
                 yMoove = 0;
                 xMoove = target.position.x > transform.position.x ? 1 : -1;
             }*/
-            
+
             X_end = xMoove = myVectors_target[0];
             Y_end = yMoove = myVectors_target[1];
         }
-        else // the enemy isn't in range detection
-        {
-            if (!onMoove) //if enemy is at his final place
+        else // the player isn't in range detection of the enemy
+        {            
+            if (Time.time >= time_next_move) // time to wait bewteen 2 moves
             {
-                if (Time.time >= time_next_move) // time to wait bewteen 2 moves
-                {
-                    onMoove = true;
-                    time_next_move = 0;
+                onMoove = true;
+                time_next_move = 0;
 
+                if (this.name == "Boss(Clone)")
+                {
+                    myVectors_target = ia_boss_stroll();
+
+                    xMoove = myVectors_target[0];
+                    yMoove = myVectors_target[1];
+                }
+                else
+                {
                     xMoove = Random.Range(-1, 2);
                     yMoove = Random.Range(-1, 2);
+                }
 
-                    X_end = (int)transform.position.x + xMoove;
-                    Y_end = (int)transform.position.y + yMoove;
+                X_end = (int)transform.position.x + xMoove;
+                Y_end = (int)transform.position.y + yMoove;
+            }    
+        }
 
-                }                    
-            }
-            else // if enemy hasn't reach his final place yet
+        if (onMoove)
+        {
+            if (Move(xMoove, yMoove))
             {
-                xMoove = X_end - (int)transform.position.x; // to transform the point into a vector
-                yMoove = Y_end - (int)transform.position.y; // for ex : we're at X=12 and we want to be at X=15. So we need to make a 15-12= +3X vector
-            }
-            
-            if ((int)this.transform.position.x == X_end || (int)this.transform.position.y == Y_end) //check if we're arrived
-            {                
-                if (onMoove) // if its the first frame since the enemy has reach the final point
-                    time_next_move = Time.time + Random.Range(1, 3); //we wait bewteen 1s and 3s before to start a new move
-                    
+                time_next_move = Time.time + Random.Range(2, 6); //we wait bewteen 1s and 3s before to start a new move
                 onMoove = false;
             }
         }
-
-        if(onMoove)
-            Move(xMoove, yMoove);
-
-        onMoove = false;
+        
         player_targeted = false;
-        //     AttemptMove<Player>(xDir, yDir);
+        // AttemptMove<Player>(xDir, yDir);
     }
 /*
     protected virtual bool TryMove<T>(int xDir, int yDir)
@@ -242,9 +214,9 @@ public class Enemy : MonoBehaviour
 
     private bool player_around()
     {
-        for (int i = -2; i <= 2; i++) //check around
+        for (int i = -detection_dist; i <= detection_dist; i++) //check if the player is in range around the enemy
         {
-            for (int j = -2; j <= 2; j++)
+            for (int j = -detection_dist; j <= detection_dist; j++)
             {
                 if (((int)target.position.x == (int)transform.position.x + i) && ((int)target.position.y == (int)transform.position.y + j))
                 {
@@ -264,7 +236,10 @@ public class Enemy : MonoBehaviour
         Path[1] = target.position.y > transform.position.y ? 1 : -1;
 
         if((Mathf.Abs(target.position.x - transform.position.x) <= 0.05) && (Mathf.Abs(target.position.y - transform.position.y) <= 0.05))
+        {
             Path[0] = Path[1] = 0;
+            //attaque cac IA
+        }
 
         return Path;
     }
@@ -274,9 +249,12 @@ public class Enemy : MonoBehaviour
 
         // Xe = enemy posX --- Yj = player posY
         // sqrt( (Xe-Xj)² + (Ye-Yj)² )
-        if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y))) > 1.5) // the Hypothénuse is >1 so the ennemi is safe
+        float dist = Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)));
+        if (dist > 3)
+            return ia_cac();
+        else if ( dist < 3 && dist > 2) // the Hypothénuse is >1.5 so the ennemi is safe, it can attack
         {
-            //function attack enemy()
+            //attaque ia distance
             Path[0] = 0;
             Path[1] = 0;
         }
@@ -308,6 +286,54 @@ public class Enemy : MonoBehaviour
                     Path[1] = 2;
                 }
             }
+        }
+
+        return Path;
+    }
+
+    private int[] ia_boss()
+    {
+        int[] Path = new int[2];
+
+        int attack = Random.Range(0, 200);
+
+        if(attack == 0)
+        {
+            Debug.Log("deplacement légendaire");
+        }
+        else if(attack < 101 && attack > 0)
+        {
+            // attaque distance avec projectile
+        }
+        else
+        {
+            return ia_cac();
+        }
+
+        if ((Mathf.Abs(target.position.x - transform.position.x) <= 0.05) && (Mathf.Abs(target.position.y - transform.position.y) <= 0.05))
+        {
+            Path[0] = Path[1] = 0;
+            //attaque cac IA boss
+        }
+
+        return Path;
+    }
+
+    private int[] ia_boss_stroll()
+    {
+        int[] Path = new int[2];
+
+        int mvmnt = Random.Range(0, 2);
+
+        if (mvmnt == 1)
+        {
+            Path[0] = 0;
+            Path[1] = target.position.y > transform.position.y ? 2 : -2;
+        }
+        else
+        {
+            Path[0] = target.position.x > transform.position.x ? 2 : -2;
+            Path[1] = 0;
         }
 
         return Path;
