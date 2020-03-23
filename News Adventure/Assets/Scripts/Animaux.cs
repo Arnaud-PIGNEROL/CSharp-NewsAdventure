@@ -7,11 +7,11 @@ public class Animaux : MonoBehaviour
     public int speed;
     public float moveTime = 0.1f;
 
-    private bool handled_by_player;
+    public bool handled_by_player;
     private bool isSafe;
-    public bool onMoove;
-    public float X_end;      // X coord of the point to reach
-    public float Y_end;      // Y coord of the point to reach
+    private bool onMoove;
+    private float X_end;      // X coord of the point to reach
+    private float Y_end;      // Y coord of the point to reach
     private float time_next_move;
 
     private Transform player;
@@ -59,51 +59,35 @@ public class Animaux : MonoBehaviour
 
         if (handled_by_player)
         {
-            Debug.Log("handled");
-            xMoove = player.position.x;
-            yMoove = player.position.y;
+            Move(player.position);
+            onMoove = false;
         }
         else
         {
-            handled_by_player = handled(); // check is the animal can be in the player's arm
+            handled_by_player = handled(); // check if the animal can be in the player's arm
 
-            if (!onMoove) //if enemy is at his final place
+            if (Time.time >= time_next_move) // time to wait bewteen 2 moves
             {
-                if (Time.time >= time_next_move) // time to wait bewteen 2 moves
-                {
-                    Debug.Log("nouveau déplacement à " + Time.time);
-                    onMoove = true;
-                    time_next_move = 0;
+                onMoove = true;
+                time_next_move = 0;
 
-                    xMoove = Random.Range(-1, 2);
-                    yMoove = Random.Range(-1, 2);
+                xMoove = Random.Range(-1, 2);
+                yMoove = Random.Range(-1, 2);
 
-                    X_end = transform.position.x + xMoove;
-                    Y_end = transform.position.y + yMoove;
-
-                }
-            }
-            else // if enemy hasn't reach his final place yet
-            {
-                xMoove = X_end - (int)transform.position.x; // to transform the point into a vector
-                yMoove = Y_end - (int)transform.position.y; // for ex : we're at X=12 and we want to be at X=15. So we need to make a 15-12= +3X vector
-            }
-
-            if ((int)this.transform.position.x == X_end || (int)this.transform.position.y == Y_end) //check if we're arrived at the end of the deplacement
-            {
-                if (onMoove) // if its the first frame since the enemy has reach the final point
-                    time_next_move = Time.time + Random.Range(1, 3); //we wait bewteen 1s and 2s before to start a new move
-
-                onMoove = false;
+                X_end = transform.position.x + xMoove;
+                Y_end = transform.position.y + yMoove;
             }
         }
 
-        
 
-        if(onMoove)
-            Move(xMoove, yMoove);
-
-        onMoove = false;
+        if (onMoove)
+        {
+            if (Move(xMoove, yMoove))
+            {
+                time_next_move = Time.time + Random.Range(2, 4); //we wait bewteen 1s and 3s before to start a new move
+                onMoove = false;
+            }
+        }
     }
 
     protected bool Move(float xDir, float yDir/*, out RaycastHit2D hit*/)
@@ -125,6 +109,22 @@ public class Animaux : MonoBehaviour
         //       return false;
     }
 
+    protected bool Move(Vector3 dir/*, out RaycastHit2D hit*/)
+    {
+
+        //       boxCollider.enabled = false;
+        //       hit = Physics2D.Linecast(start, end, blockingLayer);
+        //       boxCollider.enabled = true;
+
+        //Check if anything was hit
+        //       if (hit.transform == null)
+        //       {
+        StartCoroutine(SmoothMovement(dir));
+        return true;
+        //       }
+        //       return false;
+    }
+
     protected IEnumerator SmoothMovement(Vector3 end)
     {
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
@@ -139,7 +139,7 @@ public class Animaux : MonoBehaviour
 
     private bool handled()
     {
-        if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y))) <= 0.5)
+        if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 0.5)
         {
             Debug.Log("TROUVE");
             return true;

@@ -189,7 +189,7 @@ public class Enemy : MonoBehaviour
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
         while (sqrRemainingDistance > float.Epsilon)
         {
-            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, speed * 2 * Time.deltaTime);
+            Vector3 newPosition = Vector3.MoveTowards(rb2D.position, end, speed * Time.deltaTime);
             rb2D.MovePosition(newPosition);
             sqrRemainingDistance = (transform.position - end).sqrMagnitude;
             yield return null;
@@ -299,7 +299,7 @@ public class Enemy : MonoBehaviour
 
         if(attack == 0)
         {
-            Debug.Log("deplacement légendaire");
+            ;
         }
         else if(attack < 101 && attack > 0)
         {
