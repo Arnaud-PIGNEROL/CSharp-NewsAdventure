@@ -9,9 +9,6 @@ public class Animaux : MonoBehaviour
 
     public bool handled_by_player;
     private bool isSafe;
-    private bool onMoove;
-    private float X_end;      // X coord of the point to reach
-    private float Y_end;      // Y coord of the point to reach
     private float time_next_move;
 
     private Transform player;
@@ -25,7 +22,6 @@ public class Animaux : MonoBehaviour
     {
         handled_by_player = false;
         isSafe = false;
-        onMoove = false;
         time_next_move = 0;
 
         GameManager.instance.animals.Add(this);
@@ -54,40 +50,51 @@ public class Animaux : MonoBehaviour
         if (out_of_range())
             return;
 
-        float xMoove = 0; // vector of direction X
-        float yMoove = 0; // vector of direction Y
-
         if (handled_by_player)
         {
-            Move(player.position);
-            onMoove = false;
+            if (player.GetComponent<Player>().getDrop())
+            {
+                player.GetComponent<Player>().setDrop(false);
+                time_next_move = Time.time + 1;
+                handled_by_player = false;
+            }
+            else
+            {
+                Move(player.position);
+            }
         }
         else
         {
-            handled_by_player = handled(); // check if the animal can be in the player's arm
-
-            if (Time.time >= time_next_move) // time to wait bewteen 2 moves
-            {
-                onMoove = true;
-                time_next_move = 0;
-
-                xMoove = Random.Range(-1, 2);
-                yMoove = Random.Range(-1, 2);
-
-                X_end = transform.position.x + xMoove;
-                Y_end = transform.position.y + yMoove;
-            }
+            if (this.name == "Koala(Clone)")
+                 ia_koala();
+            else if (this.name == "Walabi(Clone)")
+                 ia_walabi();            
         }
+    }
 
-
-        if (onMoove)
+    private void ia_koala()
+    {
+        if (Time.time >= time_next_move) // time to wait bewteen 2 moves
         {
-            if (Move(xMoove, yMoove))
-            {
+            handled_by_player = handled(); // check if the animal can be in the player's arm
+            time_next_move = 0;
+
+            if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
                 time_next_move = Time.time + Random.Range(2, 4); //we wait bewteen 1s and 3s before to start a new move
-                onMoove = false;
-            }
         }
+    }
+
+    private void ia_walabi()
+    {
+        if (Time.time >= time_next_move) // time to wait bewteen 2 moves
+        {
+            handled_by_player = handled(); // check if the animal can be in the player's arm
+            time_next_move = 0;
+
+            if (Move(Random.Range(-2, 3), Random.Range(-2, 3)))
+                time_next_move = Time.time +1; //we wait bewteen 1s and 3s before to start a new move
+        }
+        
     }
 
     protected bool Move(float xDir, float yDir/*, out RaycastHit2D hit*/)
@@ -139,12 +146,8 @@ public class Animaux : MonoBehaviour
 
     private bool handled()
     {
-        if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 0.5)
-        {
-            Debug.Log("TROUVE");
+        if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 0.8)
             return true;
-        }
-
         return false;
     }
 }

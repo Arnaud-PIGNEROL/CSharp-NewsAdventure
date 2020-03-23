@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour
         Debug.Log("creation des koala");
         Vector3 Vposition = new Vector3(3, -3, 10);
         Instantiate(animalsTiles[0], Vposition, Quaternion.identity);
+
+        Debug.Log("creation des walabi");
+        Vposition = new Vector3(4, -4, 10);
+        Instantiate(animalsTiles[1], Vposition, Quaternion.identity);
     }
 }
 

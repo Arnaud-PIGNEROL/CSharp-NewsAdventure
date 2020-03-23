@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
 public class Projectile : MonoBehaviour
 {
     public float speed;
@@ -20,7 +18,7 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, distance, whatIsSolid);
-        if(hitInfo.collider != null)
+        if (hitInfo.collider != null)
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {

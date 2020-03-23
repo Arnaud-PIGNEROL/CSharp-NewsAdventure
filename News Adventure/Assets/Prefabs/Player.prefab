@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 5537837268059560704}
   - component: {fileID: 1694310729189081291}
   - component: {fileID: 4538399184563075783}
+  - component: {fileID: 3155365953101032515}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -90,7 +91,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7723480754215615615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.87, z: 10}
+  m_LocalPosition: {x: 13.924149, y: 3.3430462, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7723480753938471273}
@@ -203,7 +204,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7723480754215615615}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -241,7 +242,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa9eaa00fd381724b9c968a5e7b65be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwAttack: 0.1
+  startTimeBtwAttack: 0.5
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 256
   projectile: {fileID: 5139834761114165146, guid: b052cd15535f44c4f979a6b70e0acacb,
     type: 3}
   ShotPoint: {fileID: 7723480754253068410}
@@ -249,12 +253,24 @@ MonoBehaviour:
   attackPosRangeMid: {fileID: 7723480753698387469}
   distance: 10
   angle: 0
-  attackRangeCac: -0.34
+  attackRangeCac: 0.53
   damageCac: 2
   damageMid: 3
-  WhatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 256
+--- !u!114 &3155365953101032515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7723480754215615615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2453be6be6be5479f5f97915f24975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  isHoldingAnimal: 0
+  animal: {fileID: 0}
 --- !u!1 &7723480754253068411
 GameObject:
   m_ObjectHideFlags: 0

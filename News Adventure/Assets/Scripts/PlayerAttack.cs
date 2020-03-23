@@ -4,33 +4,21 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
+    private Animator anim;
     private float timeBtwAttack;
-    public float startTimeBtwAttack;
 
+    public float startTimeBtwAttack;
+    public LayerMask WhatIsEnemies;
     public GameObject projectile;
     public Transform ShotPoint;
-
     public Transform attackPosCac;
     public Transform attackPosRangeMid;
-
-
-    Vector2 size = new Vector2(2f, 0.1f);
-
     public float distance;
     public float angle;
-
-
     public float attackRangeCac;
-
-
-
     public int damageCac;
     public int damageMid;
-
-    private Animator anim;
-
-    public LayerMask WhatIsEnemies;
+    Vector2 size = new Vector2(2f, 0.1f);
 
     private void Start()
     {
@@ -40,6 +28,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
+        Transform PLAYER = GameObject.FindGameObjectWithTag("Player").transform; ;
+
         if (timeBtwAttack <= 0)
         {
             if (Input.GetKey(KeyCode.N))
@@ -51,6 +41,8 @@ public class PlayerAttack : MonoBehaviour
                     for (int i = 1; i < enemiesToDamage.Length; i++)
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageCac);
+                        PLAYER.GetComponent<Player>().setDrop(true);
+                        return;
                     }
                 }
 
@@ -64,6 +56,8 @@ public class PlayerAttack : MonoBehaviour
                     for (int i = 1; i < hitInfo.Length; i++)
                     {
                         hitInfo[i].GetComponent<Enemy>().TakeDamage(damageMid);
+                        PLAYER.GetComponent<Player>().setDrop(true);
+                        return;
                     }
                 }
 
@@ -71,6 +65,7 @@ public class PlayerAttack : MonoBehaviour
             else if (Input.GetKey(KeyCode.B))
             {
                 Instantiate(projectile, ShotPoint.position, transform.rotation);
+                PLAYER.GetComponent<Player>().setDrop(true);
 
             }
 

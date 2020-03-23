@@ -10,8 +10,6 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private float inverseMoveTime;
     private bool onMoove;   // Is the enemy mooving
-    private int X_end;      // X coord of the point to reach
-    private int Y_end;      // Y coord of the point to reach
     private float time_next_move;
 
     private Rigidbody2D rb2D;
@@ -54,10 +52,8 @@ public class Enemy : MonoBehaviour
         if (out_of_range())
             return;
 
-        int xMoove = 0; // vector of direction X
-        int yMoove = 0; // vector of direction Y
         bool player_targeted = false;
-        int[] myVectors_target = new int[2];
+        int[] myVectors_target = new int[2]; // 0 = xDir, 1 = yDir
 
         if (player_around())
         {
@@ -84,9 +80,6 @@ public class Enemy : MonoBehaviour
                 yMoove = 0;
                 xMoove = target.position.x > transform.position.x ? 1 : -1;
             }*/
-
-            X_end = xMoove = myVectors_target[0];
-            Y_end = yMoove = myVectors_target[1];
         }
         else // the player isn't in range detection of the enemy
         {            
@@ -98,24 +91,18 @@ public class Enemy : MonoBehaviour
                 if (this.name == "Boss(Clone)")
                 {
                     myVectors_target = ia_boss_stroll();
-
-                    xMoove = myVectors_target[0];
-                    yMoove = myVectors_target[1];
                 }
                 else
                 {
-                    xMoove = Random.Range(-1, 2);
-                    yMoove = Random.Range(-1, 2);
+                    myVectors_target[0] = Random.Range(-1, 2);
+                    myVectors_target[1] = Random.Range(-1, 2);
                 }
-
-                X_end = (int)transform.position.x + xMoove;
-                Y_end = (int)transform.position.y + yMoove;
             }    
         }
 
         if (onMoove)
         {
-            if (Move(xMoove, yMoove))
+            if (Move(myVectors_target[0], myVectors_target[1]))
             {
                 time_next_move = Time.time + Random.Range(2, 6); //we wait bewteen 1s and 3s before to start a new move
                 onMoove = false;
