@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-
+    
     private float timeBtwAttack;
     public float startTimeBtwAttack;
 
@@ -50,6 +50,7 @@ public class PlayerAttack : MonoBehaviour
                     for (int i = 1; i < enemiesToDamage.Length; i++)
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageCac);
+                       
                     }
                 }
 
