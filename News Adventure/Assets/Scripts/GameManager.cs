@@ -48,6 +48,7 @@ public class GameManager : MonoBehaviour
             animals[i].MoveAnimal();
             yield return new WaitForSeconds(animals[i].moveTime);
         }
+        
     }
 
     void LayoutEnemyPosition() // makes spawn the tile at a random position
@@ -63,6 +64,10 @@ public class GameManager : MonoBehaviour
         
         Debug.Log("creation du vent");
         Vposition = new Vector3(-1, -1, 10);
+        Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
+        Vposition = new Vector3(-2, -2, 10);
+        Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
+        Vposition = new Vector3(-3, -3, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
 
 

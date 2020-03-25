@@ -163,7 +163,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f1c66b175285634a9d90b7dde190355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 512
   speed: 1
   detection_dist: 4
   moveTime: 0.1
+  health: 10

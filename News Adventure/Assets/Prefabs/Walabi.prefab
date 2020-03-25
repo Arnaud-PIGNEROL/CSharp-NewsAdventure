@@ -167,3 +167,6 @@ MonoBehaviour:
   speed: 3
   moveTime: 0.1
   handled_by_player: 0
+  blockingLayer:
+    serializedVersion: 2
+    m_Bits: 256

@@ -4,19 +4,20 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public int health;
-
+    private Rigidbody2D rb2D;
+    private BoxCollider2D boxCollider;
     private Transform target;
     private Animator animator;
     private float inverseMoveTime;
     private bool onMoove;   // Is the enemy mooving
     private float time_next_move;
 
-    private Rigidbody2D rb2D;
-    private BoxCollider2D boxCollider;
+    public LayerMask blockingLayer;  //is the space open (no collision?)
+    public LayerMask playerLayer;  
     public int speed;
     public int detection_dist;
     public float moveTime;
+    public int health;
 
     private void Start()
     {
@@ -24,9 +25,10 @@ public class Enemy : MonoBehaviour
         time_next_move = 0;
         GameManager.instance.enemy.Add(this);
 
+        boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
         rb2D = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
         inverseMoveTime = 1f / moveTime;    
     }
 
@@ -70,16 +72,18 @@ public class Enemy : MonoBehaviour
             else if (this.name == "Boss(Clone)")
                 myVectors_target = ia_boss();
 
-            /*
-            // RaycastHit2D hit;
-            bool canMove = Move(xMoove, yMoove);//, out hit);
-                
+            bool canMove = Move(myVectors_target[0], myVectors_target[1]);
+            
             if (!canMove)
             {
-                Debug.Log("Cant moove Y, moove X (even Y is technicly better)");
-                yMoove = 0;
-                xMoove = target.position.x > transform.position.x ? 1 : -1;
-            }*/
+                if((transform.position.x <= target.position.x + 0.05 && transform.position.x >= target.position.x - 0.05) || (transform.position.y <= target.position.y + 0.05 && transform.position.y >= target.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
+                    myVectors_target[0] = myVectors_target[1] = 0;
+                else
+                {
+                    myVectors_target[0] = 0;
+                    myVectors_target[1] = target.position.x > transform.position.x ? 1 : -1;
+                }
+            }
         }
         else // the player isn't in range detection of the enemy
         {            
@@ -112,63 +116,25 @@ public class Enemy : MonoBehaviour
         player_targeted = false;
         // AttemptMove<Player>(xDir, yDir);
     }
-/*
-    protected virtual bool TryMove<T>(int xDir, int yDir)
-     where T : Component
-    {
-        RaycastHit2D hit;
-        bool canMove = Move(xDir, yDir)//, out hit);
 
-        if (hit.transform == null)
-            return true;
-
-        Debug.Log("hitComponent + ctmv = " + canMove);
-
-        T hitComponent = hit.transform.GetComponent<T>();
-
-        if (canMove && hitComponent != null)
-        {
-            OnCantMove(hitComponent);
-            Debug.Log("cant moove + hitComponent");
-            return false;
-        }
-
-        return true;
-    }
-
-    protected virtual void AttemptMove<T>(int xDir, int yDir)    // if ennemies -> player, if player -> walls
-        where T : Component                                      // where to specify that T is a component but we don"t know yet is its a player or ennemy
-    {
-        RaycastHit2D hit;
-        bool canMove = Move(xDir, yDir)//, out hit);
-
-        if (hit.transform == null)
-            return;
-
-        T hitComponent = hit.transform.GetComponent<T>();
-
-        if (!canMove && hitComponent != null)
-            OnCantMove(hitComponent);
-    }
-*/
-
-    protected bool Move(int xDir, int yDir/*, out RaycastHit2D hit*/)
+    protected bool Move(int xDir, int yDir)
     {
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
+        RaycastHit2D hit;
 
- //       boxCollider.enabled = false;
- //       hit = Physics2D.Linecast(start, end, blockingLayer);
- //       boxCollider.enabled = true;
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(start, end, blockingLayer);
+        boxCollider.enabled = true;
 
         //Check if anything was hit
- //       if (hit.transform == null)
- //       {
+        if (hit.transform == null)
+        {
             StartCoroutine(SmoothMovement(end));
-            return true;
- //       }
- //       return false;
+           return true;
+        }
+        return false;
     }
 
     protected IEnumerator SmoothMovement(Vector3 end)
@@ -193,7 +159,12 @@ public class Enemy : MonoBehaviour
 
     private bool out_of_range()
     {
-        if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y))) > 20)
+        RaycastHit2D hit;
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(this.transform.position, target.position, playerLayer);
+        boxCollider.enabled = true;
+
+        if (hit.distance > 20)
             return true;
         
         return false;
@@ -222,7 +193,12 @@ public class Enemy : MonoBehaviour
         Path[0] = target.position.x > transform.position.x ? 1 : -1;
         Path[1] = target.position.y > transform.position.y ? 1 : -1;
 
-        if((Mathf.Abs(target.position.x - transform.position.x) <= 0.05) && (Mathf.Abs(target.position.y - transform.position.y) <= 0.05))
+        RaycastHit2D hit;
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(this.transform.position, target.position, playerLayer);
+        boxCollider.enabled = true;
+
+        if (hit.distance <= 0.3)
         {
             Path[0] = Path[1] = 0;
             //attaque cac IA
@@ -234,12 +210,14 @@ public class Enemy : MonoBehaviour
     {
         int[] Path = new int[2];
 
-        // Xe = enemy posX --- Yj = player posY
-        // sqrt( (Xe-Xj)² + (Ye-Yj)² )
-        float dist = Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(target.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(target.position.y)));
-        if (dist > 3)
+        RaycastHit2D hit;
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(this.transform.position, target.position, playerLayer);
+        boxCollider.enabled = true;
+        
+        if (hit.distance > 3)
             return ia_cac();
-        else if ( dist < 3 && dist > 2) // the Hypothénuse is >1.5 so the ennemi is safe, it can attack
+        else if (hit.distance < 3 && hit.distance > 2) // the Hypothénuse is >1.5 so the ennemi is safe, it can attack
         {
             //attaque ia distance
             Path[0] = 0;
@@ -295,12 +273,6 @@ public class Enemy : MonoBehaviour
         else
         {
             return ia_cac();
-        }
-
-        if ((Mathf.Abs(target.position.x - transform.position.x) <= 0.05) && (Mathf.Abs(target.position.y - transform.position.y) <= 0.05))
-        {
-            Path[0] = Path[1] = 0;
-            //attaque cac IA boss
         }
 
         return Path;

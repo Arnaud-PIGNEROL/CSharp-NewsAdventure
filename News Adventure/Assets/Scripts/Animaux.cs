@@ -8,11 +8,11 @@ public class Animaux : MonoBehaviour
     public float moveTime = 0.1f;
 
     public bool handled_by_player;
+    public LayerMask blockingLayer;  //is the space open (no collision?)
+
     private bool isSafe;
     private float time_next_move;
-
     private Transform player;
-
     private Animator animator;
     private Rigidbody2D rb2D;
     private BoxCollider2D boxCollider;
@@ -29,6 +29,7 @@ public class Animaux : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
+        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -97,39 +98,40 @@ public class Animaux : MonoBehaviour
         
     }
 
-    protected bool Move(float xDir, float yDir/*, out RaycastHit2D hit*/)
+    protected bool Move(float xDir, float yDir)
     {
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
+        RaycastHit2D hit;
 
-        //       boxCollider.enabled = false;
-        //       hit = Physics2D.Linecast(start, end, blockingLayer);
-        //       boxCollider.enabled = true;
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(start, end, blockingLayer);
+        boxCollider.enabled = true;
 
         //Check if anything was hit
-        //       if (hit.transform == null)
-        //       {
-        StartCoroutine(SmoothMovement(end));
-        return true;
-        //       }
-        //       return false;
+        if (hit.transform == null)
+        {
+            StartCoroutine(SmoothMovement(end));
+            return true;
+        }
+        return false;
     }
 
-    protected bool Move(Vector3 dir/*, out RaycastHit2D hit*/)
+    protected bool Move(Vector3 dir)
     {
-
-        //       boxCollider.enabled = false;
-        //       hit = Physics2D.Linecast(start, end, blockingLayer);
-        //       boxCollider.enabled = true;
+        RaycastHit2D hit;
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(transform.position, dir, blockingLayer);
+        boxCollider.enabled = true;
 
         //Check if anything was hit
-        //       if (hit.transform == null)
-        //       {
-        StartCoroutine(SmoothMovement(dir));
-        return true;
-        //       }
-        //       return false;
+        if (hit.transform == null)
+        {
+            StartCoroutine(SmoothMovement(dir));
+            return true;
+        }
+        return false;
     }
 
     protected IEnumerator SmoothMovement(Vector3 end)
