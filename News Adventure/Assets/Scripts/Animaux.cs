@@ -35,8 +35,8 @@ public class Animaux : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (this.name == "Koala(Clone)")
-            Debug.Log("Collider = " + this.boxCollider.enabled);
+        if (!handled_by_player && Time.time >= time_next_move)
+            handled_by_player = handled();
     }
 
     private bool out_of_range()
@@ -60,6 +60,7 @@ public class Animaux : MonoBehaviour
                 time_next_move = Time.time + 1;
                 handled_by_player = false;
                 this.boxCollider.enabled = true;
+                Debug.Log("laché");
             }
             else
             {
@@ -79,7 +80,6 @@ public class Animaux : MonoBehaviour
     {
         if (Time.time >= time_next_move) // time to wait bewteen 2 moves
         {
-            handled_by_player = handled(); // check if the animal can be in the player's arm
             time_next_move = 0;
             if (!handled_by_player)
             {
@@ -93,7 +93,6 @@ public class Animaux : MonoBehaviour
     {
         if (Time.time >= time_next_move) // time to wait bewteen 2 moves
         {
-            handled_by_player = handled(); // check if the animal can be in the player's arm
             time_next_move = 0;
             if (!handled_by_player)
             {
@@ -111,10 +110,17 @@ public class Animaux : MonoBehaviour
         Vector2 end = start + new Vector2(xDir, yDir);
         RaycastHit2D hit;
 
-        boxCollider.enabled = false;
-        hit = Physics2D.Linecast(start, end, blockingLayer);
-        if(!handled_by_player)
+        if (!handled_by_player)
+        {
+            boxCollider.enabled = false;
+            hit = Physics2D.Linecast(start, end, blockingLayer);
             boxCollider.enabled = true;
+        }
+        else
+        {
+            hit = Physics2D.Linecast(start, start, blockingLayer);
+        }
+        
 
         //Check if anything was hit
         if (hit.transform == null)
@@ -158,7 +164,8 @@ public class Animaux : MonoBehaviour
     {
         if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 1)
         {
-            Debug.Log("Collider = " + this.boxCollider.enabled);
+            // ANIMATION DE L'ANIMAL QUI VAS SUR LE JOUEUR
+            handled_by_player = true;
             this.boxCollider.enabled = false;
             return true;
         }

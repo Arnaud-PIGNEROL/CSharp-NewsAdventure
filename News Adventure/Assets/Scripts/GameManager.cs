@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator MoveEntities()
     {
+        
         for (int i = 0; i < enemy.Count; i++)
         {
             enemy[i].MoveEnemy();
@@ -54,6 +55,7 @@ public class GameManager : MonoBehaviour
     void LayoutEnemyPosition() // makes spawn the tile at a random position
     {
         //le premier ennemy qui bug je sais pas pourquoi on le fou en arrière plan, methode de shlag mais qui marche
+        
         Vector3 Vposition = new Vector3(-100, -100, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
         
@@ -69,11 +71,12 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         Vposition = new Vector3(-3, -3, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-
-
+        
+        
         Debug.Log("creation du BOSS");
         Vposition = new Vector3(-2, 2, 10);
         Instantiate(enemyTiles[2], Vposition, Quaternion.identity);
+        
     }
 
     void LayoutAnimalsPosition()

@@ -218,27 +218,54 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            if (transform.position.x - target.position.x < 0) // the player is on the right compared to the enemy
+            //  1 | 2 | 3
+            //  4 | E | 5
+            //  6 | 7 | 8
+
+            if ((transform.position.x - target.position.x) < -0.5) // the player is in zone 3/5/8
             {
-                if (transform.position.y - target.position.y < 0) // the player is above the enemy
+                if ((transform.position.y - target.position.y) < -1) // the player is zone 3
                 {
                     Path[0] = -2;
-                    Path[1] = 2;
+                    Path[1] = -2;
                 }
-                else // the player is under the enemy
+                else if ((transform.position.y - target.position.y) > -1 && (transform.position.y - target.position.y) < 0) // zone 5
+                {
+                    Path[0] = -2;
+                    Path[1] = 0;
+                }
+                else // zone 8
                 {
                     Path[0] = -2;
                     Path[1] = 2;
                 }
             }
-            else // the player is on the left compared to the enemy
+            else if ((transform.position.x - target.position.x) > -0.5 && (transform.position.x - target.position.x) < 0) // the player is in zone 2/7
             {
-                if (transform.position.y - target.position.y < 0) // the player is above the enemy
+                if ((transform.position.y - target.position.y) < -1) // the player is zone 2
+                {
+                    Path[0] = 0;
+                    Path[1] = -2;
+                }
+                else // zone 7
+                {
+                    Path[0] = 0;
+                    Path[1] = 2;
+                }
+            }
+            else // the player is in zone 1/4/6
+            {
+                if ((transform.position.y - target.position.y) < -1) // the player is zone 1
                 {
                     Path[0] = 2;
                     Path[1] = -2;
                 }
-                else // the player is under the enemy
+                else if ((transform.position.y - target.position.y) > -1 && (transform.position.y - target.position.y) < 0) // zone 4
+                {
+                    Path[0] = 2;
+                    Path[1] = 0;
+                }
+                else // zone 6
                 {
                     Path[0] = 2;
                     Path[1] = 2;

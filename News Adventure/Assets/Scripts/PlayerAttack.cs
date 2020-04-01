@@ -6,6 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     private Animator anim;
     private float timeBtwAttack;
+    private Transform PLAYER;
 
     public float startTimeBtwAttack;
     public LayerMask WhatIsEnemies;
@@ -23,12 +24,11 @@ public class PlayerAttack : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-
+        PLAYER = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
     {
-        Transform PLAYER = GameObject.FindGameObjectWithTag("Player").transform; ;
 
         if (timeBtwAttack <= 0)
         {
@@ -42,7 +42,6 @@ public class PlayerAttack : MonoBehaviour
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageCac);
                         PLAYER.GetComponent<Player>().setDrop(true);
-                        return;
                     }
                 }
 
@@ -57,7 +56,6 @@ public class PlayerAttack : MonoBehaviour
                     {
                         hitInfo[i].GetComponent<Enemy>().TakeDamage(damageMid);
                         PLAYER.GetComponent<Player>().setDrop(true);
-                        return;
                     }
                 }
 
@@ -66,7 +64,6 @@ public class PlayerAttack : MonoBehaviour
             {
                 Instantiate(projectile, ShotPoint.position, transform.rotation);
                 PLAYER.GetComponent<Player>().setDrop(true);
-
             }
 
             timeBtwAttack = startTimeBtwAttack;
