@@ -113,7 +113,8 @@ public class Animaux : MonoBehaviour
 
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(start, end, blockingLayer);
-        boxCollider.enabled = true;
+        if(!handled_by_player)
+            boxCollider.enabled = true;
 
         //Check if anything was hit
         if (hit.transform == null)
@@ -129,7 +130,8 @@ public class Animaux : MonoBehaviour
         RaycastHit2D hit;
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(transform.position, dir, blockingLayer);
-        boxCollider.enabled = true;
+        if (!handled_by_player)
+            boxCollider.enabled = true;
 
         //Check if anything was hit
         if (hit.transform == null)
@@ -156,6 +158,7 @@ public class Animaux : MonoBehaviour
     {
         if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 1)
         {
+            Debug.Log("Collider = " + this.boxCollider.enabled);
             this.boxCollider.enabled = false;
             return true;
         }
