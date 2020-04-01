@@ -168,7 +168,7 @@ MonoBehaviour:
     m_Bits: 256
   playerLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 1024
   speed: 1
   detection_dist: 4
   moveTime: 0.1

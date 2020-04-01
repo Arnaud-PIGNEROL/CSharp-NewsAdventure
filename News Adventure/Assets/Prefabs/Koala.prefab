@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6562519862289615356}
   - component: {fileID: -2301428554174280779}
   - component: {fileID: 6562519862289615359}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: Koala
   m_TagString: Animal
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9, y: 0.9}
+  m_Size: {x: 0.3, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &-2301428554174280779
 Rigidbody2D:

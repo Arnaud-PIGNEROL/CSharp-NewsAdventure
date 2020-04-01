@@ -122,16 +122,17 @@ public class Enemy : MonoBehaviour
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
-        RaycastHit2D hit;
+        RaycastHit2D hitWall, hitPlayer;
 
         boxCollider.enabled = false;
-        hit = Physics2D.Linecast(start, end, blockingLayer);
+        hitWall = Physics2D.Linecast(start, end, blockingLayer);
+        hitPlayer = Physics2D.Linecast(start, end, playerLayer);
         boxCollider.enabled = true;
 
         //Check if anything was hit
-        if (hit.transform == null)
+        if (hitWall.transform == null && hitPlayer.transform == null)
         {
-            StartCoroutine(SmoothMovement(end));
+           StartCoroutine(SmoothMovement(end));
            return true;
         }
         return false;
@@ -148,14 +149,6 @@ public class Enemy : MonoBehaviour
             yield return null;
         }
     }
-/*
-    protected void OnCantMove<T>(T component)
-    {
-        Player hitPlayer = component as Player;
-        animator.SetTrigger("enemyAttack");
-        hitPlayer.LoseFood(playerDamage);
-    }
-*/
 
     private bool out_of_range()
     {
@@ -221,7 +214,7 @@ public class Enemy : MonoBehaviour
         {
             //attaque ia distance
             Path[0] = 0;
-            Path[1] = 0;
+            Path[1] = 0; 
         }
         else
         {

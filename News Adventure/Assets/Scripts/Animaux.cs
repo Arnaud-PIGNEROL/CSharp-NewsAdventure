@@ -35,7 +35,8 @@ public class Animaux : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (this.name == "Koala(Clone)")
+            Debug.Log("Collider = " + this.boxCollider.enabled);
     }
 
     private bool out_of_range()
@@ -58,10 +59,11 @@ public class Animaux : MonoBehaviour
                 player.GetComponent<Player>().setDrop(false);
                 time_next_move = Time.time + 1;
                 handled_by_player = false;
+                this.boxCollider.enabled = true;
             }
             else
             {
-                Move(player.position);
+                Move(player.position); //the player still have the animal
             }
         }
         else
@@ -79,9 +81,11 @@ public class Animaux : MonoBehaviour
         {
             handled_by_player = handled(); // check if the animal can be in the player's arm
             time_next_move = 0;
-
-            if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
-                time_next_move = Time.time + Random.Range(2, 4); //we wait bewteen 1s and 3s before to start a new move
+            if (!handled_by_player)
+            {
+                if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
+                    time_next_move = Time.time + Random.Range(2, 4); //we wait bewteen 1s and 3s before to start a new move
+            }
         }
     }
 
@@ -91,9 +95,11 @@ public class Animaux : MonoBehaviour
         {
             handled_by_player = handled(); // check if the animal can be in the player's arm
             time_next_move = 0;
-
-            if (Move(Random.Range(-2, 3), Random.Range(-2, 3)))
-                time_next_move = Time.time +1; //we wait bewteen 1s and 3s before to start a new move
+            if (!handled_by_player)
+            {
+                if (Move(Random.Range(-2, 3), Random.Range(-2, 3)))
+                   time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
+            }
         }
         
     }
@@ -148,8 +154,11 @@ public class Animaux : MonoBehaviour
 
     private bool handled()
     {
-        if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 0.8)
+        if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 1)
+        {
+            this.boxCollider.enabled = false;
             return true;
+        }
         return false;
     }
 }
