@@ -12,12 +12,15 @@ public class Enemy : MonoBehaviour
     private bool onMoove;   // Is the enemy mooving
     private float time_next_move;
 
+    public Transform attackPosCac;
+    public Transform attackPosRangeMid;
     public LayerMask blockingLayer;  //is the space open (no collision?)
     public LayerMask playerLayer;  
     public int speed;
     public int detection_dist;
     public float moveTime;
     public int health;
+    public int damage;
 
     private void Start()
     {
@@ -51,8 +54,8 @@ public class Enemy : MonoBehaviour
 
     public void MoveEnemy()
     {
-        if (out_of_range())
-            return;
+        if (out_of_range() || Time.time < time_next_move)
+                return;
 
         bool player_targeted = false;
         int[] myVectors_target = new int[2]; // 0 = xDir, 1 = yDir
@@ -76,7 +79,7 @@ public class Enemy : MonoBehaviour
             
             if (!canMove)
             {
-                if((transform.position.x <= target.position.x + 0.05 && transform.position.x >= target.position.x - 0.05) || (transform.position.y <= target.position.y + 0.05 && transform.position.y >= target.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
+                if ((transform.position.x <= target.position.x + 0.05 && transform.position.x >= target.position.x - 0.05) || (transform.position.y <= target.position.y + 0.05 && transform.position.y >= target.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
                     myVectors_target[0] = myVectors_target[1] = 0;
                 else
                 {
@@ -86,22 +89,19 @@ public class Enemy : MonoBehaviour
             }
         }
         else // the player isn't in range detection of the enemy
-        {            
-            if (Time.time >= time_next_move) // time to wait bewteen 2 moves
-            {
-                onMoove = true;
-                time_next_move = 0;
+        {  
+            onMoove = true;
+            time_next_move = 0;
 
-                if (this.name == "Boss(Clone)")
-                {
-                    myVectors_target = ia_boss_stroll();
-                }
-                else
-                {
-                    myVectors_target[0] = Random.Range(-1, 2);
-                    myVectors_target[1] = Random.Range(-1, 2);
-                }
-            }    
+            if (this.name == "Boss(Clone)")
+            {
+                myVectors_target = ia_boss_stroll();
+            }
+            else
+            {
+                myVectors_target[0] = Random.Range(-1, 2);
+                myVectors_target[1] = Random.Range(-1, 2);
+            }
         }
 
         if (onMoove)
@@ -112,9 +112,7 @@ public class Enemy : MonoBehaviour
                 onMoove = false;
             }
         }
-        
         player_targeted = false;
-        // AttemptMove<Player>(xDir, yDir);
     }
 
     protected bool Move(int xDir, int yDir)
@@ -191,14 +189,15 @@ public class Enemy : MonoBehaviour
         hit = Physics2D.Linecast(this.transform.position, target.position, playerLayer);
         boxCollider.enabled = true;
 
-        if (hit.distance <= 0.3)
+        if (hit.distance <= 1)
         {
+            attack_cac();
             Path[0] = Path[1] = 0;
-            //attaque cac IA
         }
 
         return Path;
     }
+
     private int[] ia_distance()
     {
         int[] Path = new int[2];
@@ -212,7 +211,7 @@ public class Enemy : MonoBehaviour
             return ia_cac();
         else if (hit.distance < 3 && hit.distance > 2) // the Hypothénuse is >1.5 so the ennemi is safe, it can attack
         {
-            //attaque ia distance
+            attack_dist();
             Path[0] = 0;
             Path[1] = 0; 
         }
@@ -286,10 +285,6 @@ public class Enemy : MonoBehaviour
         {
             ;
         }
-        else if(attack < 101 && attack > 0)
-        {
-            // attaque distance avec projectile
-        }
         else
         {
             return ia_cac();
@@ -316,5 +311,33 @@ public class Enemy : MonoBehaviour
         }
 
         return Path;
+    }
+
+    private void attack_cac()
+    {
+        Collider2D[] hitInfo = Physics2D.OverlapBoxAll(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1), 0, playerLayer);
+        if (hitInfo.Length >= 2)
+        {
+            for (int i = 1; i < hitInfo.Length; i++)
+            {
+                hitInfo[i].GetComponent<Enemy>().TakeDamage(damage);
+            }
+        }
+
+        Debug.Log("attaque cac");
+        time_next_move = (Time.time + 1);
+    }
+
+    private void attack_dist()
+    {
+        // attaque ia
+        Debug.Log("attaque dist");
+        time_next_move = (Time.time + 1);
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1));
     }
 }

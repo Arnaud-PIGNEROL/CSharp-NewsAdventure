@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(dontDestroy);
 
         LayoutEnemyPosition();
-        LayoutAnimalsPosition();
+        //LayoutAnimalsPosition();
     }
 
     // Update is called once per frame
@@ -43,13 +43,13 @@ public class GameManager : MonoBehaviour
             enemy[i].MoveEnemy();
             yield return new WaitForSeconds(enemy[i].moveTime);
         }
-        
+        /*
         for (int i = 0; i < animals.Count; i++)
         {
             animals[i].MoveAnimal();
             yield return new WaitForSeconds(animals[i].moveTime);
         }
-        
+        */
     }
 
     void LayoutEnemyPosition() // makes spawn the tile at a random position
@@ -59,12 +59,12 @@ public class GameManager : MonoBehaviour
         Vector3 Vposition = new Vector3(-100, -100, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
         
-        Debug.Log("creation des braizes");
+        //creation des braizes
         Vposition = new Vector3(2, 2, 10);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
 
         
-        Debug.Log("creation du vent");
+        //creation du vent
         Vposition = new Vector3(-1, -1, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         Vposition = new Vector3(-2, -2, 10);
@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         
         
-        Debug.Log("creation du BOSS");
+        //creation du BOSS
         Vposition = new Vector3(-2, 2, 10);
         Instantiate(enemyTiles[2], Vposition, Quaternion.identity);
         
