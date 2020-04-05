@@ -60,7 +60,8 @@ public class Animaux : MonoBehaviour
                 player.GetComponent<Player>().setHand(false);
                 time_next_move = Time.time + 1;
                 handled_by_player = false;
-                this.boxCollider.enabled = true;
+                this.boxCollider.enabled = true; time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
+                Debug.Log(this.name + " est lâché");
             }
             else
             {
@@ -84,7 +85,10 @@ public class Animaux : MonoBehaviour
             if (!handled_by_player)
             {
                 if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
+                {
                     time_next_move = Time.time + Random.Range(2, 3); //we wait bewteen 1s and 3s before to start a new move
+                    Debug.Log(this.name + " a fini le moove, on attend le prochain.");
+                }   
             }
         }
     }
@@ -97,10 +101,12 @@ public class Animaux : MonoBehaviour
             if (!handled_by_player)
             {
                 if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
-                   time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
+                {
+                    time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
+                    Debug.Log(this.name + " a fini le moove, on attend le prochain.");
+                }
             }
         }
-        
     }
 
     protected bool Move(float xDir, float yDir)
@@ -108,23 +114,16 @@ public class Animaux : MonoBehaviour
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
-        RaycastHit2D hit;
 
-        if (!handled_by_player)
-        {
-            boxCollider.enabled = false;
-            hit = Physics2D.Linecast(start, end, blockingLayer);
-            boxCollider.enabled = true;
-        }
-        else
-        {
-            hit = Physics2D.Linecast(start, start, blockingLayer);
-        }
-        
+        RaycastHit2D hit;
+        boxCollider.enabled = false;
+        hit = Physics2D.Linecast(start, end, blockingLayer);
+        boxCollider.enabled = true;
 
         //Check if anything was hit
         if (hit.transform == null)
         {
+            Debug.Log(this.name + " initie une nouveau moove");
             StartCoroutine(SmoothMovement(end));
             return true;
         }
@@ -133,19 +132,9 @@ public class Animaux : MonoBehaviour
 
     protected bool Move(Vector3 dir)
     {
-        RaycastHit2D hit;
-        boxCollider.enabled = false;
-        hit = Physics2D.Linecast(transform.position, dir, blockingLayer);
-        if (!handled_by_player)
-            boxCollider.enabled = true;
-
-        //Check if anything was hit
-        if (hit.transform == null)
-        {
-            StartCoroutine(SmoothMovement(dir));
-            return true;
-        }
-        return false;
+        Debug.Log(this.name + " suis le player");
+        StartCoroutine(SmoothMovement(dir));
+        return true;
     }
 
     protected IEnumerator SmoothMovement(Vector3 end)
@@ -170,6 +159,7 @@ public class Animaux : MonoBehaviour
                 player.GetComponent<Player>().setHand(true);
                 handled_by_player = true;
                 this.boxCollider.enabled = false;
+                Debug.Log(this.name + " est maintenant handled");
                 return true;
             }
         }

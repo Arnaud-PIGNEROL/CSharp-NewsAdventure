@@ -25,8 +25,8 @@ public class GameManager : MonoBehaviour
 
         DontDestroyOnLoad(dontDestroy);
 
-        //LayoutEnemyPosition();
-        LayoutAnimalsPosition();
+        LayoutEnemyPosition();
+        //LayoutAnimalsPosition();
     }
 
     // Update is called once per frame
@@ -37,18 +37,19 @@ public class GameManager : MonoBehaviour
 
     IEnumerator MoveEntities()
     {
-        /*
+        
         for (int i = 0; i < enemy.Count; i++)
         {
             enemy[i].MoveEnemy();
             yield return new WaitForSeconds(enemy[i].moveTime);
         }
-        */
+       /* 
         for (int i = 0; i < animals.Count; i++)
         {
             animals[i].MoveAnimal();
             yield return new WaitForSeconds(animals[i].moveTime);
         }
+        */
         
     }
 
@@ -81,15 +82,20 @@ public class GameManager : MonoBehaviour
 
     void LayoutAnimalsPosition()
     {
-        Debug.Log("creation des koala");
         Vector3 Vposition = new Vector3(-99, -99, 10);
         Instantiate(animalsTiles[0], Vposition, Quaternion.identity);
         Vposition = new Vector3(3, -3, 10);
         Instantiate(animalsTiles[0], Vposition, Quaternion.identity);
 
-        Debug.Log("creation des walabi");
         Vposition = new Vector3(4, -4, 10);
         Instantiate(animalsTiles[1], Vposition, Quaternion.identity);
+    }
+
+    void OnDrawGizmos()
+    {
+        // Draw a yellow sphere at the transform's position
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(transform.position, 1);
     }
 }
 

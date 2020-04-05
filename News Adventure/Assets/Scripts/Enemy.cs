@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Rigidbody2D rb2D;
     private BoxCollider2D boxCollider;
-    private Transform target;
+    private GameObject target;
     private Animator animator;
     private float inverseMoveTime;
     private bool onMoove;   // Is the enemy mooving
@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag("Player");
         inverseMoveTime = 1f / moveTime;    
     }
 
@@ -79,12 +79,12 @@ public class Enemy : MonoBehaviour
             
             if (!canMove)
             {
-                if ((transform.position.x <= target.position.x + 0.05 && transform.position.x >= target.position.x - 0.05) || (transform.position.y <= target.position.y + 0.05 && transform.position.y >= target.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
+                if ((transform.position.x <= target.transform.position.x + 0.05 && transform.position.x >= target.transform.position.x - 0.05) || (transform.position.y <= target.transform.position.y + 0.05 && transform.position.y >= target.transform.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
                     myVectors_target[0] = myVectors_target[1] = 0;
                 else
                 {
                     myVectors_target[0] = 0;
-                    myVectors_target[1] = target.position.x > transform.position.x ? 1 : -1;
+                    myVectors_target[1] = target.transform.position.x > transform.position.x ? 1 : -1;
                 }
             }
         }
@@ -157,7 +157,7 @@ public class Enemy : MonoBehaviour
     {
         RaycastHit2D hit;
         boxCollider.enabled = false;
-        hit = Physics2D.Linecast(this.transform.position, target.position, playerLayer);
+        hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
         boxCollider.enabled = true;
 
         if (hit.distance > 20)
@@ -172,7 +172,7 @@ public class Enemy : MonoBehaviour
         {
             for (int j = -detection_dist; j <= detection_dist; j++)
             {
-                if (((int)target.position.x == (int)transform.position.x + i) && ((int)target.position.y == (int)transform.position.y + j))
+                if (((int)target.transform.position.x == (int)transform.position.x + i) && ((int)target.transform.position.y == (int)transform.position.y + j))
                 {
                     return true;
                 }
@@ -186,12 +186,12 @@ public class Enemy : MonoBehaviour
     private int[] ia_cac()
     {
         int[] Path = new int[2];
-        Path[0] = target.position.x > transform.position.x ? 1 : -1;
-        Path[1] = target.position.y > transform.position.y ? 1 : -1;
+        Path[0] = target.transform.position.x > transform.position.x ? 1 : -1;
+        Path[1] = target.transform.position.y > transform.position.y ? 1 : -1;
 
         RaycastHit2D hit;
         boxCollider.enabled = false;
-        hit = Physics2D.Linecast(this.transform.position, target.position, playerLayer);
+        hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
         boxCollider.enabled = true;
 
         if (hit.distance <= 1)
@@ -209,7 +209,7 @@ public class Enemy : MonoBehaviour
 
         RaycastHit2D hit;
         boxCollider.enabled = false;
-        hit = Physics2D.Linecast(this.transform.position, target.position, playerLayer);
+        hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
         boxCollider.enabled = true;
         
         if (hit.distance > 3)
@@ -226,14 +226,14 @@ public class Enemy : MonoBehaviour
             //  4 | E | 5
             //  6 | 7 | 8
 
-            if ((transform.position.x - target.position.x) < -0.5) // the player is in zone 3/5/8
+            if ((transform.position.x - target.transform.position.x) < -0.5) // the player is in zone 3/5/8
             {
-                if ((transform.position.y - target.position.y) < -1) // the player is zone 3
+                if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 3
                 {
                     Path[0] = -2;
                     Path[1] = -2;
                 }
-                else if ((transform.position.y - target.position.y) > -1 && (transform.position.y - target.position.y) < 0) // zone 5
+                else if ((transform.position.y - target.transform.position.y) > -1 && (transform.position.y - target.transform.position.y) < 0) // zone 5
                 {
                     Path[0] = -2;
                     Path[1] = 0;
@@ -244,9 +244,9 @@ public class Enemy : MonoBehaviour
                     Path[1] = 2;
                 }
             }
-            else if ((transform.position.x - target.position.x) > -0.5 && (transform.position.x - target.position.x) < 0) // the player is in zone 2/7
+            else if ((transform.position.x - target.transform.position.x) > -0.5 && (transform.position.x - target.transform.position.x) < 0) // the player is in zone 2/7
             {
-                if ((transform.position.y - target.position.y) < -1) // the player is zone 2
+                if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 2
                 {
                     Path[0] = 0;
                     Path[1] = -2;
@@ -259,12 +259,12 @@ public class Enemy : MonoBehaviour
             }
             else // the player is in zone 1/4/6
             {
-                if ((transform.position.y - target.position.y) < -1) // the player is zone 1
+                if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 1
                 {
                     Path[0] = 2;
                     Path[1] = -2;
                 }
-                else if ((transform.position.y - target.position.y) > -1 && (transform.position.y - target.position.y) < 0) // zone 4
+                else if ((transform.position.y - target.transform.position.y) > -1 && (transform.position.y - target.transform.position.y) < 0) // zone 4
                 {
                     Path[0] = 2;
                     Path[1] = 0;
@@ -307,11 +307,11 @@ public class Enemy : MonoBehaviour
         if (mvmnt == 1)
         {
             Path[0] = 0;
-            Path[1] = target.position.y > transform.position.y ? 2 : -2;
+            Path[1] = target.transform.position.y > transform.position.y ? 2 : -2;
         }
         else
         {
-            Path[0] = target.position.x > transform.position.x ? 2 : -2;
+            Path[0] = target.transform.position.x > transform.position.x ? 2 : -2;
             Path[1] = 0;
         }
 
@@ -321,13 +321,8 @@ public class Enemy : MonoBehaviour
     private void attack_cac()
     {
         Collider2D[] hitInfo = Physics2D.OverlapBoxAll(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1), 0, playerLayer);
-        if (hitInfo.Length >= 2)
-        {
-            for (int i = 1; i < hitInfo.Length; i++)
-            {
-                hitInfo[i].GetComponent<Enemy>().TakeDamage(damage);
-            }
-        }
+        if (hitInfo.Length >= 1)
+            target.GetComponent<Player>().takeDamage(damage);
 
         Debug.Log("attaque cac");
         time_next_move = (Time.time + 1);
@@ -335,7 +330,7 @@ public class Enemy : MonoBehaviour
 
     private void attack_dist()
     {
-        // attaque ia
+        // attaque dist
         Debug.Log("attaque dist");
         time_next_move = (Time.time + 1);
     }

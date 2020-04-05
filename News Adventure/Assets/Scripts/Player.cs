@@ -42,4 +42,9 @@ public class Player : MonoBehaviour
     {
         isHandling = boolean;
     }
+
+    public void takeDamage(int dmg)
+    {
+        this.health -= dmg;
+    }
 }
