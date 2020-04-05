@@ -108,7 +108,12 @@ public class Enemy : MonoBehaviour
         {
             if (Move(myVectors_target[0], myVectors_target[1]))
             {
-                time_next_move = Time.time + Random.Range(2, 6); //we wait bewteen 1s and 3s before to start a new move
+                if(this.name=="Vent(Clone)")
+                    time_next_move = Time.time + Random.Range(0, 2); //dist
+                else if(this.name == "Braize(Clone)")
+                    time_next_move = Time.time + Random.Range(1, 3); //cac
+                else
+                    time_next_move = Time.time + Random.Range(2, 4); //boss
                 onMoove = false;
             }
         }

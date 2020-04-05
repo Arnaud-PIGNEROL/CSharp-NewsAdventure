@@ -11,7 +11,7 @@ public class Animaux : MonoBehaviour
     public LayerMask blockingLayer;  //is the space open (no collision?)
 
     private bool isSafe;
-    private float time_next_move;
+    public float time_next_move;
     private Transform player;
     private Animator animator;
     private Rigidbody2D rb2D;
@@ -57,10 +57,10 @@ public class Animaux : MonoBehaviour
             if (player.GetComponent<Player>().getDrop())
             {
                 player.GetComponent<Player>().setDrop(false);
+                player.GetComponent<Player>().setHand(false);
                 time_next_move = Time.time + 1;
                 handled_by_player = false;
                 this.boxCollider.enabled = true;
-                Debug.Log("laché");
             }
             else
             {
@@ -84,7 +84,7 @@ public class Animaux : MonoBehaviour
             if (!handled_by_player)
             {
                 if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
-                    time_next_move = Time.time + Random.Range(2, 4); //we wait bewteen 1s and 3s before to start a new move
+                    time_next_move = Time.time + Random.Range(2, 3); //we wait bewteen 1s and 3s before to start a new move
             }
         }
     }
@@ -96,7 +96,7 @@ public class Animaux : MonoBehaviour
             time_next_move = 0;
             if (!handled_by_player)
             {
-                if (Move(Random.Range(-2, 3), Random.Range(-2, 3)))
+                if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
                    time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
             }
         }
@@ -162,12 +162,16 @@ public class Animaux : MonoBehaviour
 
     private bool handled()
     {
-        if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 1)
+        if (!player.GetComponent<Player>().getHand())
         {
-            // ANIMATION DE L'ANIMAL QUI VAS SUR LE JOUEUR
-            handled_by_player = true;
-            this.boxCollider.enabled = false;
-            return true;
+            if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 1)
+            {
+                // ANIMATION DE L'ANIMAL QUI VAS SUR LE JOUEUR
+                player.GetComponent<Player>().setHand(true);
+                handled_by_player = true;
+                this.boxCollider.enabled = false;
+                return true;
+            }
         }
         return false;
     }
