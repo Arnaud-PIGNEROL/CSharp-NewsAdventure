@@ -5,9 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health;
-
     private bool dropAnimal;
     private bool isHandling;
+    private int score;
     public Animaux animal;
 
     // Start is called before the first frame update
@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     {
         dropAnimal = false;
         isHandling = false;
+        score = 0;
     }
 
     // Update is called once per frame
@@ -46,5 +47,10 @@ public class Player : MonoBehaviour
     public void takeDamage(int dmg)
     {
         this.health -= dmg;
+    }
+
+    public void addScore(int pts)
+    {
+        score += pts;
     }
 }

@@ -178,3 +178,4 @@ MonoBehaviour:
   moveTime: 0.1
   health: 10
   damage: 5
+  ptsAtDeath: 10

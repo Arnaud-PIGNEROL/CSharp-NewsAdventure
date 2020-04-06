@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Animaux : MonoBehaviour
 {
+    public int ptsAtSave;
     public int speed;
     public float moveTime = 0.1f;
 
@@ -35,7 +36,7 @@ public class Animaux : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!handled_by_player && Time.time >= time_next_move)
+        if (!handled_by_player && Time.time >= time_next_move && !isSafe)
             handled_by_player = handled();
     }
 
@@ -49,10 +50,10 @@ public class Animaux : MonoBehaviour
 
     public void MoveAnimal()
     {
-        if (out_of_range())
+        if (out_of_range() || isSafe)
             return;
-
-        if (handled_by_player)
+        
+        if (handled_by_player && Safe())
         {
             if (player.GetComponent<Player>().getDrop())
             {
@@ -162,6 +163,17 @@ public class Animaux : MonoBehaviour
                 Debug.Log(this.name + " est maintenant handled");
                 return true;
             }
+        }
+        return false;
+    }
+
+    private bool Safe()
+    {
+        if (false)
+        {
+            isSafe = true;
+            player.GetComponent<Player>().addScore(ptsAtSave);
+            return true;
         }
         return false;
     }

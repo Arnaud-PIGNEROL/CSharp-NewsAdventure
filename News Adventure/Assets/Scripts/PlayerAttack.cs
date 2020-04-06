@@ -78,11 +78,9 @@ public class PlayerAttack : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosCac.position, attackRangeCac);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1));
-
     }
 }

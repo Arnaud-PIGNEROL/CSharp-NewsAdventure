@@ -13,7 +13,9 @@ public class Enemy : MonoBehaviour
     private float time_next_move;
 
     public Transform attackPosCac;
+    public Transform ShotPoint;
     public Transform attackPosRangeMid;
+    public GameObject projectile;
     public LayerMask blockingLayer;  //is the space open (no collision?)
     public LayerMask playerLayer;  
     public int speed;
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
     public float moveTime;
     public int health;
     public int damage;
+    public int ptsAtDeath;
 
     private void Start()
     {
@@ -45,6 +48,7 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            target.GetComponent<Player>().addScore(ptsAtDeath); // we add points to the player
             int index = GameManager.instance.enemy.IndexOf(this);
             GameManager.instance.enemy.RemoveAt(index);
             Destroy(gameObject);
@@ -330,7 +334,7 @@ public class Enemy : MonoBehaviour
 
     private void attack_dist()
     {
-        // attaque dist
+        Instantiate(projectile, ShotPoint.position, transform.rotation);
         Debug.Log("attaque dist");
         time_next_move = (Time.time + 1);
     }
@@ -338,6 +342,6 @@ public class Enemy : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1));
+        Gizmos.DrawWireCube(attackPosCac.position, new Vector3(1.2f, 0.4f, 1));
     }
 }
