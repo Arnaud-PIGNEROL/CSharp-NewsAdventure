@@ -40,109 +40,109 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657292369155169839}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e96dbecffb5a7dc479d735bc1498f058, type: 3}
+  m_Script: {fileID: 11500000, guid: 91de6b6e2791c07429364b9e268559bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: Menu
-    clip: {fileID: 8300000, guid: ae5f9ecbbf888344788717bd4b8ace02, type: 3}
-    volume: 0.43
-    pitch: 0
-    loop: 1
-    source: {fileID: 0}
   - name: Game
     clip: {fileID: 8300000, guid: 25e951a27e3d2f44486af486c6fe9a5c, type: 3}
-    volume: 0.147
-    pitch: 1.38
+    volume: 0.214
+    pitch: 1.18
     loop: 1
     source: {fileID: 0}
-  - name: Fire attack
-    clip: {fileID: 8300000, guid: 45e139ca627d6dc419150b3eb7f27808, type: 3}
-    volume: 0.235
-    pitch: 0
-    loop: 0
-    source: {fileID: 0}
-  - name: Fire hit
+  - name: FireHit
     clip: {fileID: 8300000, guid: 8f05f3ef27732894d8f3576dd477d2ac, type: 3}
-    volume: 0.275
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Fire death
+  - name: FireAttack
+    clip: {fileID: 8300000, guid: 45e139ca627d6dc419150b3eb7f27808, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 0
+    source: {fileID: 0}
+  - name: FireDeath
     clip: {fileID: 8300000, guid: ee185066cc224d6498a0d3f675a8fe21, type: 3}
-    volume: 0.196
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Player attack cac
+  - name: PlayerCac
     clip: {fileID: 8300000, guid: a9bbd4cb4e848ba40b2653ee9c65e303, type: 3}
-    volume: 0.431
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Player attack mid
+  - name: PlayerMid
     clip: {fileID: 8300000, guid: af7b9fd4bdee11146ba929c3704b68f9, type: 3}
-    volume: 0.314
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Player attack range
+  - name: PlayerRange
     clip: {fileID: 8300000, guid: 721802cdb8d7d684c8e1f89939a2c3c7, type: 3}
-    volume: 0.373
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Player hit
+  - name: PlayerHit
     clip: {fileID: 8300000, guid: 442dd7312baa36846a3e69b7133b0019, type: 3}
-    volume: 0.34
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Player death
+  - name: PlayerDeath
     clip: {fileID: 8300000, guid: 8dd75eaac4a01264f8d2bf064b3b96a1, type: 3}
-    volume: 0.43
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
   - name: Victory
     clip: {fileID: 8300000, guid: a69aa3be380386a4cacce7c77665ba9f, type: 3}
-    volume: 0.44
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Lose
+  - name: Loss
     clip: {fileID: 8300000, guid: f629f2fda30c0b74e92205dc464032e1, type: 3}
-    volume: 0.333
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
   - name: Tornado
     clip: {fileID: 8300000, guid: a422385a32289e244b1ed247d3147e23, type: 3}
-    volume: 0.26
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Tree cut
+  - name: TreeCut
     clip: {fileID: 8300000, guid: d0c6222e83344474eb9e4dfd583aa343, type: 3}
-    volume: 0.29
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Tree fired
+  - name: TreeFire
     clip: {fileID: 8300000, guid: c9b4a12ca02d0024282f63b1dce58359, type: 3}
-    volume: 0.34
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Water Taken
+  - name: FireIdle
+    clip: {fileID: 8300000, guid: 02eec956ab28cfe4a9884d2c3dd8d0ce, type: 3}
+    volume: 1
+    pitch: 3
+    loop: 1
+    source: {fileID: 0}
+  - name: Water
     clip: {fileID: 8300000, guid: 03596ebe0f84a6b4f8e446fd5a690aef, type: 3}
-    volume: 0.461
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}
-  - name: Truck Coming
+  - name: Truck
     clip: {fileID: 8300000, guid: b910a44a1eec2ac47b7808a8748c53fe, type: 3}
-    volume: 0.461
-    pitch: 0
+    volume: 1
+    pitch: 3
     loop: 0
     source: {fileID: 0}

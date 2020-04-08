@@ -40,7 +40,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        Play("Theme");
+        Play("Game");
     }
 
     public void Play(string name)
