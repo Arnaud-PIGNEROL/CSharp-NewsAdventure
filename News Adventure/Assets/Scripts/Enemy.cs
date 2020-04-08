@@ -337,30 +337,45 @@ public class Enemy : MonoBehaviour
 
     private void attack_dist()
     {
-        
-        Debug.Log("attaque dist");
-        time_next_move = (Time.time + 1);
-        if (true)
-        {
-            this.boxCollider.enabled = false;
-            Instantiate(projectileUp, ShotPoint.position, transform.rotation);
-            this.boxCollider.enabled = true;
-        }
-        else if (false)
-        {
-            Instantiate(projectileDown, ShotPoint.position, transform.rotation);
+        //   1  DDm<0  /                             \14  14/
+        //            /  DDm>0  2                  13 \    / 24
+        //     
+        //   3 DDp>0  \                            13 /    \ 24
+        //             \ DDp<0 4                     /23  23\
 
-        }
-        else if (false)
-        {
-            Instantiate(projectileRight, ShotPoint.position, transform.rotation);
+        float Dx = transform.position.x - target.transform.position.x;
+        float Dy = transform.position.y - target.transform.position.y;
+        float DDp = Dx + Dy;
+        float DDm = Dx - Dy;
 
+        Debug.Log("DDp = " + DDp + ", DDm = "+ DDm);
+
+        this.boxCollider.enabled = false;
+        if (DDp < 0) // Up or right
+        {
+            if(DDm > 0)
+            {
+                Instantiate(projectileUp, ShotPoint.position, transform.rotation);
+            }
+            else
+            {
+                Instantiate(projectileRight, ShotPoint.position, transform.rotation);
+            }
         }
         else
         {
-            Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
-
+            if (DDm > 0)
+            {
+                Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
+            }
+            else
+            {
+                Instantiate(projectileDown, ShotPoint.position, transform.rotation);
+            }
         }
+
+        this.boxCollider.enabled = true;
+        time_next_move = (Time.time + 1);
     }
 
     void OnDrawGizmosSelected()

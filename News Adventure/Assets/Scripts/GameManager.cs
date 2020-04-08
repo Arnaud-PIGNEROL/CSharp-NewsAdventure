@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         
         Vector3 Vposition = new Vector3(-100, -100, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
-        
+        /*
         //creation des braizes
         Vposition = new Vector3(2, 2, 10);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
@@ -68,9 +68,9 @@ public class GameManager : MonoBehaviour
         //creation du vent
         Vposition = new Vector3(-1, -1, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-        Vposition = new Vector3(-2, -2, 10);
+        Vposition = new Vector3(-2, -2, 10);*/
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-        Vposition = new Vector3(-3, -3, 10);
+        Vposition = new Vector3(-20, -20, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         
         
