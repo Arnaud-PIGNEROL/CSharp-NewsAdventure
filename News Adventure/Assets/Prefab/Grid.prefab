@@ -7123,7 +7123,7 @@ GameObject:
   - component: {fileID: 8548645959392090193}
   - component: {fileID: 8548645959392090192}
   - component: {fileID: 8548645959392090198}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Lake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7654,7 +7654,7 @@ GameObject:
   - component: {fileID: 8548645959526027277}
   - component: {fileID: 8548645959526027276}
   - component: {fileID: 8548645959526027266}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Truck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7932,7 +7932,7 @@ GameObject:
   - component: {fileID: 8548645960287441815}
   - component: {fileID: 8548645960287441814}
   - component: {fileID: 8548645960287441812}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trunk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9420,7 +9420,7 @@ GameObject:
   - component: {fileID: 8548645960427755797}
   - component: {fileID: 8548645960427755796}
   - component: {fileID: 8548645960427755786}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11412,6 +11412,15 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
+  - first: {x: 10, y: 17, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: 11, y: 17, z: 0}
     second:
       serializedVersion: 2
@@ -12861,7 +12870,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 95093faf297441743b0b31f12edf54ac, type: 2}
   - m_RefCount: 48
     m_Data: {fileID: 11400000, guid: 5fd1fc4100f43a946b667edd613aefbf, type: 2}
-  - m_RefCount: 26
+  - m_RefCount: 27
     m_Data: {fileID: 11400000, guid: 008c57207052d8e46bbcd3d284699dbf, type: 2}
   - m_RefCount: 25
     m_Data: {fileID: 11400000, guid: d18e630ca6f18a546b0e83f5c5f261a5, type: 2}
@@ -12898,7 +12907,7 @@ Tilemap:
   - m_RefCount: 48
     m_Data: {fileID: -8644279775636323431, guid: e90327e85c635d94bbaa44ecf377c5ae,
       type: 3}
-  - m_RefCount: 26
+  - m_RefCount: 27
     m_Data: {fileID: -8377130690987618698, guid: e90327e85c635d94bbaa44ecf377c5ae,
       type: 3}
   - m_RefCount: 25
@@ -12922,7 +12931,7 @@ Tilemap:
     m_Data: {fileID: -5062486230716756072, guid: e90327e85c635d94bbaa44ecf377c5ae,
       type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 377
+  - m_RefCount: 378
     m_Data:
       e00: 1
       e01: 0
@@ -12941,7 +12950,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 377
+  - m_RefCount: 378
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -13042,7 +13051,7 @@ GameObject:
   - component: {fileID: 8548645960469649027}
   - component: {fileID: 8548645960469649026}
   - component: {fileID: 8548645960469649024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
