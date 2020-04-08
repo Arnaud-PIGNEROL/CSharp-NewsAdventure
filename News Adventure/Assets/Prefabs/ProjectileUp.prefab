@@ -51,7 +51,7 @@ MonoBehaviour:
   projectileDamage: 5
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1280
 --- !u!212 &8527235173124074970
 SpriteRenderer:
   m_ObjectHideFlags: 0

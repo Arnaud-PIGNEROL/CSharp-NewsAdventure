@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3962771850573794272}
   - component: {fileID: 3962771850573794273}
   - component: {fileID: 3962771850573794274}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Vent
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3962771851240683192}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: ShotPointPosEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}

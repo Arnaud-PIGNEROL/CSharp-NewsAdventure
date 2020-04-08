@@ -70,7 +70,7 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         Vposition = new Vector3(-2, -2, 10);*/
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-        Vposition = new Vector3(-20, -20, 10);
+        Vposition = new Vector3(-3, -3, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         
         

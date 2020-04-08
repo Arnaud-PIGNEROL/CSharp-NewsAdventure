@@ -275,7 +275,7 @@ MonoBehaviour:
   startTimeBtwAttack: 0.5
   WhatIsEnemies:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2048
   projectileUp: {fileID: 548763811815287608, guid: 3fee0a542c55f9e4d8270b3ca55752fe,
     type: 3}
   projectileDown: {fileID: 3330655882009119167, guid: e72e086fb52ce394e996c633094686fe,

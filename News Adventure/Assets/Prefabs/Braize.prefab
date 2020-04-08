@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5613381695200669759}
   - component: {fileID: 5613381695200669752}
   - component: {fileID: 5613381695200669758}
-  m_Layer: 8
+  m_Layer: 11
   m_Name: Braize
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -166,8 +166,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackPosCac: {fileID: 2427856620116739405, guid: 5e95ee8317226e1489e1835cc8532fdd,
     type: 3}
+  ShotPoint: {fileID: 0}
   attackPosRangeMid: {fileID: 1707430932430933754, guid: abd0974a73a2d9145989e5e6ae79f663,
     type: 3}
+  projectileUp: {fileID: 0}
+  projectileDown: {fileID: 0}
+  projectileLeft: {fileID: 0}
+  projectileRight: {fileID: 0}
   blockingLayer:
     serializedVersion: 2
     m_Bits: 256
