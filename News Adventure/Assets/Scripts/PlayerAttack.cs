@@ -10,7 +10,10 @@ public class PlayerAttack : MonoBehaviour
 
     public float startTimeBtwAttack;
     public LayerMask WhatIsEnemies;
-    public GameObject projectile;
+    public GameObject projectileUp;
+    public GameObject projectileDown;
+    public GameObject projectileLeft;
+    public GameObject projectileRight;
     public Transform ShotPoint;
     public Transform attackPosCac;
     public Transform attackPosRangeMid;
@@ -40,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
                 {
                     for (int i = 1; i < enemiesToDamage.Length; i++)
                     {
-                        enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageCac);
+                        enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
                         PLAYER.GetComponent<Player>().setDrop(true);
                     }
                 }
@@ -54,16 +57,35 @@ public class PlayerAttack : MonoBehaviour
                 {
                     for (int i = 1; i < hitInfo.Length; i++)
                     {
-                        hitInfo[i].GetComponent<Enemy>().TakeDamage(damageMid);
+                        hitInfo[i].GetComponent<Enemy>().takeDamage(damageMid);
                         PLAYER.GetComponent<Player>().setDrop(true);
                     }
                 }
 
             }
-            else if (Input.GetKey(KeyCode.B))
+            else if (Input.GetKey(KeyCode.Keypad8))
             {
-                Instantiate(projectile, ShotPoint.position, transform.rotation);
+                Instantiate(projectileUp, ShotPoint.position, transform.rotation);
                 PLAYER.GetComponent<Player>().setDrop(true);
+
+            }
+            else if (Input.GetKey(KeyCode.Keypad5))
+            {
+                Instantiate(projectileDown, ShotPoint.position, transform.rotation);
+                PLAYER.GetComponent<Player>().setDrop(true);
+
+            }
+            else if (Input.GetKey(KeyCode.Keypad6))
+            {
+                Instantiate(projectileRight, ShotPoint.position, transform.rotation);
+                PLAYER.GetComponent<Player>().setDrop(true);
+
+            }
+            else if (Input.GetKey(KeyCode.Keypad4))
+            {
+                Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
+                PLAYER.GetComponent<Player>().setDrop(true);
+
             }
 
             timeBtwAttack = startTimeBtwAttack;

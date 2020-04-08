@@ -15,7 +15,10 @@ public class Enemy : MonoBehaviour
     public Transform attackPosCac;
     public Transform ShotPoint;
     public Transform attackPosRangeMid;
-    public GameObject projectile;
+    public GameObject projectileUp;
+    public GameObject projectileDown;
+    public GameObject projectileLeft;
+    public GameObject projectileRight;
     public LayerMask blockingLayer;  //is the space open (no collision?)
     public LayerMask playerLayer;  
     public int speed;
@@ -43,7 +46,7 @@ public class Enemy : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
+    public void takeDamage(int damage)
     {
         health -= damage;
         if (health <= 0)
@@ -334,9 +337,30 @@ public class Enemy : MonoBehaviour
 
     private void attack_dist()
     {
-        Instantiate(projectile, ShotPoint.position, transform.rotation);
+        
         Debug.Log("attaque dist");
         time_next_move = (Time.time + 1);
+        if (true)
+        {
+            this.boxCollider.enabled = false;
+            Instantiate(projectileUp, ShotPoint.position, transform.rotation);
+            this.boxCollider.enabled = true;
+        }
+        else if (false)
+        {
+            Instantiate(projectileDown, ShotPoint.position, transform.rotation);
+
+        }
+        else if (false)
+        {
+            Instantiate(projectileRight, ShotPoint.position, transform.rotation);
+
+        }
+        else
+        {
+            Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
+
+        }
     }
 
     void OnDrawGizmosSelected()

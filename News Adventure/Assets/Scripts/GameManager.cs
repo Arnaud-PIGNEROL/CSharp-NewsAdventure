@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(dontDestroy);
 
         LayoutEnemyPosition();
-        LayoutAnimalsPosition();
+        //LayoutAnimalsPosition();
     }
 
     // Update is called once per frame
@@ -44,11 +44,11 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(enemy[i].moveTime);
         }
        
-        for (int i = 0; i < animals.Count; i++)
+        /*for (int i = 0; i < animals.Count; i++)
         {
             animals[i].MoveAnimal();
             yield return new WaitForSeconds(animals[i].moveTime);
-        }
+        }*/
         
         
     }
