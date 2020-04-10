@@ -28,9 +28,9 @@ public class Animaux : MonoBehaviour
         GameManager.instance.animals.Add(this);
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
-        boxCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -53,7 +53,7 @@ public class Animaux : MonoBehaviour
         if (out_of_range() || isSafe)
             return;
         
-        if (handled_by_player && Safe())
+        if (handled_by_player && !Safe())
         {
             if (player.GetComponent<Player>().getDrop())
             {
@@ -62,7 +62,6 @@ public class Animaux : MonoBehaviour
                 time_next_move = Time.time + 1;
                 handled_by_player = false;
                 this.boxCollider.enabled = true; time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
-                Debug.Log(this.name + " est lâché");
             }
             else
             {
@@ -88,7 +87,6 @@ public class Animaux : MonoBehaviour
                 if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
                 {
                     time_next_move = Time.time + Random.Range(2, 3); //we wait bewteen 1s and 3s before to start a new move
-                    Debug.Log(this.name + " a fini le moove, on attend le prochain.");
                 }   
             }
         }
@@ -104,7 +102,6 @@ public class Animaux : MonoBehaviour
                 if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
                 {
                     time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
-                    Debug.Log(this.name + " a fini le moove, on attend le prochain.");
                 }
             }
         }
@@ -124,7 +121,6 @@ public class Animaux : MonoBehaviour
         //Check if anything was hit
         if (hit.transform == null)
         {
-            Debug.Log(this.name + " initie une nouveau moove");
             StartCoroutine(SmoothMovement(end));
             return true;
         }
@@ -133,7 +129,6 @@ public class Animaux : MonoBehaviour
 
     protected bool Move(Vector3 dir)
     {
-        Debug.Log(this.name + " suis le player");
         StartCoroutine(SmoothMovement(dir));
         return true;
     }
@@ -160,7 +155,6 @@ public class Animaux : MonoBehaviour
                 player.GetComponent<Player>().setHand(true);
                 handled_by_player = true;
                 this.boxCollider.enabled = false;
-                Debug.Log(this.name + " est maintenant handled");
                 return true;
             }
         }
