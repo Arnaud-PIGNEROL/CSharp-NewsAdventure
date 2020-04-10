@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class Projectile : MonoBehaviour
+public class ProjectileDown : MonoBehaviour
 {
     public float speed;
     public float lifeTime;
@@ -19,17 +18,18 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.right, distance, whatIsSolid);
-        if(hitInfo.collider != null)
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, -transform.up, distance, whatIsSolid);
+        if (hitInfo.collider != null)
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(projectileDamage);
+                hitInfo.collider.GetComponent<Enemy>().takeDamage(projectileDamage);
             }
             DestroyProjectile();
         }
-        transform.Translate(transform.right * speed * Time.deltaTime);
+        transform.Translate(-transform.up * speed * Time.deltaTime);
     }
+
 
     void DestroyProjectile()
     {
