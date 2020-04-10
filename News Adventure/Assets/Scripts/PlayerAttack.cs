@@ -52,6 +52,7 @@ public class PlayerAttack : MonoBehaviour
                         enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageCac);
                     }
                 }
+                FindObjectOfType<AudioManager>().Play("PlayerCac");
 
             }
             else if (Input.GetKey(KeyCode.Space))
@@ -65,11 +66,13 @@ public class PlayerAttack : MonoBehaviour
                         hitInfo[i].GetComponent<Enemy>().TakeDamage(damageMid);
                     }
                 }
+                FindObjectOfType<AudioManager>().Play("PlayerMid");
 
             }
             else if (Input.GetKey(KeyCode.B))
             {
                 Instantiate(projectile, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("PlayerRange");
 
             }
 

@@ -150,7 +150,7 @@ Transform:
   m_Children:
   - {fileID: 192746213}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &192746212
 GameObject:
@@ -10294,7 +10294,7 @@ PrefabInstance:
     - target: {fileID: 8548645960769764527, guid: dd630b0028f6a3b408f8a0e8a54990a8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8548645960769764527, guid: dd630b0028f6a3b408f8a0e8a54990a8,
         type: 3}
@@ -10441,7 +10441,7 @@ Transform:
   - {fileID: 691239566}
   - {fileID: 566232930}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1075829038
 SpriteRenderer:
@@ -10481,7 +10481,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: -1276074005790637256, guid: 91696e40856dc304dbee25375777855f,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10562,7 +10562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0.3
-  projectile: {fileID: 0}
+  projectile: {fileID: 519420028}
   ShotPoint: {fileID: 566232930}
   attackPosCac: {fileID: 691239566}
   attackPosRangeMid: {fileID: 848796467}
@@ -10698,6 +10698,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 616944250495449900, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 616944250495449900, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196341752435756742, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 1075829039}
     - target: {fileID: 6196341753076511921, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_Sprite
@@ -10780,7 +10795,7 @@ PrefabInstance:
     - target: {fileID: 6196341754491618201, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6196341754491618201, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
@@ -10851,6 +10866,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Buttons
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767413598700973104, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.6666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767413598700973104, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767413598700973104, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6767413598700973104, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7423452109961239057, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 100.19998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7690746221972298204, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.800003
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3611bf9c4a957341ae034722299b6b9, type: 3}
