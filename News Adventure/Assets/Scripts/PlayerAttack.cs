@@ -4,36 +4,42 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private Animator anim;
-    private float timeBtwAttack;
-    private Transform PLAYER;
 
+    private float timeBtwAttack;
     public float startTimeBtwAttack;
-    public LayerMask WhatIsEnemies;
-    public GameObject projectileUp;
-    public GameObject projectileDown;
-    public GameObject projectileLeft;
-    public GameObject projectileRight;
+
+    public GameObject projectile;
     public Transform ShotPoint;
+
     public Transform attackPosCac;
     public Transform attackPosRangeMid;
+ 
+
+    Vector2 size = new Vector2(2f, 0.1f);
+
     public float distance;
     public float angle;
+    
+
     public float attackRangeCac;
+
+
+
     public int damageCac;
     public int damageMid;
-    Vector2 size = new Vector2(2f, 0.1f);
+
+    private Animator anim;
+
+    public LayerMask WhatIsEnemies;
 
     private void Start()
     {
         anim = GetComponent<Animator>();
-        PLAYER = GameObject.FindGameObjectWithTag("Player").transform;
+        
     }
-
     private void Update()
     {
-
-        if (timeBtwAttack <= 0)
+        if(timeBtwAttack <= 0)
         {
             if (Input.GetKey(KeyCode.N))
             {
@@ -43,10 +49,10 @@ public class PlayerAttack : MonoBehaviour
                 {
                     for (int i = 1; i < enemiesToDamage.Length; i++)
                     {
-                        enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
-                        PLAYER.GetComponent<Player>().setDrop(true);
+                        enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damageCac);
                     }
                 }
+                FindObjectOfType<AudioManager>().Play("PlayerCac");
 
             }
             else if (Input.GetKey(KeyCode.Space))
@@ -57,34 +63,16 @@ public class PlayerAttack : MonoBehaviour
                 {
                     for (int i = 1; i < hitInfo.Length; i++)
                     {
-                        hitInfo[i].GetComponent<Enemy>().takeDamage(damageMid);
-                        PLAYER.GetComponent<Player>().setDrop(true);
+                        hitInfo[i].GetComponent<Enemy>().TakeDamage(damageMid);
                     }
                 }
+                FindObjectOfType<AudioManager>().Play("PlayerMid");
 
             }
-            else if (Input.GetKey(KeyCode.Keypad8))
+            else if (Input.GetKey(KeyCode.B))
             {
-                Instantiate(projectileUp, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true);
-
-            }
-            else if (Input.GetKey(KeyCode.Keypad5))
-            {
-                Instantiate(projectileDown, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true);
-
-            }
-            else if (Input.GetKey(KeyCode.Keypad6))
-            {
-                Instantiate(projectileRight, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true);
-
-            }
-            else if (Input.GetKey(KeyCode.Keypad4))
-            {
-                Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true);
+                Instantiate(projectile, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("PlayerRange");
 
             }
 
@@ -95,14 +83,16 @@ public class PlayerAttack : MonoBehaviour
             timeBtwAttack -= Time.deltaTime;
         }
 
-
+       
     }
-
+    
     void OnDrawGizmosSelected()
     {
+        
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(attackPosCac.position, attackRangeCac);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1));
+
     }
 }
