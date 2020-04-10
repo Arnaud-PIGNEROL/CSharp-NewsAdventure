@@ -263,7 +263,9 @@ MonoBehaviour:
   - {fileID: 3962771850573794275, guid: d5d6c337e5eadb74087a1965e3861584, type: 3}
   - {fileID: 2442989502441487897, guid: b5fdb287bb6eae045a0bed60af1dec36, type: 3}
   animals: []
-  animalsTiles: []
+  animalsTiles:
+  - {fileID: 6562519862289615358, guid: f964c210903f58945a84a02509e345f2, type: 3}
+  - {fileID: 4100878014051764332, guid: 413b42903a535764ca50d31a496a9670, type: 3}
   dontDestroy: {fileID: 1075829036}
   turnDelay: 0.1
 --- !u!20 &519420031
@@ -10442,7 +10444,7 @@ GameObject:
   - component: {fileID: 1075829043}
   m_Layer: 10
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
