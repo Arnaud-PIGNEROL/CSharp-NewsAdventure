@@ -180,7 +180,7 @@ MonoBehaviour:
     type: 3}
   blockingLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024

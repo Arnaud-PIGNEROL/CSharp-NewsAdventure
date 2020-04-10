@@ -174,7 +174,7 @@ MonoBehaviour:
   projectileRight: {fileID: 0}
   blockingLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   playerLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -184,3 +184,4 @@ MonoBehaviour:
   health: 10
   damage: 5
   ptsAtDeath: 10
+  shootingError: 0

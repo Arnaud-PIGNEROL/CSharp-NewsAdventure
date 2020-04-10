@@ -10442,6 +10442,7 @@ GameObject:
   - component: {fileID: 1075829041}
   - component: {fileID: 1075829042}
   - component: {fileID: 1075829043}
+  - component: {fileID: 1075829044}
   m_Layer: 10
   m_Name: Character
   m_TagString: Player
@@ -10631,6 +10632,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
+--- !u!114 &1075829044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075829036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f2453be6be6be5479f5f97915f24975, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
+  animal: {fileID: 0}
 --- !u!114 &1437083121 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6196341752435756742, guid: a3611bf9c4a957341ae034722299b6b9,

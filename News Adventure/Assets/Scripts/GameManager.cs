@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(dontDestroy);
 
         LayoutEnemyPosition();
-        //LayoutAnimalsPosition();
+        LayoutAnimalsPosition();
     }
 
     // Update is called once per frame
@@ -44,11 +44,11 @@ public class GameManager : MonoBehaviour
             yield return new WaitForSeconds(enemy[i].moveTime);
         }
        
-        /*for (int i = 0; i < animals.Count; i++)
+        for (int i = 0; i < animals.Count; i++)
         {
             animals[i].MoveAnimal();
             yield return new WaitForSeconds(animals[i].moveTime);
-        }*/
+        }
         
         
     }
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         
         Vector3 Vposition = new Vector3(-100, -100, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
-        /*
+        
         //creation des braizes
         Vposition = new Vector3(2, 2, 10);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviour
         //creation du vent
         Vposition = new Vector3(-1, -1, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-        Vposition = new Vector3(-2, -2, 10);*/
+        Vposition = new Vector3(-2, -2, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         Vposition = new Vector3(-3, -3, 10);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
