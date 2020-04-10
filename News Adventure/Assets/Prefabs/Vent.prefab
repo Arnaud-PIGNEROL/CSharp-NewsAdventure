@@ -190,6 +190,7 @@ MonoBehaviour:
   health: 5
   damage: 1
   ptsAtDeath: 2
+  shootingError: 0.5
 --- !u!1 &3962771851240683193
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public int damage;
     public int ptsAtDeath;
+    public float shootingError; // the number of cell in (X and Y difference) that the ia can ignore before shooting, like the dispertion
 
     private void Start()
     {
@@ -220,71 +221,119 @@ public class Enemy : MonoBehaviour
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
         boxCollider.enabled = true;
-        
-        if (hit.distance > 3)
-            return ia_cac();
-        else if (hit.distance < 3 && hit.distance > 2) // the Hypothénuse is >1.5 so the ennemi is safe, it can attack
+
+        float Dx = transform.position.x - target.transform.position.x;
+        float Dy = transform.position.y - target.transform.position.y;
+
+        if (((Dx > -shootingError && Dx < shootingError) || (Dy > -shootingError && Dy < shootingError)) && hit.distance > 1.5) // the Hypothénuse is >2 so the ennemi is safe, it can attack
         {
             attack_dist();
             Path[0] = 0;
-            Path[1] = 0; 
+            Path[1] = 0;
+        }
+        else if (hit.distance > 1.5)
+        {
+            return iaDist_MinimizeGap(Dx, Dy);
         }
         else
         {
-            //  1 | 2 | 3
-            //  4 | E | 5
-            //  6 | 7 | 8
+            return iaDist_Escape();
+        }
+        return Path;
+    }
 
-            if ((transform.position.x - target.transform.position.x) < -0.5) // the player is in zone 3/5/8
+    private int[] iaDist_Escape()
+    {
+        int[] Path = new int[2];
+
+        //  1 | 2 | 3
+        //  4 | E | 5
+        //  6 | 7 | 8
+
+        if ((transform.position.x - target.transform.position.x) < -0.5) // the player is in zone 3/5/8
+        {
+            if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 3
             {
-                if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 3
-                {
-                    Path[0] = -2;
-                    Path[1] = -2;
-                }
-                else if ((transform.position.y - target.transform.position.y) > -1 && (transform.position.y - target.transform.position.y) < 0) // zone 5
-                {
-                    Path[0] = -2;
-                    Path[1] = 0;
-                }
-                else // zone 8
-                {
-                    Path[0] = -2;
-                    Path[1] = 2;
-                }
+                Path[0] = -2;
+                Path[1] = -2;
             }
-            else if ((transform.position.x - target.transform.position.x) > -0.5 && (transform.position.x - target.transform.position.x) < 0) // the player is in zone 2/7
+            else if ((transform.position.y - target.transform.position.y) > -1 && (transform.position.y - target.transform.position.y) < 0) // zone 5
             {
-                if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 2
-                {
-                    Path[0] = 0;
-                    Path[1] = -2;
-                }
-                else // zone 7
-                {
-                    Path[0] = 0;
-                    Path[1] = 2;
-                }
+                Path[0] = -2;
+                Path[1] = 0;
             }
-            else // the player is in zone 1/4/6
+            else // zone 8
             {
-                if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 1
-                {
-                    Path[0] = 2;
-                    Path[1] = -2;
-                }
-                else if ((transform.position.y - target.transform.position.y) > -1 && (transform.position.y - target.transform.position.y) < 0) // zone 4
-                {
-                    Path[0] = 2;
-                    Path[1] = 0;
-                }
-                else // zone 6
-                {
-                    Path[0] = 2;
-                    Path[1] = 2;
-                }
+                Path[0] = -2;
+                Path[1] = 2;
             }
         }
+        else if ((transform.position.x - target.transform.position.x) > -0.5 && (transform.position.x - target.transform.position.x) < 0) // the player is in zone 2/7
+        {
+            if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 2
+            {
+                Path[0] = 0;
+                Path[1] = -2;
+            }
+            else // zone 7
+            {
+                Path[0] = 0;
+                Path[1] = 2;
+            }
+        }
+        else // the player is in zone 1/4/6
+        {
+            if ((transform.position.y - target.transform.position.y) < -1) // the player is zone 1
+            {
+                Path[0] = 2;
+                Path[1] = -2;
+            }
+            else if ((transform.position.y - target.transform.position.y) > -1 && (transform.position.y - target.transform.position.y) < 0) // zone 4
+            {
+                Path[0] = 2;
+                Path[1] = 0;
+            }
+            else // zone 6
+            {
+                Path[0] = 2;
+                Path[1] = 2;
+            }
+        }
+        return Path;
+    }
+
+    private int[] iaDist_MinimizeGap(float Dx, float Dy)
+    {
+        int[] Path = new int[2];
+
+        if (Mathf.Abs(Dx) < Mathf.Abs(Dy))
+        {
+            if (Dx > 0)
+            {
+                Path[0] = -1;
+                Path[1] = 0;
+            }
+            else
+            {
+                Path[0] = 1;
+                Path[1] = 0;
+            }
+        }
+        else
+        {
+            if (Dy > 0)
+            {
+                Path[0] = 0;
+                Path[1] = -1;
+            }
+            else
+            {
+                Path[0] = 0;
+                Path[1] = 1;
+            }
+        }
+        time_next_move = Time.time + 1;
+
         return Path;
     }
 
@@ -332,7 +381,6 @@ public class Enemy : MonoBehaviour
         if (hitInfo.Length >= 1)
             target.GetComponent<Player>().takeDamage(damage);
 
-        Debug.Log("attaque cac");
         time_next_move = (Time.time + 1);
     }
 
@@ -348,8 +396,6 @@ public class Enemy : MonoBehaviour
         float Dy = transform.position.y - target.transform.position.y;
         float DDp = Dx + Dy;
         float DDm = Dx - Dy;
-
-        Debug.Log("DDp = " + DDp + ", DDm = "+ DDm);
 
         this.boxCollider.enabled = false;
         if (DDp < 0) // Up or right
