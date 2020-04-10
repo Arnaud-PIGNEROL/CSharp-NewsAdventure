@@ -82,18 +82,20 @@ public class Enemy : MonoBehaviour
             else if (this.name == "Boss(Clone)")
                 myVectors_target = ia_boss();
 
-            bool canMove = Move(myVectors_target[0], myVectors_target[1]);
+            onMoove = Move(myVectors_target[0], myVectors_target[1]);
             
-            if (!canMove)
+            if (!onMoove)
             {
                 if ((transform.position.x <= target.transform.position.x + 0.05 && transform.position.x >= target.transform.position.x - 0.05) || (transform.position.y <= target.transform.position.y + 0.05 && transform.position.y >= target.transform.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
                     myVectors_target[0] = myVectors_target[1] = 0;
-                else
+                else // because in move we try the X direction first, here we try Y
                 {
                     myVectors_target[0] = 0;
                     myVectors_target[1] = target.transform.position.x > transform.position.x ? 1 : -1;
                 }
             }
+
+            onMoove = !onMoove; // if we already moved we don't need to moove again l.116, else we need to moove
         }
         else // the player isn't in range detection of the enemy
         {  
@@ -283,7 +285,6 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-
         return Path;
     }
 

@@ -185,7 +185,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   speed: 5
-  detection_dist: 3
+  detection_dist: 4
   moveTime: 0.1
   health: 5
   damage: 1
