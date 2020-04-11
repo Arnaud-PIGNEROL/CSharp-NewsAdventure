@@ -61,7 +61,7 @@ public class Animaux : MonoBehaviour
                 player.GetComponent<Player>().setHand(false);
                 time_next_move = Time.time + 1;
                 handled_by_player = false;
-                this.boxCollider.enabled = true; time_next_move = Time.time + 1; //we wait bewteen 1s and 3s before to start a new move
+                this.boxCollider.enabled = true; 
             }
             else
             {
@@ -163,9 +163,12 @@ public class Animaux : MonoBehaviour
 
     private bool Safe()
     {
-        if (false)
+        if ((int)this.transform.position.x == 9 && ((int)this.transform.position.y > 24 && (int)this.transform.position.y < 30))
         {
             isSafe = true;
+            handled_by_player = false;
+            time_next_move = Time.time + 1; // to be sure that the animal wont moove
+            player.GetComponent<Player>().setHand(false);
             player.GetComponent<Player>().addScore(ptsAtSave);
             return true;
         }

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     public int health;
     private bool dropAnimal;
     private bool isHandling;
-    private int score;
+    public int score;
     public Animaux animal;
 
     // Start is called before the first frame update

@@ -189,7 +189,7 @@ MonoBehaviour:
   moveTime: 0.1
   health: 5
   damage: 1
-  ptsAtDeath: 2
+  ptsAtDeath: 7
   shootingError: 0.5
 --- !u!1 &3962771851240683193
 GameObject:
