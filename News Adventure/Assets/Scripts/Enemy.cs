@@ -306,9 +306,9 @@ public class Enemy : MonoBehaviour
     {
         int[] Path = new int[2];
 
-        if (Mathf.Abs(Dx) < Mathf.Abs(Dy))
+        if (Mathf.Abs(Dx) < Mathf.Abs(Dy)) // if the shortest distance (so the one to be minimized) is Dx
         {
-            if (Dx > 0)
+            if (Dx > 0) // now check if the player is on the right in regards to the enemy
             {
                 Path[0] = -1;
                 Path[1] = 0;
@@ -388,7 +388,7 @@ public class Enemy : MonoBehaviour
     {
         //   1  DDm<0  /                             \14  14/
         //            /  DDm>0  2                  13 \    / 24
-        //     
+        //                                              IA
         //   3 DDp>0  \                            13 /    \ 24
         //             \ DDp<0 4                     /23  23\
 

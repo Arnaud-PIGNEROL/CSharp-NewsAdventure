@@ -3,7 +3,16 @@ guid: 70ebfeed41b71c242a6d147e9da1de9c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - projectileUp: {fileID: 548763811815287608, guid: 3fee0a542c55f9e4d8270b3ca55752fe,
+      type: 3}
+  - projectileDown: {fileID: 3330655882009119167, guid: e72e086fb52ce394e996c633094686fe,
+      type: 3}
+  - projectileLeft: {fileID: 7466050464318178900, guid: aa9e1f572da04a74e9fe4f8b5863b6a2,
+      type: 3}
+  - projectileRight: {fileID: 2217562180063790081, guid: 185411bf9b51d724589aa379cf2753ab,
+      type: 3}
+  - ShotPoint: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

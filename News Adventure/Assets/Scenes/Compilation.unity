@@ -10765,6 +10765,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 2.0998535
       objectReference: {fileID: 0}
+    - target: {fileID: 1776447602356430913, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -61.499985
+      objectReference: {fileID: 0}
     - target: {fileID: 6196341752435756742, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: animator
@@ -10802,6 +10807,40 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2017456425}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: ShotPoint
+      value: 
+      objectReference: {fileID: 566232930}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: projectileLeft
+      value: 
+      objectReference: {fileID: 7466050464318178900, guid: aa9e1f572da04a74e9fe4f8b5863b6a2,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: projectileDown
+      value: 
+      objectReference: {fileID: 3330655882009119167, guid: e72e086fb52ce394e996c633094686fe,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: projectileRight
+      value: 
+      objectReference: {fileID: 2217562180063790081, guid: 185411bf9b51d724589aa379cf2753ab,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: projectileUp
+      value: 
+      objectReference: {fileID: 548763811815287608, guid: 3fee0a542c55f9e4d8270b3ca55752fe,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: joy
+      value: 
+      objectReference: {fileID: 1437083121}
     - target: {fileID: 6196341754485435416, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_Sprite
