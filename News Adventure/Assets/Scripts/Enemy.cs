@@ -65,7 +65,7 @@ public class Enemy : MonoBehaviour
         if (out_of_range() || Time.time < time_next_move)
                 return;
 
-        bool player_targeted = false;
+        bool player_targeted = false, moved = false;
         int[] myVectors_target = new int[2]; // 0 = xDir, 1 = yDir
 
         if (player_around())
@@ -83,9 +83,9 @@ public class Enemy : MonoBehaviour
             else if (this.name == "Boss(Clone)")
                 myVectors_target = ia_boss();
 
-            onMoove = Move(myVectors_target[0], myVectors_target[1]);
+            moved = Move(myVectors_target[0], myVectors_target[1]);
             
-            if (!onMoove)
+            if (!moved)
             {
                 if ((transform.position.x <= target.transform.position.x + 0.05 && transform.position.x >= target.transform.position.x - 0.05) || (transform.position.y <= target.transform.position.y + 0.05 && transform.position.y >= target.transform.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
                     myVectors_target[0] = myVectors_target[1] = 0;
@@ -95,8 +95,6 @@ public class Enemy : MonoBehaviour
                     myVectors_target[1] = target.transform.position.x > transform.position.x ? 1 : -1;
                 }
             }
-
-            onMoove = !onMoove; // if we already moved we don't need to moove again l.116, else we need to moove
         }
         else // the player isn't in range detection of the enemy
         {  
@@ -114,7 +112,7 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        if (onMoove)
+        if (onMoove && !moved)
         {
             if (Move(myVectors_target[0], myVectors_target[1]))
             {
@@ -188,7 +186,6 @@ public class Enemy : MonoBehaviour
                 }
             }
         }
-
         return false;
     }
 
@@ -196,18 +193,22 @@ public class Enemy : MonoBehaviour
     private int[] ia_cac()
     {
         int[] Path = new int[2];
-        Path[0] = target.transform.position.x > transform.position.x ? 1 : -1;
-        Path[1] = target.transform.position.y > transform.position.y ? 1 : -1;
 
         RaycastHit2D hit;
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
-        boxCollider.enabled = true;
-
-        if (hit.distance <= 1)
+        boxCollider.enabled = true;  
+        if (hit.distance <= 0.8)
         {
             attack_cac();
             Path[0] = Path[1] = 0;
+        }
+        else
+        {
+            Path = ia_Escape(); // because run down is the inverse of run out
+            Path[0] = (-Path[0])/2;
+            Path[1] = (-Path[1])/2;
+
         }
 
         return Path;
@@ -237,12 +238,12 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            return iaDist_Escape();
+            return ia_Escape();
         }
         return Path;
     }
 
-    private int[] iaDist_Escape()
+    private int[] ia_Escape()
     {
         int[] Path = new int[2];
 

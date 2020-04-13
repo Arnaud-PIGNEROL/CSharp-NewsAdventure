@@ -180,7 +180,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   speed: 5
-  detection_dist: 2
+  detection_dist: 3
   moveTime: 0.1
   health: 1
   damage: 3
