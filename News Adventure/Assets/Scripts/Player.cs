@@ -47,6 +47,13 @@ public class Player : MonoBehaviour
     public void takeDamage(int dmg)
     {
         this.health -= dmg;
+        FindObjectOfType<AudioManager>().Play("PlayerHit");
+
+        if (this.health <= 0)
+        {
+            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+            FindObjectOfType<GameMan>().Lose();
+        }
     }
 
     public void addScore(int pts)

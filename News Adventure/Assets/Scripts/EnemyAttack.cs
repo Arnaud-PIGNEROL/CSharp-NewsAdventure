@@ -42,8 +42,6 @@ public class EnemyAttack : MonoBehaviour
                 {
                     
                         enemiesToDamage[0].GetComponent<Player>().takeDamage(damageCac);
-
-                    
                 }
 
             }
@@ -51,21 +49,25 @@ public class EnemyAttack : MonoBehaviour
             else if (Input.GetKey(KeyCode.Keypad8))
             {
                 Instantiate(projectileUp, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("FireAttack");
 
             }
             else if (Input.GetKey(KeyCode.Keypad5))
             {
                 Instantiate(projectileDown, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("FireAttack");
 
             }
             else if (Input.GetKey(KeyCode.Keypad6))
             {
                 Instantiate(projectileRight, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("FireAttack");
 
             }
             else if (Input.GetKey(KeyCode.Keypad4))
             {
                 Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("FireAttack");
 
             }
             

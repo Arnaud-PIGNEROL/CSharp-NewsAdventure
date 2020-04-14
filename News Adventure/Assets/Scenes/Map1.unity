@@ -10420,7 +10420,7 @@ GameObject:
   - component: {fileID: 1075829043}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10562,7 +10562,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBtwAttack: 0.3
-  projectile: {fileID: 519420028}
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 0
+  projectileUp: {fileID: 0}
+  projectileDown: {fileID: 0}
+  projectileLeft: {fileID: 0}
+  projectileRight: {fileID: 0}
   ShotPoint: {fileID: 566232930}
   attackPosCac: {fileID: 691239566}
   attackPosRangeMid: {fileID: 848796467}
@@ -10571,9 +10577,6 @@ MonoBehaviour:
   attackRangeCac: 0.37
   damageCac: 4
   damageMid: 5
-  WhatIsEnemies:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!61 &1075829043
 BoxCollider2D:
   m_ObjectHideFlags: 0

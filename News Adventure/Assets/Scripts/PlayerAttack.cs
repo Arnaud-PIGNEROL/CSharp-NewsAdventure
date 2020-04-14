@@ -39,6 +39,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 anim.SetTrigger("PlayerHit");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCac.position, attackRangeCac, WhatIsEnemies);
+
+                FindObjectOfType<AudioManager>().Play("PlayerCac");
                 if (enemiesToDamage.Length >= 2)
                 {
                     for (int i = 1; i < enemiesToDamage.Length; i++)
@@ -53,6 +55,8 @@ public class PlayerAttack : MonoBehaviour
             {
                 anim.SetTrigger("PlayerHit");
                 Collider2D[] hitInfo = Physics2D.OverlapBoxAll(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1), angle, WhatIsEnemies);
+
+                FindObjectOfType<AudioManager>().Play("PlayerMid");
                 if (hitInfo.Length >= 2)
                 {
                     for (int i = 1; i < hitInfo.Length; i++)
@@ -66,24 +70,28 @@ public class PlayerAttack : MonoBehaviour
             else if (Input.GetKey(KeyCode.Keypad8))
             {
                 Instantiate(projectileUp, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("PlayerRange");
                 PLAYER.GetComponent<Player>().setDrop(true);
 
             }
             else if (Input.GetKey(KeyCode.Keypad5))
             {
                 Instantiate(projectileDown, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("PlayerRange");
                 PLAYER.GetComponent<Player>().setDrop(true);
 
             }
             else if (Input.GetKey(KeyCode.Keypad6))
             {
                 Instantiate(projectileRight, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("PlayerRange");
                 PLAYER.GetComponent<Player>().setDrop(true);
 
             }
             else if (Input.GetKey(KeyCode.Keypad4))
             {
                 Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
+                FindObjectOfType<AudioManager>().Play("PlayerRange");
                 PLAYER.GetComponent<Player>().setDrop(true);
 
             }

@@ -50,8 +50,10 @@ public class Enemy : MonoBehaviour
     public void takeDamage(int damage)
     {
         health -= damage;
+        FindObjectOfType<AudioManager>().Play("FireHit");
         if (health <= 0)
         {
+            FindObjectOfType<AudioManager>().Play("FireDeath");
             target.GetComponent<Player>().addScore(ptsAtDeath); // we add points to the player
             int index = GameManager.instance.enemy.IndexOf(this);
             GameManager.instance.enemy.RemoveAt(index);
@@ -379,6 +381,7 @@ public class Enemy : MonoBehaviour
     private void attack_cac()
     {
         Collider2D[] hitInfo = Physics2D.OverlapBoxAll(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1), 0, playerLayer);
+        FindObjectOfType<AudioManager>().Play("FireAttack");
         if (hitInfo.Length >= 1)
             target.GetComponent<Player>().takeDamage(damage);
 
