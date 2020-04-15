@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
         this.health -= dmg;
         FindObjectOfType<AudioManager>().Play("PlayerHit");
 
-        if (this.health <= 0)
+        if (this.health <= 0 && FindObjectOfType<GameMan>().victory.activeInHierarchy == false && FindObjectOfType<GameMan>().defeat.activeInHierarchy == false)
         {
             FindObjectOfType<AudioManager>().Play("PlayerDeath");
             FindObjectOfType<GameMan>().Lose();

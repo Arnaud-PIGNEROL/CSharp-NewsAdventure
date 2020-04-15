@@ -50,30 +50,33 @@ public class Animaux : MonoBehaviour
 
     public void MoveAnimal()
     {
-        if (out_of_range() || isSafe)
-            return;
-        
-        if (handled_by_player && !Safe())
+        if(FindObjectOfType<GameMan>().end == false)
         {
-            if (player.GetComponent<Player>().getDrop())
+            if (out_of_range() || isSafe)
+                return;
+
+            if (handled_by_player && !Safe())
             {
-                player.GetComponent<Player>().setDrop(false);
-                player.GetComponent<Player>().setHand(false);
-                time_next_move = Time.time + 1;
-                handled_by_player = false;
-                this.boxCollider.enabled = true; 
+                if (player.GetComponent<Player>().getDrop())
+                {
+                    player.GetComponent<Player>().setDrop(false);
+                    player.GetComponent<Player>().setHand(false);
+                    time_next_move = Time.time + 1;
+                    handled_by_player = false;
+                    this.boxCollider.enabled = true;
+                }
+                else
+                {
+                    Move(player.position); //the player still have the animal
+                }
             }
             else
             {
-                Move(player.position); //the player still have the animal
+                if (this.name == "Koala(Clone)")
+                    ia_koala();
+                else if (this.name == "Walabi(Clone)")
+                    ia_walabi();
             }
-        }
-        else
-        {
-            if (this.name == "Koala(Clone)")
-                 ia_koala();
-            else if (this.name == "Walabi(Clone)")
-                 ia_walabi();            
         }
     }
 

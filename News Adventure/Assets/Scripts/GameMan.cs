@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class GameMan : MonoBehaviour
 {
 
-    private bool end;
+    public bool end;
     public GameObject victory;
     public GameObject defeat;
 
@@ -38,6 +38,7 @@ public class GameMan : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Victory");
         victory.SetActive(true);
         FindObjectOfType<AudioManager>().Stop("Game");
+        end = true;
     }
     
     public void Lose()
@@ -45,6 +46,7 @@ public class GameMan : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("Loss");
         defeat.SetActive(true);
         FindObjectOfType<AudioManager>().Stop("Game");
+        end = true;
     }
 
 }

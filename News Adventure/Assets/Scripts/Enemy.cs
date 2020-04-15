@@ -64,70 +64,73 @@ public class Enemy : MonoBehaviour
 
     public void MoveEnemy()
     {
-        if (out_of_range() || Time.time < time_next_move)
+        if(FindObjectOfType<GameMan>().end == false)
+        {
+            if (out_of_range() || Time.time < time_next_move)
                 return;
 
-        bool player_targeted = false, moved = false;
-        int[] myVectors_target = new int[2]; // 0 = xDir, 1 = yDir
+            bool player_targeted = false, moved = false;
+            int[] myVectors_target = new int[2]; // 0 = xDir, 1 = yDir
 
-        if (player_around())
-        {
-            player_targeted = true;
-            onMoove = true;
-        }
-
-        if (player_targeted)
-        {
-            if (this.name == "Braize(Clone)")
-                myVectors_target = ia_cac();
-            else if (this.name == "Vent(Clone)")
-                myVectors_target = ia_distance();
-            else if (this.name == "Boss(Clone)")
-                myVectors_target = ia_boss();
-
-            moved = Move(myVectors_target[0], myVectors_target[1]);
-            
-            if (!moved)
+            if (player_around())
             {
-                if ((transform.position.x <= target.transform.position.x + 0.05 && transform.position.x >= target.transform.position.x - 0.05) || (transform.position.y <= target.transform.position.y + 0.05 && transform.position.y >= target.transform.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
-                    myVectors_target[0] = myVectors_target[1] = 0;
-                else // because in move we try the X direction first, here we try Y
+                player_targeted = true;
+                onMoove = true;
+            }
+
+            if (player_targeted)
+            {
+                if (this.name == "Braize(Clone)")
+                    myVectors_target = ia_cac();
+                else if (this.name == "Vent(Clone)")
+                    myVectors_target = ia_distance();
+                else if (this.name == "Boss(Clone)")
+                    myVectors_target = ia_boss();
+
+                moved = Move(myVectors_target[0], myVectors_target[1]);
+
+                if (!moved)
                 {
-                    myVectors_target[0] = 0;
-                    myVectors_target[1] = target.transform.position.x > transform.position.x ? 1 : -1;
+                    if ((transform.position.x <= target.transform.position.x + 0.05 && transform.position.x >= target.transform.position.x - 0.05) || (transform.position.y <= target.transform.position.y + 0.05 && transform.position.y >= target.transform.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
+                        myVectors_target[0] = myVectors_target[1] = 0;
+                    else // because in move we try the X direction first, here we try Y
+                    {
+                        myVectors_target[0] = 0;
+                        myVectors_target[1] = target.transform.position.x > transform.position.x ? 1 : -1;
+                    }
                 }
             }
-        }
-        else // the player isn't in range detection of the enemy
-        {  
-            onMoove = true;
-            time_next_move = 0;
+            else // the player isn't in range detection of the enemy
+            {
+                onMoove = true;
+                time_next_move = 0;
 
-            if (this.name == "Boss(Clone)")
-            {
-                myVectors_target = ia_boss_stroll();
-            }
-            else
-            {
-                myVectors_target[0] = Random.Range(-1, 2);
-                myVectors_target[1] = Random.Range(-1, 2);
-            }
-        }
-
-        if (onMoove && !moved)
-        {
-            if (Move(myVectors_target[0], myVectors_target[1]))
-            {
-                if(this.name=="Vent(Clone)")
-                    time_next_move = Time.time + Random.Range(0, 2); //dist
-                else if(this.name == "Braize(Clone)")
-                    time_next_move = Time.time + Random.Range(1, 3); //cac
+                if (this.name == "Boss(Clone)")
+                {
+                    myVectors_target = ia_boss_stroll();
+                }
                 else
-                    time_next_move = Time.time + Random.Range(2, 4); //boss
-                onMoove = false;
+                {
+                    myVectors_target[0] = Random.Range(-1, 2);
+                    myVectors_target[1] = Random.Range(-1, 2);
+                }
             }
+
+            if (onMoove && !moved)
+            {
+                if (Move(myVectors_target[0], myVectors_target[1]))
+                {
+                    if (this.name == "Vent(Clone)")
+                        time_next_move = Time.time + Random.Range(0, 2); //dist
+                    else if (this.name == "Braize(Clone)")
+                        time_next_move = Time.time + Random.Range(1, 3); //cac
+                    else
+                        time_next_move = Time.time + Random.Range(2, 4); //boss
+                    onMoove = false;
+                }
+            }
+            player_targeted = false;
         }
-        player_targeted = false;
     }
 
     protected bool Move(int xDir, int yDir)

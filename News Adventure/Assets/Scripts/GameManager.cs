@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
             Destroy(dontDestroy);         //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 
 
-        DontDestroyOnLoad(dontDestroy);
+       // DontDestroyOnLoad(dontDestroy);
 
         LayoutEnemyPosition();
         LayoutAnimalsPosition();
