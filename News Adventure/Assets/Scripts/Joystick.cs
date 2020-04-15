@@ -6,7 +6,6 @@ using UnityEngine.EventSystems;
 public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPointerUpHandler
 {
     public Animator animator;
-
     public float Horizontal { get { return input.y; } }
     public float Vertical { get { return input.x; } }
     public Vector2 Direction { get { return new Vector2(Horizontal, Vertical); } }
@@ -66,13 +65,15 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         Vector2 position = RectTransformUtility.WorldToScreenPoint(cam, background.position);
         Vector2 radius = background.sizeDelta / 2;
         input = (eventData.position - position) / (radius * canvas.scaleFactor);
+        animator.SetFloat("Horizontal", input.x);
+        animator.SetFloat("Vertical", input.y);
+        Debug.Log("Vertical " + input.y + "Horizontal " + input.x + "Magnitude " + input.magnitude);
+        animator.SetFloat("Magnitude", input.magnitude);
         HandleInput(input.magnitude, input.normalized, radius, cam);
 
         handle.anchoredPosition = input * radius * handleRange;
 
-        animator.SetFloat("Horizontal", input.x);
-        animator.SetFloat("Vertical", input.y);
-        animator.SetFloat("Magnitude", input.magnitude);
+        
     }
 
     //A partir de quand le bouton revient à sa position originale ===========> Empêche le joystick de quitter la zone prévue à cet effet

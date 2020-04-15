@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = new Vector2(fixedJoystick.Vertical, fixedJoystick.Horizontal);
+        
         moveVelocity = moveInput.normalized * speed;
     }
     public void FixedUpdate()
