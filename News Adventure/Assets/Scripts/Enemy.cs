@@ -51,6 +51,7 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
         FindObjectOfType<AudioManager>().Play("FireHit");
+
         if (health <= 0)
         {
             FindObjectOfType<AudioManager>().Play("FireDeath");
@@ -58,6 +59,12 @@ public class Enemy : MonoBehaviour
             int index = GameManager.instance.enemy.IndexOf(this);
             GameManager.instance.enemy.RemoveAt(index);
             Destroy(gameObject);
+
+            if (this.name == "Boss(Clone)" && this.health <= 0 && FindObjectOfType<GameMan>().victory.activeInHierarchy == false && FindObjectOfType<GameMan>().defeat.activeInHierarchy == false)
+            {
+                FindObjectOfType<GameMan>().Win();
+            }
+
         }
     }
 

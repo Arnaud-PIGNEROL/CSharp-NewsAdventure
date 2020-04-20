@@ -33,7 +33,7 @@ public class GameMan : MonoBehaviour
     }
 
 
-    private void Win()
+    public void Win()
     {
         FindObjectOfType<AudioManager>().Play("Victory");
         victory.SetActive(true);
