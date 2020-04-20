@@ -15,7 +15,12 @@ public class PlayerAttack : MonoBehaviour
     public GameObject projectileLeft;
     public GameObject projectileRight;
     public Transform ShotPoint;
-    public Transform attackPosCac;
+    public Transform attackPosCacUp;
+    public Transform attackPosCacDown;
+    public Transform attackPosCacLeft;
+    public Transform attackPosCacRight;
+
+
     public Transform attackPosRangeMid;
     public float distance;
     public float angle;
@@ -38,17 +43,63 @@ public class PlayerAttack : MonoBehaviour
             if (Input.GetKey(KeyCode.N))
             {
                 anim.SetTrigger("PlayerHit");
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCac.position, attackRangeCac, WhatIsEnemies);
-
-                FindObjectOfType<AudioManager>().Play("PlayerCac");
-                if (enemiesToDamage.Length >= 2)
+                if (PLAYER.GetComponent<Player>().getDirection() == "Up")
                 {
-                    for (int i = 1; i < enemiesToDamage.Length; i++)
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacUp.position, attackRangeCac, WhatIsEnemies);
+
+                    FindObjectOfType<AudioManager>().Play("PlayerCac");
+                    if (enemiesToDamage.Length >= 1)
                     {
-                        enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
-                        PLAYER.GetComponent<Player>().setDrop(true);
+                        for (int i = 0; i < enemiesToDamage.Length; i++)
+                        {
+                            enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
+                            PLAYER.GetComponent<Player>().setDrop(true);
+                        }
                     }
                 }
+                else if (PLAYER.GetComponent<Player>().getDirection() == "Down")
+                {
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacDown.position, attackRangeCac, WhatIsEnemies);
+
+                    FindObjectOfType<AudioManager>().Play("PlayerCac");
+                    if (enemiesToDamage.Length >= 1)
+                    {
+                        for (int i = 0; i < enemiesToDamage.Length; i++)
+                        {                
+                            enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
+                            PLAYER.GetComponent<Player>().setDrop(true);
+                        }
+                    }
+                }
+                else if (PLAYER.GetComponent<Player>().getDirection() == "Left")
+                {
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacLeft.position, attackRangeCac, WhatIsEnemies);
+
+                    FindObjectOfType<AudioManager>().Play("PlayerCac");
+                    if (enemiesToDamage.Length >= 1)
+                    {
+                        for (int i = 0; i < enemiesToDamage.Length; i++)
+                        {
+                            enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
+                            PLAYER.GetComponent<Player>().setDrop(true);
+                        }
+                    }
+                }
+                else
+                {
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacRight.position, attackRangeCac, WhatIsEnemies);
+
+                    FindObjectOfType<AudioManager>().Play("PlayerCac");
+                    if (enemiesToDamage.Length >= 1)
+                    {
+                        for (int i = 0; i < enemiesToDamage.Length; i++)
+                        {
+                            enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
+                            PLAYER.GetComponent<Player>().setDrop(true);
+                        }
+                    }
+                }
+
 
             }
             else if (Input.GetKey(KeyCode.Space))
@@ -109,7 +160,13 @@ public class PlayerAttack : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPosCac.position, attackRangeCac);
+        Gizmos.DrawWireSphere(attackPosCacUp.position, attackRangeCac);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPosCacDown.position, attackRangeCac);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPosCacRight.position, attackRangeCac);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPosCacLeft.position, attackRangeCac);
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1));
     }

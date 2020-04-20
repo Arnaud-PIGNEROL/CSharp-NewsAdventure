@@ -28,7 +28,6 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
     [SerializeField] protected RectTransform background = null;
     [SerializeField] private RectTransform handle = null;
     private RectTransform baseRect = null;
-
     private Canvas canvas;
     private Camera cam;
 
@@ -67,7 +66,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         input = (eventData.position - position) / (radius * canvas.scaleFactor);
         animator.SetFloat("Horizontal", input.x);
         animator.SetFloat("Vertical", input.y);
-        Debug.Log("Vertical " + input.y + "Horizontal " + input.x + "Magnitude " + input.magnitude);
+        //Debug.Log("Vertical " + input.y + "Horizontal " + input.x + "Magnitude " + input.magnitude);
         animator.SetFloat("Magnitude", input.magnitude);
         HandleInput(input.magnitude, input.normalized, radius, cam);
 
@@ -108,4 +107,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         }
         return Vector2.zero;
     }
+
+    
+
 }

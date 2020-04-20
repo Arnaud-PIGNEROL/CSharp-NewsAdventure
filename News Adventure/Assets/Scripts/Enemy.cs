@@ -49,9 +49,10 @@ public class Enemy : MonoBehaviour
 
     public void takeDamage(int damage)
     {
+
         health -= damage;
         FindObjectOfType<AudioManager>().Play("FireHit");
-
+        Debug.Log("health"+ health);
         if (health <= 0)
         {
             FindObjectOfType<AudioManager>().Play("FireDeath");

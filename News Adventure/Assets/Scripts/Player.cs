@@ -8,7 +8,12 @@ public class Player : MonoBehaviour
     private bool dropAnimal;
     private bool isHandling;
     public int score;
+    public string direction;
     public Animaux animal;
+    public Joystick joy;
+
+    Vector2 movement;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +26,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (joy.Vertical > 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
+        {
+            this.direction = "Right";
+            }
+        if (joy.Vertical < 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
+        {
+            this.direction = "Left";
+         }
+        if (joy.Horizontal < 0 && (Mathf.Abs(joy.Horizontal) > Mathf.Abs(joy.Vertical)))
+        {
+            this.direction = "Down";
+        }
+        if (joy.Horizontal > 0 && (Mathf.Abs(joy.Horizontal) > Mathf.Abs(joy.Vertical)))
+        {
+            this.direction = "Up";
+        }
+
     }
 
     public bool getDrop()
@@ -59,5 +81,16 @@ public class Player : MonoBehaviour
     public void addScore(int pts)
     {
         score += pts;
+    }
+
+    public void setDirection(string direction)
+    {
+        this.direction = direction;
+    }
+
+    public string getDirection()
+    {
+        return direction;
+
     }
 }

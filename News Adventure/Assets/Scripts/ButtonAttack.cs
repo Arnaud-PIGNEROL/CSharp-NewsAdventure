@@ -6,7 +6,6 @@ public class ButtonAttack : MonoBehaviour
 {
     private static float timeBtwAttack;
     private static float startTimeBtwAttack = 0.1f;
-
     public GameObject projectileUp;
     public GameObject projectileDown;
     public GameObject projectileLeft;
@@ -15,7 +14,10 @@ public class ButtonAttack : MonoBehaviour
 
     public Joystick joy;
 
-
+    public void Start()
+    {
+       
+    }
     public void CAC()
     {
         if (timeBtwAttack <= 0)
