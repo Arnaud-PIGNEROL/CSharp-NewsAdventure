@@ -1,27 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class DragToScript : MonoBehaviour
 {
-    public float dragSpeed = 1;
-    private Vector3 dragOrigin;
 
-    void Update()
+    private bool selected;
+
+    private void OnMouseOver()
     {
-
         if (Input.GetMouseButtonDown(0))
         {
-            dragOrigin = Input.mousePosition;
-            return;
+            selected = true;
         }
+    }
 
-        if (!Input.GetMouseButton(0)) return;
-
-        Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition - dragOrigin);
-        Vector3 move = new Vector3(pos.x * dragSpeed, 0, pos.y * dragSpeed);
-
-        transform.Translate(move, Space.World);
+    private void Update()
+    {
+        Debug.Log(selected);
+        if (selected == true)
+        {
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector2(cursorPos.x, cursorPos.y);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            selected = false;
+        }
     }
 
 }
