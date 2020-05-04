@@ -320,8 +320,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -487.18, y: 213}
-  m_SizeDelta: {x: 321, y: 315.9}
+  m_AnchoredPosition: {x: -556.2, y: 205.2}
+  m_SizeDelta: {x: 430.7, y: 328.29}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &66480979
 MonoBehaviour:
@@ -341,7 +341,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: e4af39e0cbe0041498306e6ea23f1628, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -481,7 +481,7 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 81338150}
-  m_CullTransparentMesh: 0
+  m_CullTransparentMesh: 1
 --- !u!1 &208711094
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,8 +670,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -487.18, y: -348}
-  m_SizeDelta: {x: 470, y: 621.4}
+  m_AnchoredPosition: {x: -505.4, y: -343.4}
+  m_SizeDelta: {x: 489.8, y: 630.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &465833490
 MonoBehaviour:
@@ -693,20 +693,23 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
-    m_FontSize: 50
+    m_FontSize: 65
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 65
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\tLorem ipsum dolor sit amet, consectetur adipiscing elit. In at dapibus
-    turpis. Phasellus interdum dui nulla, at tincidunt tortor malesuada a. Proin
-    molestie nisl nisi, in mollis neque interdum a. Aenean commodo mattis finibus. "
+  m_Text: "\tD\xE8s 2016, l\u2019actuel directeur g\xE9n\xE9ral de la sant\xE9 s\u2019inqui\xE9tait
+    des insuffisances du syst\xE8me de sant\xE9 fran\xE7ais. Confront\xE9 aujourd\u2019hui
+    \xE0 la pand\xE9mie caus\xE9e par le coronavirus, il se voit oblig\xE9 de les
+    justifier. Depuis des semaines, J\xE9r\xF4me Salomon a deux visages. Celui, rond
+    et rassurant, du directeur g\xE9n\xE9ral de la sant\xE9, \xE9non\xE7ant derri\xE8re
+    un pupitre, "
 --- !u!222 &465833491
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -940,8 +943,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -487.18, y: 213}
-  m_SizeDelta: {x: 321, y: 315.9}
+  m_AnchoredPosition: {x: -503.4, y: 205.26}
+  m_SizeDelta: {x: 384.8, y: 328.39}
   m_Pivot: {x: 0.49999997, y: 0.5}
 --- !u!114 &663915092
 MonoBehaviour:
@@ -961,7 +964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 80698e0631f11ab4fac3f674e6bec2f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1159,8 +1162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23.7, y: 606}
-  m_SizeDelta: {x: 1058.4, y: 119.8}
+  m_AnchoredPosition: {x: 23.7, y: 606.1}
+  m_SizeDelta: {x: 1058, y: 206.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &747793833
 MonoBehaviour:
@@ -1182,7 +1185,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
-    m_FontSize: 100
+    m_FontSize: 95
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1193,9 +1196,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'TITLE OF THE NEW 2
-
-'
+  m_Text: COVID-19, UNE PANDEMIE
 --- !u!222 &747793834
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1238,8 +1239,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -487.18, y: -348}
-  m_SizeDelta: {x: 470, y: 621.4}
+  m_AnchoredPosition: {x: -547.3, y: -348}
+  m_SizeDelta: {x: 535.5, y: 621.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &837101736
 MonoBehaviour:
@@ -1265,16 +1266,16 @@ MonoBehaviour:
     m_FontStyle: 0
     m_BestFit: 1
     m_MinSize: 0
-    m_MaxSize: 50
+    m_MaxSize: 65
     m_Alignment: 0
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\tLorem ipsum dolor sit amet, consectetur adipiscing elit. In at dapibus
-    turpis. Phasellus interdum dui nulla, at tincidunt tortor malesuada a. Proin
-    molestie nisl nisi, in mollis neque interdum a. Aenean commodo mattis finibus. "
+  m_Text: "\tDes feux de for\xEAt d'une ampleur et d'une violence sans pr\xE9c\xE9dent
+    qui d\xE9vastent des r\xE9gions enti\xE8res de l'Australie depuis le mois de
+    septembre 2019. Ils ont fait au moins 24 victimes et des \"d\xE9g\xE2ts consid\xE9rables\","
 --- !u!222 &837101737
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1351,12 +1352,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Nam lorem turpis, tempus nec purus ac, venenatis auctor risus. Sed dictum
-    nunc eu leo rhoncus accumsan. Nulla facilisi. Quisque tincidunt odio neque, quis
-    sollicitudin lectus consequat ut. Aliquam tellus lectus, tempor at magna nec,
-    pretium tempus nunc. Ut imperdiet sollicitudin erat, eu sagittis augue ultrices
-    ut. Aliquam ornare hendrerit magna, eu venenatis est consequat sagittis. Ut diam
-    tellus, imperdiet a magna ut, suscipit aliquet tortor. '
+  m_Text: " dans les habitations mais aussi dans la faune et la flore : 500 millions
+    d'animaux seraient morts avant la fin de l'ann\xE9e. Dans le sud-est du pays,
+    le ciel est devenu noir et des cendres sont tomb\xE9es sur des populations isol\xE9es,
+    dans des conditions m\xE9t\xE9orologiques catastrophiques, avec parfois 44 degr\xE9s.
+    \"Nous sommes en territoire inconnu\", a d\xE9clar\xE9 Gladys Berejiklian, la
+    Premi\xE8re ministre de Nouvelle-Galles du Sud. \"Nous ne pouvons pas faire comme
+    si c'\xE9tait quelque chose que nous avons d\xE9j\xE0 v\xE9cu. Ce n'est pas le
+    cas\", a-t-elle dit. "
 --- !u!222 &975888024
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1487,8 +1490,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 567, y: -134.5}
-  m_SizeDelta: {x: 547.3, y: 1048.4}
+  m_AnchoredPosition: {x: 567, y: -131.4}
+  m_SizeDelta: {x: 547.3, y: 1054.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1097444359
 MonoBehaviour:
@@ -1510,7 +1513,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
-    m_FontSize: 45
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -1519,14 +1522,18 @@ MonoBehaviour:
     m_AlignByGeometry: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 'Nam lorem turpis, tempus nec purus ac, venenatis auctor risus. Sed dictum
-    nunc eu leo rhoncus accumsan. Nulla facilisi. Quisque tincidunt odio neque, quis
-    sollicitudin lectus consequat ut. Aliquam tellus lectus, tempor at magna nec,
-    pretium tempus nunc. Ut imperdiet sollicitudin erat, eu sagittis augue ultrices
-    ut. Aliquam ornare hendrerit magna, eu venenatis est consequat sagittis. Ut diam
-    tellus, imperdiet a magna ut, suscipit aliquet tortor. '
+  m_Text: "chaque soir depuis le 21 janvier, aux alentours de 18 h 30, une sinistre
+    litanie de contamin\xE9s et de morts du Covid-19. \xAB Un croque-mort avec une
+    pointe de sourire au coin des l\xE8vres \xBB, ont longtemps plaisant\xE9 les
+    journalistes pr\xE9sents \xE0 son \xAB point de situation \xBB rituel au minist\xE8re.\r\nEt
+    puis, l\u2019autre, le visage plus grave de l\u2019infectiologue, sp\xE9cialiste
+    aguerri des grandes \xE9pid\xE9mies des vingt-cinq derni\xE8res ann\xE9es, qui,
+    d\xE8s la mi-f\xE9vrier, a commenc\xE9 \xE0 envoyer des textos alarmants \xE0
+    ses coll\xE8gues m\xE9decins : \xAB La vague arrive ! \xBB, \xAB On va se prendre
+    la vague ! \xBB Comme s\u2019il voyait fondre depuis la Chine, tel un tsunami,
+    ce coronavirus."
 --- !u!222 &1097444360
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2368,7 +2375,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 674069830}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.67234796
+  m_Size: 0.67244434
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2466,7 +2473,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 11b1b01e8ac617441bfabeb291cd3154, type: 3}
-    m_FontSize: 100
+    m_FontSize: 95
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -2477,7 +2484,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TITLE OF THE NEW 1
+  m_Text: LES FEUX D'AUSTRALIE
 --- !u!222 &1959889702
 CanvasRenderer:
   m_ObjectHideFlags: 0
