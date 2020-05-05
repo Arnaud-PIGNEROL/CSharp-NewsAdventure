@@ -74,6 +74,9 @@ public class Enemy : MonoBehaviour
     {
         if(FindObjectOfType<GameMan>().end == false)
         {
+            animator.SetFloat("xAxis", 0);
+            animator.SetFloat("yAxis", 0);
+            animator.SetFloat("Magnitude", 0);
             if (out_of_range() || Time.time < time_next_move)
                 return;
 
@@ -146,6 +149,9 @@ public class Enemy : MonoBehaviour
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
+        animator.SetFloat("xAxis", xDir);
+        animator.SetFloat("yAxis", yDir);
+        animator.SetFloat("Magnitude", end.magnitude);
         RaycastHit2D hitWall, hitPlayer;
 
         boxCollider.enabled = false;
