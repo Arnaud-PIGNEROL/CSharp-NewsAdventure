@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
         
         //creation des braizes
-        Vposition = new Vector3(5, 18, 0);
+        Vposition = new Vector3(5, 23, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
 
         
