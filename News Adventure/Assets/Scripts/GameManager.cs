@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
        // DontDestroyOnLoad(dontDestroy);
 
         LayoutEnemyPosition();
-        LayoutAnimalsPosition();
+        //LayoutAnimalsPosition();
     }
 
     // Update is called once per frame
@@ -57,25 +57,25 @@ public class GameManager : MonoBehaviour
     {
         //le premier ennemy qui bug je sais pas pourquoi on le fou en arrière plan, methode de shlag mais qui marche
         
-        Vector3 Vposition = new Vector3(-100, -100, 0);
+        Vector3 Vposition = new Vector3(-1, 13, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
         
         //creation des braizes
-        Vposition = new Vector3(2, 2, 10);
+        Vposition = new Vector3(5, 18, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
 
         
         //creation du vent
-        Vposition = new Vector3(-1, -1, 10);
+        Vposition = new Vector3(-5, 22, 0);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-        Vposition = new Vector3(-2, -2, 10);
+        Vposition = new Vector3(-2, 33, 0);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-        Vposition = new Vector3(-3, -3, 10);
+        Vposition = new Vector3(3, 36, 0);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         
         
         //creation du BOSS
-        Vposition = new Vector3(-2, 2, 10);
+        Vposition = new Vector3(1, 33, 0);
         Instantiate(enemyTiles[2], Vposition, Quaternion.identity);
         
     }
