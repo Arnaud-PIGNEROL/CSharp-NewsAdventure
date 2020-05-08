@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Compilation.unity
     guid: 986724358f74dfe41955474973b56a3e
+  - enabled: 1
+    path: Assets/Scenes/Corona.unity
+    guid: 8e23612627ad68e418867a9192be8350
   m_configObjects: {}
