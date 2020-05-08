@@ -25,7 +25,8 @@ public class GameManager : MonoBehaviour
 
        // DontDestroyOnLoad(dontDestroy);
 
-        LayoutEnemyPosition();
+        if(enemyTiles.Length > 0)
+            LayoutEnemyPosition();
         //LayoutAnimalsPosition();
     }
 

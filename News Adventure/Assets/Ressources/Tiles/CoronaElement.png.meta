@@ -452,39 +452,6 @@ TextureImporter:
   - first:
       213: 3777125878448184244
     second: CoronaElement_149
-  - first:
-      213: 8483923405509105399
-    second: CoronaElement_150
-  - first:
-      213: -1530199223405478991
-    second: CoronaElement_151
-  - first:
-      213: 8301662392510266308
-    second: CoronaElement_152
-  - first:
-      213: 6096905487293347457
-    second: CoronaElement_153
-  - first:
-      213: 5019468175334121352
-    second: CoronaElement_154
-  - first:
-      213: -4147530829245526484
-    second: CoronaElement_155
-  - first:
-      213: 17516149291586624
-    second: CoronaElement_156
-  - first:
-      213: 2342683895687734737
-    second: CoronaElement_157
-  - first:
-      213: -5222665235821810147
-    second: CoronaElement_158
-  - first:
-      213: 5601426202807076944
-    second: CoronaElement_159
-  - first:
-      213: -1466086466156622787
-    second: CoronaElement_160
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -668,8 +635,8 @@ TextureImporter:
       name: CoronaElement_4
       rect:
         serializedVersion: 2
-        x: 256
-        y: 416
+        x: 384
+        y: 448
         width: 32
         height: 32
       alignment: 0
@@ -689,7 +656,7 @@ TextureImporter:
       name: CoronaElement_5
       rect:
         serializedVersion: 2
-        x: 288
+        x: 256
         y: 416
         width: 32
         height: 32
@@ -710,7 +677,7 @@ TextureImporter:
       name: CoronaElement_6
       rect:
         serializedVersion: 2
-        x: 320
+        x: 288
         y: 416
         width: 32
         height: 32
@@ -731,7 +698,7 @@ TextureImporter:
       name: CoronaElement_7
       rect:
         serializedVersion: 2
-        x: 352
+        x: 320
         y: 416
         width: 32
         height: 32
@@ -752,8 +719,8 @@ TextureImporter:
       name: CoronaElement_8
       rect:
         serializedVersion: 2
-        x: 160
-        y: 384
+        x: 352
+        y: 416
         width: 32
         height: 32
       alignment: 0
@@ -773,8 +740,8 @@ TextureImporter:
       name: CoronaElement_9
       rect:
         serializedVersion: 2
-        x: 192
-        y: 384
+        x: 384
+        y: 416
         width: 32
         height: 32
       alignment: 0
@@ -794,7 +761,7 @@ TextureImporter:
       name: CoronaElement_10
       rect:
         serializedVersion: 2
-        x: 224
+        x: 192
         y: 384
         width: 32
         height: 32
@@ -815,7 +782,7 @@ TextureImporter:
       name: CoronaElement_11
       rect:
         serializedVersion: 2
-        x: 256
+        x: 224
         y: 384
         width: 32
         height: 32
@@ -836,7 +803,7 @@ TextureImporter:
       name: CoronaElement_12
       rect:
         serializedVersion: 2
-        x: 288
+        x: 256
         y: 384
         width: 32
         height: 32
@@ -857,7 +824,7 @@ TextureImporter:
       name: CoronaElement_13
       rect:
         serializedVersion: 2
-        x: 320
+        x: 288
         y: 384
         width: 32
         height: 32
@@ -878,7 +845,7 @@ TextureImporter:
       name: CoronaElement_14
       rect:
         serializedVersion: 2
-        x: 352
+        x: 320
         y: 384
         width: 32
         height: 32
@@ -899,7 +866,7 @@ TextureImporter:
       name: CoronaElement_15
       rect:
         serializedVersion: 2
-        x: 384
+        x: 352
         y: 384
         width: 32
         height: 32
@@ -920,7 +887,7 @@ TextureImporter:
       name: CoronaElement_16
       rect:
         serializedVersion: 2
-        x: 416
+        x: 384
         y: 384
         width: 32
         height: 32
@@ -941,8 +908,8 @@ TextureImporter:
       name: CoronaElement_17
       rect:
         serializedVersion: 2
-        x: 160
-        y: 352
+        x: 416
+        y: 384
         width: 32
         height: 32
       alignment: 0
@@ -962,8 +929,8 @@ TextureImporter:
       name: CoronaElement_18
       rect:
         serializedVersion: 2
-        x: 192
-        y: 352
+        x: 448
+        y: 384
         width: 32
         height: 32
       alignment: 0
@@ -983,7 +950,7 @@ TextureImporter:
       name: CoronaElement_19
       rect:
         serializedVersion: 2
-        x: 224
+        x: 192
         y: 352
         width: 32
         height: 32
@@ -1004,7 +971,7 @@ TextureImporter:
       name: CoronaElement_20
       rect:
         serializedVersion: 2
-        x: 256
+        x: 224
         y: 352
         width: 32
         height: 32
@@ -1025,7 +992,7 @@ TextureImporter:
       name: CoronaElement_21
       rect:
         serializedVersion: 2
-        x: 288
+        x: 256
         y: 352
         width: 32
         height: 32
@@ -1046,7 +1013,7 @@ TextureImporter:
       name: CoronaElement_22
       rect:
         serializedVersion: 2
-        x: 320
+        x: 288
         y: 352
         width: 32
         height: 32
@@ -1067,7 +1034,7 @@ TextureImporter:
       name: CoronaElement_23
       rect:
         serializedVersion: 2
-        x: 352
+        x: 320
         y: 352
         width: 32
         height: 32
@@ -1088,7 +1055,7 @@ TextureImporter:
       name: CoronaElement_24
       rect:
         serializedVersion: 2
-        x: 384
+        x: 352
         y: 352
         width: 32
         height: 32
@@ -1109,7 +1076,7 @@ TextureImporter:
       name: CoronaElement_25
       rect:
         serializedVersion: 2
-        x: 416
+        x: 384
         y: 352
         width: 32
         height: 32
@@ -1130,7 +1097,7 @@ TextureImporter:
       name: CoronaElement_26
       rect:
         serializedVersion: 2
-        x: 448
+        x: 416
         y: 352
         width: 32
         height: 32
@@ -1151,8 +1118,8 @@ TextureImporter:
       name: CoronaElement_27
       rect:
         serializedVersion: 2
-        x: 160
-        y: 320
+        x: 448
+        y: 352
         width: 32
         height: 32
       alignment: 0
@@ -1361,7 +1328,7 @@ TextureImporter:
       name: CoronaElement_37
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 288
         width: 32
         height: 32
@@ -1382,7 +1349,7 @@ TextureImporter:
       name: CoronaElement_38
       rect:
         serializedVersion: 2
-        x: 192
+        x: 224
         y: 288
         width: 32
         height: 32
@@ -1403,7 +1370,7 @@ TextureImporter:
       name: CoronaElement_39
       rect:
         serializedVersion: 2
-        x: 224
+        x: 256
         y: 288
         width: 32
         height: 32
@@ -1424,7 +1391,7 @@ TextureImporter:
       name: CoronaElement_40
       rect:
         serializedVersion: 2
-        x: 256
+        x: 288
         y: 288
         width: 32
         height: 32
@@ -1445,7 +1412,7 @@ TextureImporter:
       name: CoronaElement_41
       rect:
         serializedVersion: 2
-        x: 288
+        x: 320
         y: 288
         width: 32
         height: 32
@@ -1466,7 +1433,7 @@ TextureImporter:
       name: CoronaElement_42
       rect:
         serializedVersion: 2
-        x: 320
+        x: 352
         y: 288
         width: 32
         height: 32
@@ -1487,7 +1454,7 @@ TextureImporter:
       name: CoronaElement_43
       rect:
         serializedVersion: 2
-        x: 352
+        x: 384
         y: 288
         width: 32
         height: 32
@@ -1508,7 +1475,7 @@ TextureImporter:
       name: CoronaElement_44
       rect:
         serializedVersion: 2
-        x: 384
+        x: 416
         y: 288
         width: 32
         height: 32
@@ -1529,7 +1496,7 @@ TextureImporter:
       name: CoronaElement_45
       rect:
         serializedVersion: 2
-        x: 416
+        x: 448
         y: 288
         width: 32
         height: 32
@@ -1550,8 +1517,8 @@ TextureImporter:
       name: CoronaElement_46
       rect:
         serializedVersion: 2
-        x: 448
-        y: 288
+        x: 64
+        y: 256
         width: 32
         height: 32
       alignment: 0
@@ -1571,7 +1538,7 @@ TextureImporter:
       name: CoronaElement_47
       rect:
         serializedVersion: 2
-        x: 64
+        x: 96
         y: 256
         width: 32
         height: 32
@@ -1592,7 +1559,7 @@ TextureImporter:
       name: CoronaElement_48
       rect:
         serializedVersion: 2
-        x: 96
+        x: 128
         y: 256
         width: 32
         height: 32
@@ -1613,7 +1580,7 @@ TextureImporter:
       name: CoronaElement_49
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 256
         width: 32
         height: 32
@@ -1634,7 +1601,7 @@ TextureImporter:
       name: CoronaElement_50
       rect:
         serializedVersion: 2
-        x: 160
+        x: 288
         y: 256
         width: 32
         height: 32
@@ -1655,7 +1622,7 @@ TextureImporter:
       name: CoronaElement_51
       rect:
         serializedVersion: 2
-        x: 192
+        x: 320
         y: 256
         width: 32
         height: 32
@@ -1676,7 +1643,7 @@ TextureImporter:
       name: CoronaElement_52
       rect:
         serializedVersion: 2
-        x: 224
+        x: 352
         y: 256
         width: 32
         height: 32
@@ -1697,7 +1664,7 @@ TextureImporter:
       name: CoronaElement_53
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 256
         width: 32
         height: 32
@@ -1718,7 +1685,7 @@ TextureImporter:
       name: CoronaElement_54
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 256
         width: 32
         height: 32
@@ -1739,7 +1706,7 @@ TextureImporter:
       name: CoronaElement_55
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 256
         width: 32
         height: 32
@@ -1760,8 +1727,8 @@ TextureImporter:
       name: CoronaElement_56
       rect:
         serializedVersion: 2
-        x: 352
-        y: 256
+        x: 32
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1781,8 +1748,8 @@ TextureImporter:
       name: CoronaElement_57
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
+        x: 64
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1802,8 +1769,8 @@ TextureImporter:
       name: CoronaElement_58
       rect:
         serializedVersion: 2
-        x: 416
-        y: 256
+        x: 96
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1823,8 +1790,8 @@ TextureImporter:
       name: CoronaElement_59
       rect:
         serializedVersion: 2
-        x: 448
-        y: 256
+        x: 128
+        y: 224
         width: 32
         height: 32
       alignment: 0
@@ -1844,7 +1811,7 @@ TextureImporter:
       name: CoronaElement_60
       rect:
         serializedVersion: 2
-        x: 32
+        x: 160
         y: 224
         width: 32
         height: 32
@@ -1865,7 +1832,7 @@ TextureImporter:
       name: CoronaElement_61
       rect:
         serializedVersion: 2
-        x: 64
+        x: 256
         y: 224
         width: 32
         height: 32
@@ -1886,7 +1853,7 @@ TextureImporter:
       name: CoronaElement_62
       rect:
         serializedVersion: 2
-        x: 96
+        x: 288
         y: 224
         width: 32
         height: 32
@@ -1907,7 +1874,7 @@ TextureImporter:
       name: CoronaElement_63
       rect:
         serializedVersion: 2
-        x: 128
+        x: 320
         y: 224
         width: 32
         height: 32
@@ -1928,7 +1895,7 @@ TextureImporter:
       name: CoronaElement_64
       rect:
         serializedVersion: 2
-        x: 160
+        x: 352
         y: 224
         width: 32
         height: 32
@@ -1949,7 +1916,7 @@ TextureImporter:
       name: CoronaElement_65
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 224
         width: 32
         height: 32
@@ -1970,7 +1937,7 @@ TextureImporter:
       name: CoronaElement_66
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 224
         width: 32
         height: 32
@@ -1991,7 +1958,7 @@ TextureImporter:
       name: CoronaElement_67
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 224
         width: 32
         height: 32
@@ -2012,8 +1979,8 @@ TextureImporter:
       name: CoronaElement_68
       rect:
         serializedVersion: 2
-        x: 352
-        y: 224
+        x: 32
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2033,8 +2000,8 @@ TextureImporter:
       name: CoronaElement_69
       rect:
         serializedVersion: 2
-        x: 384
-        y: 224
+        x: 64
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2054,8 +2021,8 @@ TextureImporter:
       name: CoronaElement_70
       rect:
         serializedVersion: 2
-        x: 416
-        y: 224
+        x: 96
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2075,8 +2042,8 @@ TextureImporter:
       name: CoronaElement_71
       rect:
         serializedVersion: 2
-        x: 448
-        y: 224
+        x: 128
+        y: 192
         width: 32
         height: 32
       alignment: 0
@@ -2096,7 +2063,7 @@ TextureImporter:
       name: CoronaElement_72
       rect:
         serializedVersion: 2
-        x: 32
+        x: 160
         y: 192
         width: 32
         height: 32
@@ -2117,7 +2084,7 @@ TextureImporter:
       name: CoronaElement_73
       rect:
         serializedVersion: 2
-        x: 64
+        x: 256
         y: 192
         width: 32
         height: 32
@@ -2138,7 +2105,7 @@ TextureImporter:
       name: CoronaElement_74
       rect:
         serializedVersion: 2
-        x: 96
+        x: 288
         y: 192
         width: 32
         height: 32
@@ -2159,7 +2126,7 @@ TextureImporter:
       name: CoronaElement_75
       rect:
         serializedVersion: 2
-        x: 128
+        x: 320
         y: 192
         width: 32
         height: 32
@@ -2180,7 +2147,7 @@ TextureImporter:
       name: CoronaElement_76
       rect:
         serializedVersion: 2
-        x: 160
+        x: 352
         y: 192
         width: 32
         height: 32
@@ -2201,7 +2168,7 @@ TextureImporter:
       name: CoronaElement_77
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 192
         width: 32
         height: 32
@@ -2222,7 +2189,7 @@ TextureImporter:
       name: CoronaElement_78
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 192
         width: 32
         height: 32
@@ -2243,7 +2210,7 @@ TextureImporter:
       name: CoronaElement_79
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 192
         width: 32
         height: 32
@@ -2264,8 +2231,8 @@ TextureImporter:
       name: CoronaElement_80
       rect:
         serializedVersion: 2
-        x: 352
-        y: 192
+        x: 0
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2285,8 +2252,8 @@ TextureImporter:
       name: CoronaElement_81
       rect:
         serializedVersion: 2
-        x: 384
-        y: 192
+        x: 32
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2306,8 +2273,8 @@ TextureImporter:
       name: CoronaElement_82
       rect:
         serializedVersion: 2
-        x: 416
-        y: 192
+        x: 64
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2327,8 +2294,8 @@ TextureImporter:
       name: CoronaElement_83
       rect:
         serializedVersion: 2
-        x: 448
-        y: 192
+        x: 96
+        y: 160
         width: 32
         height: 32
       alignment: 0
@@ -2348,7 +2315,7 @@ TextureImporter:
       name: CoronaElement_84
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 160
         width: 32
         height: 32
@@ -2369,7 +2336,7 @@ TextureImporter:
       name: CoronaElement_85
       rect:
         serializedVersion: 2
-        x: 32
+        x: 160
         y: 160
         width: 32
         height: 32
@@ -2390,7 +2357,7 @@ TextureImporter:
       name: CoronaElement_86
       rect:
         serializedVersion: 2
-        x: 64
+        x: 192
         y: 160
         width: 32
         height: 32
@@ -2411,7 +2378,7 @@ TextureImporter:
       name: CoronaElement_87
       rect:
         serializedVersion: 2
-        x: 96
+        x: 224
         y: 160
         width: 32
         height: 32
@@ -2432,7 +2399,7 @@ TextureImporter:
       name: CoronaElement_88
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 160
         width: 32
         height: 32
@@ -2453,7 +2420,7 @@ TextureImporter:
       name: CoronaElement_89
       rect:
         serializedVersion: 2
-        x: 160
+        x: 288
         y: 160
         width: 32
         height: 32
@@ -2474,7 +2441,7 @@ TextureImporter:
       name: CoronaElement_90
       rect:
         serializedVersion: 2
-        x: 192
+        x: 320
         y: 160
         width: 32
         height: 32
@@ -2495,7 +2462,7 @@ TextureImporter:
       name: CoronaElement_91
       rect:
         serializedVersion: 2
-        x: 224
+        x: 352
         y: 160
         width: 32
         height: 32
@@ -2516,7 +2483,7 @@ TextureImporter:
       name: CoronaElement_92
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 160
         width: 32
         height: 32
@@ -2537,7 +2504,7 @@ TextureImporter:
       name: CoronaElement_93
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 160
         width: 32
         height: 32
@@ -2558,7 +2525,7 @@ TextureImporter:
       name: CoronaElement_94
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 160
         width: 32
         height: 32
@@ -2579,8 +2546,8 @@ TextureImporter:
       name: CoronaElement_95
       rect:
         serializedVersion: 2
-        x: 352
-        y: 160
+        x: 0
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2600,8 +2567,8 @@ TextureImporter:
       name: CoronaElement_96
       rect:
         serializedVersion: 2
-        x: 384
-        y: 160
+        x: 32
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2621,8 +2588,8 @@ TextureImporter:
       name: CoronaElement_97
       rect:
         serializedVersion: 2
-        x: 416
-        y: 160
+        x: 64
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2642,8 +2609,8 @@ TextureImporter:
       name: CoronaElement_98
       rect:
         serializedVersion: 2
-        x: 448
-        y: 160
+        x: 96
+        y: 128
         width: 32
         height: 32
       alignment: 0
@@ -2663,7 +2630,7 @@ TextureImporter:
       name: CoronaElement_99
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 128
         width: 32
         height: 32
@@ -2684,7 +2651,7 @@ TextureImporter:
       name: CoronaElement_100
       rect:
         serializedVersion: 2
-        x: 32
+        x: 160
         y: 128
         width: 32
         height: 32
@@ -2705,7 +2672,7 @@ TextureImporter:
       name: CoronaElement_101
       rect:
         serializedVersion: 2
-        x: 64
+        x: 192
         y: 128
         width: 32
         height: 32
@@ -2726,7 +2693,7 @@ TextureImporter:
       name: CoronaElement_102
       rect:
         serializedVersion: 2
-        x: 96
+        x: 224
         y: 128
         width: 32
         height: 32
@@ -2747,7 +2714,7 @@ TextureImporter:
       name: CoronaElement_103
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 128
         width: 32
         height: 32
@@ -2768,7 +2735,7 @@ TextureImporter:
       name: CoronaElement_104
       rect:
         serializedVersion: 2
-        x: 160
+        x: 288
         y: 128
         width: 32
         height: 32
@@ -2789,7 +2756,7 @@ TextureImporter:
       name: CoronaElement_105
       rect:
         serializedVersion: 2
-        x: 192
+        x: 320
         y: 128
         width: 32
         height: 32
@@ -2810,7 +2777,7 @@ TextureImporter:
       name: CoronaElement_106
       rect:
         serializedVersion: 2
-        x: 224
+        x: 352
         y: 128
         width: 32
         height: 32
@@ -2831,7 +2798,7 @@ TextureImporter:
       name: CoronaElement_107
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 128
         width: 32
         height: 32
@@ -2852,7 +2819,7 @@ TextureImporter:
       name: CoronaElement_108
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 128
         width: 32
         height: 32
@@ -2873,7 +2840,7 @@ TextureImporter:
       name: CoronaElement_109
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 128
         width: 32
         height: 32
@@ -2894,8 +2861,8 @@ TextureImporter:
       name: CoronaElement_110
       rect:
         serializedVersion: 2
-        x: 352
-        y: 128
+        x: 0
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2915,8 +2882,8 @@ TextureImporter:
       name: CoronaElement_111
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
+        x: 32
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2936,8 +2903,8 @@ TextureImporter:
       name: CoronaElement_112
       rect:
         serializedVersion: 2
-        x: 416
-        y: 128
+        x: 64
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2957,8 +2924,8 @@ TextureImporter:
       name: CoronaElement_113
       rect:
         serializedVersion: 2
-        x: 448
-        y: 128
+        x: 96
+        y: 96
         width: 32
         height: 32
       alignment: 0
@@ -2978,7 +2945,7 @@ TextureImporter:
       name: CoronaElement_114
       rect:
         serializedVersion: 2
-        x: 0
+        x: 128
         y: 96
         width: 32
         height: 32
@@ -2999,7 +2966,7 @@ TextureImporter:
       name: CoronaElement_115
       rect:
         serializedVersion: 2
-        x: 32
+        x: 160
         y: 96
         width: 32
         height: 32
@@ -3020,7 +2987,7 @@ TextureImporter:
       name: CoronaElement_116
       rect:
         serializedVersion: 2
-        x: 64
+        x: 192
         y: 96
         width: 32
         height: 32
@@ -3041,7 +3008,7 @@ TextureImporter:
       name: CoronaElement_117
       rect:
         serializedVersion: 2
-        x: 96
+        x: 224
         y: 96
         width: 32
         height: 32
@@ -3062,7 +3029,7 @@ TextureImporter:
       name: CoronaElement_118
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 96
         width: 32
         height: 32
@@ -3083,7 +3050,7 @@ TextureImporter:
       name: CoronaElement_119
       rect:
         serializedVersion: 2
-        x: 160
+        x: 288
         y: 96
         width: 32
         height: 32
@@ -3104,7 +3071,7 @@ TextureImporter:
       name: CoronaElement_120
       rect:
         serializedVersion: 2
-        x: 192
+        x: 320
         y: 96
         width: 32
         height: 32
@@ -3125,7 +3092,7 @@ TextureImporter:
       name: CoronaElement_121
       rect:
         serializedVersion: 2
-        x: 224
+        x: 352
         y: 96
         width: 32
         height: 32
@@ -3146,7 +3113,7 @@ TextureImporter:
       name: CoronaElement_122
       rect:
         serializedVersion: 2
-        x: 256
+        x: 384
         y: 96
         width: 32
         height: 32
@@ -3167,7 +3134,7 @@ TextureImporter:
       name: CoronaElement_123
       rect:
         serializedVersion: 2
-        x: 288
+        x: 416
         y: 96
         width: 32
         height: 32
@@ -3188,7 +3155,7 @@ TextureImporter:
       name: CoronaElement_124
       rect:
         serializedVersion: 2
-        x: 320
+        x: 448
         y: 96
         width: 32
         height: 32
@@ -3209,8 +3176,8 @@ TextureImporter:
       name: CoronaElement_125
       rect:
         serializedVersion: 2
-        x: 352
-        y: 96
+        x: 0
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3230,8 +3197,8 @@ TextureImporter:
       name: CoronaElement_126
       rect:
         serializedVersion: 2
-        x: 384
-        y: 96
+        x: 32
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3251,8 +3218,8 @@ TextureImporter:
       name: CoronaElement_127
       rect:
         serializedVersion: 2
-        x: 416
-        y: 96
+        x: 64
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3272,8 +3239,8 @@ TextureImporter:
       name: CoronaElement_128
       rect:
         serializedVersion: 2
-        x: 448
-        y: 96
+        x: 96
+        y: 64
         width: 32
         height: 32
       alignment: 0
@@ -3293,7 +3260,7 @@ TextureImporter:
       name: CoronaElement_129
       rect:
         serializedVersion: 2
-        x: 32
+        x: 128
         y: 64
         width: 32
         height: 32
@@ -3314,7 +3281,7 @@ TextureImporter:
       name: CoronaElement_130
       rect:
         serializedVersion: 2
-        x: 64
+        x: 160
         y: 64
         width: 32
         height: 32
@@ -3335,7 +3302,7 @@ TextureImporter:
       name: CoronaElement_131
       rect:
         serializedVersion: 2
-        x: 96
+        x: 192
         y: 64
         width: 32
         height: 32
@@ -3356,7 +3323,7 @@ TextureImporter:
       name: CoronaElement_132
       rect:
         serializedVersion: 2
-        x: 128
+        x: 224
         y: 64
         width: 32
         height: 32
@@ -3377,7 +3344,7 @@ TextureImporter:
       name: CoronaElement_133
       rect:
         serializedVersion: 2
-        x: 160
+        x: 288
         y: 64
         width: 32
         height: 32
@@ -3398,7 +3365,7 @@ TextureImporter:
       name: CoronaElement_134
       rect:
         serializedVersion: 2
-        x: 192
+        x: 320
         y: 64
         width: 32
         height: 32
@@ -3419,7 +3386,7 @@ TextureImporter:
       name: CoronaElement_135
       rect:
         serializedVersion: 2
-        x: 224
+        x: 352
         y: 64
         width: 32
         height: 32
@@ -3440,7 +3407,7 @@ TextureImporter:
       name: CoronaElement_136
       rect:
         serializedVersion: 2
-        x: 288
+        x: 384
         y: 64
         width: 32
         height: 32
@@ -3461,7 +3428,7 @@ TextureImporter:
       name: CoronaElement_137
       rect:
         serializedVersion: 2
-        x: 320
+        x: 416
         y: 64
         width: 32
         height: 32
@@ -3482,8 +3449,8 @@ TextureImporter:
       name: CoronaElement_138
       rect:
         serializedVersion: 2
-        x: 352
-        y: 64
+        x: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -3503,8 +3470,8 @@ TextureImporter:
       name: CoronaElement_139
       rect:
         serializedVersion: 2
-        x: 384
-        y: 64
+        x: 32
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -3524,8 +3491,8 @@ TextureImporter:
       name: CoronaElement_140
       rect:
         serializedVersion: 2
-        x: 416
-        y: 64
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -3545,7 +3512,7 @@ TextureImporter:
       name: CoronaElement_141
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 32
         width: 32
         height: 32
@@ -3566,7 +3533,7 @@ TextureImporter:
       name: CoronaElement_142
       rect:
         serializedVersion: 2
-        x: 64
+        x: 128
         y: 32
         width: 32
         height: 32
@@ -3587,7 +3554,7 @@ TextureImporter:
       name: CoronaElement_143
       rect:
         serializedVersion: 2
-        x: 96
+        x: 160
         y: 32
         width: 32
         height: 32
@@ -3608,7 +3575,7 @@ TextureImporter:
       name: CoronaElement_144
       rect:
         serializedVersion: 2
-        x: 160
+        x: 192
         y: 32
         width: 32
         height: 32
@@ -3629,7 +3596,7 @@ TextureImporter:
       name: CoronaElement_145
       rect:
         serializedVersion: 2
-        x: 192
+        x: 224
         y: 32
         width: 32
         height: 32
@@ -3650,7 +3617,7 @@ TextureImporter:
       name: CoronaElement_146
       rect:
         serializedVersion: 2
-        x: 224
+        x: 320
         y: 32
         width: 32
         height: 32
@@ -3671,7 +3638,7 @@ TextureImporter:
       name: CoronaElement_147
       rect:
         serializedVersion: 2
-        x: 320
+        x: 352
         y: 32
         width: 32
         height: 32
@@ -3692,7 +3659,7 @@ TextureImporter:
       name: CoronaElement_148
       rect:
         serializedVersion: 2
-        x: 352
+        x: 384
         y: 32
         width: 32
         height: 32
@@ -3713,90 +3680,6 @@ TextureImporter:
       name: CoronaElement_149
       rect:
         serializedVersion: 2
-        x: 384
-        y: 32
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4bbd6d079fb0b6430800000000000000
-      internalID: 3777125878448184244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_150
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f61ef63363fcb570800000000000000
-      internalID: 8483923405509105399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_151
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1bb7655e9e3a3cae0800000000000000
-      internalID: -1530199223405478991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_152
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4cb3bce36fd653370800000000000000
-      internalID: 8301662392510266308
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_153
-      rect:
-        serializedVersion: 2
         x: 96
         y: 0
         width: 32
@@ -3808,155 +3691,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 186ff37ec3f8c9450800000000000000
-      internalID: 6096905487293347457
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_154
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 88f1b2016bbb8a540800000000000000
-      internalID: 5019468175334121352
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_155
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c2ec6d37fa20176c0800000000000000
-      internalID: -4147530829245526484
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_156
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0449b5058da3e3000800000000000000
-      internalID: 17516149291586624
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_157
-      rect:
-        serializedVersion: 2
-        x: 224
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d5ee7f4792e28020800000000000000
-      internalID: 2342683895687734737
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_158
-      rect:
-        serializedVersion: 2
-        x: 320
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d1e2f0e83ad5587b0800000000000000
-      internalID: -5222665235821810147
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_159
-      rect:
-        serializedVersion: 2
-        x: 352
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05881ed24734cbd40800000000000000
-      internalID: 5601426202807076944
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CoronaElement_160
-      rect:
-        serializedVersion: 2
-        x: 384
-        y: 0
-        width: 32
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d3c0abe602a67abe0800000000000000
-      internalID: -1466086466156622787
+      spriteID: 4bbd6d079fb0b6430800000000000000
+      internalID: 3777125878448184244
       vertices: []
       indices: 
       edges: []
