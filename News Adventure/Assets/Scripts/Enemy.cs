@@ -74,8 +74,8 @@ public class Enemy : MonoBehaviour
     {
         if(FindObjectOfType<GameMan>().end == false)
         {
-            animator.SetFloat("Xaxis", 0);
-            animator.SetFloat("Yaxis", 0);
+            animator.SetFloat("xAxis", 0);
+            animator.SetFloat("yAxis", 0);
             animator.SetFloat("Magnitude", 0);
             if (out_of_range() || Time.time < time_next_move)
                 return;
