@@ -27,6 +27,7 @@ public class PlayerAttack : MonoBehaviour
     public float attackRangeCac;
     public int damageCac;
     public int damageMid;
+
     Vector2 size = new Vector2(2f, 0.1f);
 
     private void Start()
