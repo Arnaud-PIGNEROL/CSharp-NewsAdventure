@@ -37,7 +37,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void Update()
     {
-
+        // ancienne fonction attaque du joueur au clavier pour test sur pc
+        /*
         if (timeBtwAttack <= 0)
         {
             if (Input.GetKey(KeyCode.N))
@@ -153,7 +154,7 @@ public class PlayerAttack : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
-
+        */
 
     }
 
