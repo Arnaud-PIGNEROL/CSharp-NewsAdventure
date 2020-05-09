@@ -23,10 +23,11 @@ public class Enemy : MonoBehaviour
     public LayerMask playerLayer;  
     public int speed;
     public int detection_dist;
-    public float moveTime;
     public int health;
     public int damage;
     public int ptsAtDeath;
+    public float range_cac;
+    public float moveTime;
     public float shootingError; // the number of cell in (X and Y difference) that the ia can ignore before shooting, like the dispertion
 
     private void Start()
@@ -74,10 +75,9 @@ public class Enemy : MonoBehaviour
     {
         if(FindObjectOfType<GameMan>().end == false)
         {
-            /*
-            animator.SetFloat("xAxis", 0);
-            animator.SetFloat("yAxis", 0);
-            animator.SetFloat("Magnitude", 0);*/
+            //animator.SetFloat("xAxis", 0);
+            //animator.SetFloat("yAxis", 0);
+            //animator.SetFloat("Magnitude", 0);
             if (out_of_range() || Time.time < time_next_move)
                 return;
 
@@ -151,10 +151,9 @@ public class Enemy : MonoBehaviour
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
-        /*
-        animator.SetFloat("xAxis", xDir);
-        animator.SetFloat("yAxis", yDir);
-        animator.SetFloat("Magnitude", end.magnitude);*/
+        //animator.SetFloat("xAxis", xDir);
+        //animator.SetFloat("yAxis", yDir);
+        //animator.SetFloat("Magnitude", end.magnitude);
         RaycastHit2D hitWall, hitPlayer;
 
         boxCollider.enabled = false;
@@ -219,8 +218,9 @@ public class Enemy : MonoBehaviour
         RaycastHit2D hit;
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
-        boxCollider.enabled = true;  
-        if (hit.distance <= 0.8)
+        boxCollider.enabled = true;
+        Debug.Log("cac distance = "+ hit.distance + " et range cac est de " + range_cac);
+        if (hit.distance <= range_cac)
         {
             attack_cac();
             Path[0] = Path[1] = 0;
@@ -459,5 +459,7 @@ public class Enemy : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireCube(attackPosCac.position, new Vector3(1.2f, 0.4f, 1));
+        Gizmos.DrawWireSphere(attackPosCac.position, range_cac);
+        Gizmos.DrawWireSphere(attackPosCac.position, detection_dist);
     }
 }

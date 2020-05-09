@@ -32245,7 +32245,13 @@ PrefabInstance:
         type: 3}
       propertyPath: enemyTiles.Array.data[0]
       value: 
-      objectReference: {fileID: 7291891288924052450, guid: bc78f0bc0daa56246814d3c1116c4b16,
+      objectReference: {fileID: 6594277552574970085, guid: bc78f0bc0daa56246814d3c1116c4b16,
+        type: 3}
+    - target: {fileID: 1990423710419668792, guid: b36c10a5a83416745a075427698269ce,
+        type: 3}
+      propertyPath: enemyTiles.Array.data[2]
+      value: 
+      objectReference: {fileID: 2647432592357245276, guid: b5fdb287bb6eae045a0bed60af1dec36,
         type: 3}
     - target: {fileID: 1990423711877836394, guid: b36c10a5a83416745a075427698269ce,
         type: 3}
@@ -32329,9 +32335,29 @@ PrefabInstance:
       objectReference: {fileID: 1437083121}
     - target: {fileID: 1990423711877836404, guid: b36c10a5a83416745a075427698269ce,
         type: 3}
-      propertyPath: joy
+      propertyPath: attackRangeCac
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 1990423711877836404, guid: b36c10a5a83416745a075427698269ce,
+        type: 3}
+      propertyPath: attackPosCacUp
       value: 
-      objectReference: {fileID: 1437083121}
+      objectReference: {fileID: 1990423710802245450}
+    - target: {fileID: 1990423711877836404, guid: b36c10a5a83416745a075427698269ce,
+        type: 3}
+      propertyPath: attackPosCacDown
+      value: 
+      objectReference: {fileID: 1990423710802245449}
+    - target: {fileID: 1990423711877836404, guid: b36c10a5a83416745a075427698269ce,
+        type: 3}
+      propertyPath: attackPosCacLeft
+      value: 
+      objectReference: {fileID: 1990423710802245447}
+    - target: {fileID: 1990423711877836404, guid: b36c10a5a83416745a075427698269ce,
+        type: 3}
+      propertyPath: attackPosCacRight
+      value: 
+      objectReference: {fileID: 1990423710802245448}
     - target: {fileID: 1990423711877836406, guid: b36c10a5a83416745a075427698269ce,
         type: 3}
       propertyPath: fixedJoystick
@@ -32344,6 +32370,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b36c10a5a83416745a075427698269ce, type: 3}
+--- !u!4 &1990423710802245447 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2145131257388301709, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990423710802245446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1990423710802245448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5488448483418735260, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990423710802245446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1990423710802245449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5285287420971066064, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990423710802245446}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1990423710802245450 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 999159881260327165, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990423710802245446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6196341753720793911
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32414,9 +32464,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
-      propertyPath: ShotPoint
-      value: 
-      objectReference: {fileID: 1007042623}
+      propertyPath: damageMid
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: WhatIsEnemies.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: joy
@@ -32470,14 +32525,39 @@ PrefabInstance:
       objectReference: {fileID: 2017456425}
     - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
+      propertyPath: attackPosCacRight
+      value: 
+      objectReference: {fileID: 1990423710802245448}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacUp
+      value: 
+      objectReference: {fileID: 1990423710802245450}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacLeft
+      value: 
+      objectReference: {fileID: 1990423710802245447}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacDown
+      value: 
+      objectReference: {fileID: 1990423710802245449}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: damageCac
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: WhatIsEnemies.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
       propertyPath: joy
       value: 
       objectReference: {fileID: 1437083121}
-    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: ShotPoint
-      value: 
-      objectReference: {fileID: 1007042623}
     - target: {fileID: 6196341753933967197, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -32522,6 +32602,35 @@ PrefabInstance:
       propertyPath: joy
       value: 
       objectReference: {fileID: 1437083121}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacUp
+      value: 
+      objectReference: {fileID: 8755389196211267283, guid: a8822056195b1d04e89599a25be255a0,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacRight
+      value: 
+      objectReference: {fileID: 6333559797025718612, guid: 8abe12940a7526d4b998be88490f05ab,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacDown
+      value: 
+      objectReference: {fileID: 6391918958992699299, guid: 28d24bd51136b4349b6054fa26c915ba,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacLeft
+      value: 
+      objectReference: {fileID: 1949752527682909451, guid: 0069b3030d9b4644bad0abf78e18e483,
+        type: 3}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: WhatIsEnemies.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 6196341754485435416, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_Sprite
