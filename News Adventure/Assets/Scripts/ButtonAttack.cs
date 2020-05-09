@@ -56,30 +56,26 @@ public class ButtonAttack : MonoBehaviour
         {
             Transform PLAYER = GameObject.FindGameObjectWithTag("Player").transform;
 
+
+            //if the joystick is upwards and if the joystick is more trought the vertical axis than trought the horizontal axis 
+            // because the joystick can be on y=0.1 & x=0.9 so the projectile has to be to the right, even if y>0 (we consider y axis as vertical)
             if (joy.Vertical > 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal))) // projectile up
             {
                 Instantiate(projectileUp, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true); // if we attack, the animal is droped
-
             }
             else if (joy.Vertical < 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal))) // projectile down
             {
                 Instantiate(projectileDown, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true);
-
             }
             else if (joy.Horizontal < 0 && (Mathf.Abs(joy.Horizontal) > Mathf.Abs(joy.Vertical))) // projectile right
             {
                 Instantiate(projectileRight, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true);
-
             }
             else
             {
                 Instantiate(projectileLeft, ShotPoint.position, transform.rotation);  // projectile left
-                PLAYER.GetComponent<Player>().setDrop(true);
-
             }
+            PLAYER.GetComponent<Player>().setDrop(true); // if we attack, the animal is droped
             timeBtwAttack = Time.time + startTimeBtwAttack; // init a timer to wait before making a new attack
         }
     }

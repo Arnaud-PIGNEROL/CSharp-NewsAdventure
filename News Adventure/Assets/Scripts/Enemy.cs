@@ -408,18 +408,24 @@ public class Enemy : MonoBehaviour
 
     private void attack_dist()
     {
-        //   1  DDm<0  /                             \14  14/
-        //            /  DDm>0  2                  13 \    / 24
-        //                                              IA
-        //   3 DDp>0  \                            13 /    \ 24
-        //             \ DDp<0 4                     /23  23\
+
+        // the zone where DDm<0 and DDp<0 is the zone on the top of the ia (the player is on the top compare to the ia)
+        // the zone where DDm>0 and DDp<0 is the zone on the right of the ia (the player is on the right compare to the ia)
+        // etc...
+
+        //             /                             \14  14/
+        //   1 DDm<0  IA  DDm>0  2                 13 \    / 24
+        //           /                                  IA
+        //            \                            13 /    \ 24
+        //   3 DDp>0   IA   DDp<0 4                  /23  23\
+        //              \ 
 
         float Dx = transform.position.x - target.transform.position.x;
         float Dy = transform.position.y - target.transform.position.y;
         float DDp = Dx + Dy;
         float DDm = Dx - Dy;
 
-        this.boxCollider.enabled = false;
+        this.boxCollider.enabled = false; // to avoid the destruction of the projetcile at the frame of the instantiation
         if (DDp < 0) // Up or right
         {
             if(DDm > 0)
