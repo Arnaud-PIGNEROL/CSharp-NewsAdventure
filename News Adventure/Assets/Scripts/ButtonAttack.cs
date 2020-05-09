@@ -18,7 +18,7 @@ public class ButtonAttack : MonoBehaviour
     {
        
     }
-    public void CAC()
+    public void CAC() // button attack cac
     {
         if (timeBtwAttack <= 0)
         {
@@ -33,7 +33,7 @@ public class ButtonAttack : MonoBehaviour
         }
     }
     
-    public void Mid()
+    public void Mid() // button attack mid range
     {
         if (timeBtwAttack <= 0)
         {
@@ -48,27 +48,27 @@ public class ButtonAttack : MonoBehaviour
         }
     }
     
-    public void Range()
+    public void Range() // button attack range
     {
-        timeBtwAttack -= (Time.time - timeBtwAttack);
+        timeBtwAttack -= (Time.time - timeBtwAttack); // to set a minimal time bewteen 2 attacks
         Debug.Log("BTW : " + timeBtwAttack);
-        if (timeBtwAttack < Time.time)
+        if (timeBtwAttack < Time.time) // if the time between the old attack and the new attack isn't too short
         {
             Transform PLAYER = GameObject.FindGameObjectWithTag("Player").transform;
 
-            if (joy.Vertical > 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
+            if (joy.Vertical > 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal))) // projectile up
             {
                 Instantiate(projectileUp, ShotPoint.position, transform.rotation);
-                PLAYER.GetComponent<Player>().setDrop(true);
+                PLAYER.GetComponent<Player>().setDrop(true); // if we attack, the animal is droped
 
             }
-            else if (joy.Vertical < 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
+            else if (joy.Vertical < 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal))) // projectile down
             {
                 Instantiate(projectileDown, ShotPoint.position, transform.rotation);
                 PLAYER.GetComponent<Player>().setDrop(true);
 
             }
-            else if (joy.Horizontal < 0 && (Mathf.Abs(joy.Horizontal) > Mathf.Abs(joy.Vertical)))
+            else if (joy.Horizontal < 0 && (Mathf.Abs(joy.Horizontal) > Mathf.Abs(joy.Vertical))) // projectile right
             {
                 Instantiate(projectileRight, ShotPoint.position, transform.rotation);
                 PLAYER.GetComponent<Player>().setDrop(true);
@@ -76,11 +76,11 @@ public class ButtonAttack : MonoBehaviour
             }
             else
             {
-                Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
+                Instantiate(projectileLeft, ShotPoint.position, transform.rotation);  // projectile left
                 PLAYER.GetComponent<Player>().setDrop(true);
 
             }
-            timeBtwAttack = Time.time + startTimeBtwAttack;
+            timeBtwAttack = Time.time + startTimeBtwAttack; // init a timer to wait before making a new attack
         }
     }
 }

@@ -83,14 +83,15 @@ public class Enemy : MonoBehaviour
             bool player_targeted = false, moved = false;
             int[] myVectors_target = new int[2]; // 0 = xDir, 1 = yDir
 
-            if (player_around())
+            if (player_around()) // if the player is in range detection
             {
                 player_targeted = true;
                 onMoove = true;
             }
 
-            if (player_targeted)
+            if (player_targeted) 
             {
+                // each AI has its proprer way of thinking
                 if (this.name == "Braize(Clone)")
                     myVectors_target = ia_cac();
                 else if (this.name == "Vent(Clone)")
@@ -98,9 +99,9 @@ public class Enemy : MonoBehaviour
                 else if (this.name == "Boss(Clone)")
                     myVectors_target = ia_boss();
 
-                moved = Move(myVectors_target[0], myVectors_target[1]);
+                moved = Move(myVectors_target[0], myVectors_target[1]); // we take the supposed moved
 
-                if (!moved)
+                if (!moved) // if the check moove says that we can't moove for any reason
                 {
                     if ((transform.position.x <= target.transform.position.x + 0.05 && transform.position.x >= target.transform.position.x - 0.05) || (transform.position.y <= target.transform.position.y + 0.05 && transform.position.y >= target.transform.position.y - 0.05)) //to avoid infinite circular mouvement around the boxcollided
                         myVectors_target[0] = myVectors_target[1] = 0;
@@ -115,7 +116,7 @@ public class Enemy : MonoBehaviour
             {
                 onMoove = true;
                 time_next_move = 0;
-
+                // we moove randomly
                 if (this.name == "Boss(Clone)")
                 {
                     myVectors_target = ia_boss_stroll();
@@ -127,7 +128,7 @@ public class Enemy : MonoBehaviour
                 }
             }
 
-            if (onMoove && !moved)
+            if (onMoove && !moved) // if the AI has finished its move and if it couldn't moove
             {
                 if (Move(myVectors_target[0], myVectors_target[1]))
                 {
@@ -162,13 +163,13 @@ public class Enemy : MonoBehaviour
         //Check if anything was hit
         if (hitWall.transform == null && hitPlayer.transform == null)
         {
-           StartCoroutine(SmoothMovement(end));
+           StartCoroutine(SmoothMovement(end)); 
            return true;
         }
         return false;
     }
 
-    protected IEnumerator SmoothMovement(Vector3 end)
+    protected IEnumerator SmoothMovement(Vector3 end) // in order to make the AI going forward step by step and not by +50 pixel in one step
     {
         float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
         while (sqrRemainingDistance > float.Epsilon)
@@ -180,7 +181,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private bool out_of_range()
+    private bool out_of_range() // check if it is interesting to call the Ai function of the AI is too far from the player
     {
         RaycastHit2D hit;
         boxCollider.enabled = false;
@@ -225,7 +226,7 @@ public class Enemy : MonoBehaviour
         else
         {
             Path = ia_Escape(); // because run down is the inverse of run out
-            Path[0] = (-Path[0])/2;
+            Path[0] = (-Path[0])/2; // we /2 because we don't want that the ia CAC goes too fast
             Path[1] = (-Path[1])/2;
 
         }
@@ -245,17 +246,17 @@ public class Enemy : MonoBehaviour
         float Dx = transform.position.x - target.transform.position.x;
         float Dy = transform.position.y - target.transform.position.y;
 
-        if (((Dx > -shootingError && Dx < shootingError) || (Dy > -shootingError && Dy < shootingError)) && hit.distance > 1.5) // the Hypothénuse is >2 so the ennemi is safe, it can attack
+        if (((Dx > -shootingError && Dx < shootingError) || (Dy > -shootingError && Dy < shootingError)) && hit.distance > 1.5) // the distance is >2 so the ennemi is safe, it can attack
         {
             attack_dist();
             Path[0] = 0;
             Path[1] = 0;
         }
-        else if (hit.distance > 1.5)
+        else if (hit.distance > 1.5) // if the distance ai is a bit too far from the player
         {
             return iaDist_MinimizeGap(Dx, Dy);
         }
-        else
+        else // if the ai is too close from the player
         {
             return ia_Escape();
         }
