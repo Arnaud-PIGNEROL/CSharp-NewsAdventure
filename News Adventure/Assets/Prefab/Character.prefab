@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1030109154
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1030109155}
+  m_Layer: 10
+  m_Name: AttackPosMid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1030109155
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030109154}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1990423711877836395}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458665950092775189
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,9 +218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: []
   enemyTiles:
-  - {fileID: 5613381695200669732, guid: f4f2643d070238b48ab86a5102f63837, type: 3}
+  - {fileID: 6594277552574970085, guid: bc78f0bc0daa56246814d3c1116c4b16, type: 3}
   - {fileID: 3962771850573794275, guid: d5d6c337e5eadb74087a1965e3861584, type: 3}
-  - {fileID: 2442989502441487897, guid: b5fdb287bb6eae045a0bed60af1dec36, type: 3}
+  - {fileID: 2647432592357245276, guid: b5fdb287bb6eae045a0bed60af1dec36, type: 3}
   animals: []
   animalsTiles:
   - {fileID: 6562519862289615358, guid: f964c210903f58945a84a02509e345f2, type: 3}
@@ -227,9 +257,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1990423711877836394}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.005, y: 0, z: 0}
-  m_LocalScale: {x: 2.4, y: 2.4, z: 1}
+  m_LocalScale: {x: 1.7496258, y: 1.706952, z: 0.71123}
   m_Children:
   - {fileID: 1990423710419668934}
   - {fileID: 1990423710146923976}
@@ -238,6 +268,7 @@ Transform:
   - {fileID: 5285287420971066064}
   - {fileID: 5488448483418735260}
   - {fileID: 2145131257388301709}
+  - {fileID: 1030109155}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -323,7 +354,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc34a824e44826b419eb5754ddbd35f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 3.5
   fixedJoystick: {fileID: 0}
   rb: {fileID: 1990423711877836407}
 --- !u!50 &1990423711877836407
@@ -372,14 +403,14 @@ MonoBehaviour:
   projectileRight: {fileID: 2217562180063790081, guid: 185411bf9b51d724589aa379cf2753ab,
     type: 3}
   ShotPoint: {fileID: 1990423710269567012}
-  attackPosCacUp: {fileID: 0}
-  attackPosCacDown: {fileID: 0}
-  attackPosCacLeft: {fileID: 0}
-  attackPosCacRight: {fileID: 0}
-  attackPosRangeMid: {fileID: 0}
+  attackPosCacUp: {fileID: 999159881260327165}
+  attackPosCacDown: {fileID: 5285287420971066064}
+  attackPosCacLeft: {fileID: 2145131257388301709}
+  attackPosCacRight: {fileID: 5488448483418735260}
+  attackPosRangeMid: {fileID: 1030109155}
   distance: 10
   angle: 0
-  attackRangeCac: 0.53
+  attackRangeCac: 0.62
   damageCac: 2
   damageMid: 3
 --- !u!61 &1990423711877836405

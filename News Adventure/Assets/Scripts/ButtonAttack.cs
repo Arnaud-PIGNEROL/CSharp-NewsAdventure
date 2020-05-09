@@ -39,15 +39,14 @@ public class ButtonAttack : MonoBehaviour
         if (timeBtwAttack <= 0)
         {
 
-            if (PLAYER.GetComponent<Player>().getDirection() == "Up")
+            if (PLAYER.GetComponent<Player>().getDirection() == "Up") 
             {
-                Debug.Log("CAC up");
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacUp.position, attackRangeCac, WhatIsEnemies);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacUp.position, attackRangeCac, WhatIsEnemies); // on recupere les ennemis touches par l'attaque
 
-                FindObjectOfType<AudioManager>().Play("PlayerCac");
-                if (enemiesToDamage.Length >= 1)
+                if (enemiesToDamage.Length >= 1) // si on touche au moins 1 ennemis
                 {
-                    for (int i = 0; i < enemiesToDamage.Length; i++)
+                    FindObjectOfType<AudioManager>().Play("PlayerCac"); // son de l'attaque
+                    for (int i = 0; i < enemiesToDamage.Length; i++) // on applique les degats
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
                         PLAYER.GetComponent<Player>().setDrop(true);
@@ -56,12 +55,11 @@ public class ButtonAttack : MonoBehaviour
             }
             else if (PLAYER.GetComponent<Player>().getDirection() == "Down")
             {
-                Debug.Log("CAC down");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacDown.position, attackRangeCac, WhatIsEnemies);
 
-                FindObjectOfType<AudioManager>().Play("PlayerCac");
                 if (enemiesToDamage.Length >= 1)
                 {
+                    FindObjectOfType<AudioManager>().Play("PlayerCac");
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
@@ -71,12 +69,11 @@ public class ButtonAttack : MonoBehaviour
             }
             else if (PLAYER.GetComponent<Player>().getDirection() == "Left")
             {
-                Debug.Log("CAC left");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacLeft.position, attackRangeCac, WhatIsEnemies);
 
-                FindObjectOfType<AudioManager>().Play("PlayerCac");
                 if (enemiesToDamage.Length >= 1)
                 {
+                    FindObjectOfType<AudioManager>().Play("PlayerCac");
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);
@@ -86,12 +83,11 @@ public class ButtonAttack : MonoBehaviour
             }
             else
             {
-                Debug.Log("CAC right");
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacRight.position, attackRangeCac, WhatIsEnemies);
 
-                FindObjectOfType<AudioManager>().Play("PlayerCac");
                 if (enemiesToDamage.Length >= 1)
                 {
+                    FindObjectOfType<AudioManager>().Play("PlayerCac");
                     for (int i = 0; i < enemiesToDamage.Length; i++)
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().takeDamage(damageCac);

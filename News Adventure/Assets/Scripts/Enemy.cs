@@ -53,7 +53,6 @@ public class Enemy : MonoBehaviour
 
         health -= damage;
         FindObjectOfType<AudioManager>().Play("FireHit");
-        Debug.Log("health"+ health);
         if (health <= 0)
         {
             FindObjectOfType<AudioManager>().Play("FireDeath");
@@ -219,7 +218,6 @@ public class Enemy : MonoBehaviour
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
         boxCollider.enabled = true;
-        Debug.Log("cac distance = "+ hit.distance + " et range cac est de " + range_cac);
         if (hit.distance <= range_cac)
         {
             attack_cac();
