@@ -848,12 +848,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ebfeed41b71c242a6d147e9da1de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileUp: {fileID: 0}
-  projectileDown: {fileID: 0}
-  projectileLeft: {fileID: 0}
-  projectileRight: {fileID: 0}
+  projectileUp: {fileID: 548763811815287608, guid: 3fee0a542c55f9e4d8270b3ca55752fe,
+    type: 3}
+  projectileDown: {fileID: 3330655882009119167, guid: e72e086fb52ce394e996c633094686fe,
+    type: 3}
+  projectileLeft: {fileID: 7466050464318178900, guid: aa9e1f572da04a74e9fe4f8b5863b6a2,
+    type: 3}
+  projectileRight: {fileID: 2217562180063790081, guid: 185411bf9b51d724589aa379cf2753ab,
+    type: 3}
   ShotPoint: {fileID: 0}
-  joy: {fileID: 0}
+  attackPosCacUp: {fileID: 0}
+  attackPosCacDown: {fileID: 0}
+  attackPosCacLeft: {fileID: 0}
+  attackPosCacRight: {fileID: 0}
+  attackPosRangeMid: {fileID: 0}
+  distance: 0
+  angle: 0
+  attackRangeCac: 0
+  damageCac: 0
+  damageMid: 2
+  joy: {fileID: 6196341752435756742}
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &6196341753419704282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,12 +1163,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ebfeed41b71c242a6d147e9da1de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileUp: {fileID: 0}
-  projectileDown: {fileID: 0}
-  projectileLeft: {fileID: 0}
-  projectileRight: {fileID: 0}
+  projectileUp: {fileID: 548763811815287608, guid: 3fee0a542c55f9e4d8270b3ca55752fe,
+    type: 3}
+  projectileDown: {fileID: 3330655882009119167, guid: e72e086fb52ce394e996c633094686fe,
+    type: 3}
+  projectileLeft: {fileID: 7466050464318178900, guid: aa9e1f572da04a74e9fe4f8b5863b6a2,
+    type: 3}
+  projectileRight: {fileID: 2217562180063790081, guid: 185411bf9b51d724589aa379cf2753ab,
+    type: 3}
   ShotPoint: {fileID: 0}
-  joy: {fileID: 0}
+  attackPosCacUp: {fileID: 0}
+  attackPosCacDown: {fileID: 0}
+  attackPosCacLeft: {fileID: 0}
+  attackPosCacRight: {fileID: 0}
+  attackPosRangeMid: {fileID: 0}
+  distance: 0
+  angle: 0
+  attackRangeCac: 0
+  damageCac: 4
+  damageMid: 0
+  joy: {fileID: 6196341752435756742}
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &6196341754373388372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,12 +1405,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ebfeed41b71c242a6d147e9da1de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileUp: {fileID: 0}
-  projectileDown: {fileID: 0}
-  projectileLeft: {fileID: 0}
-  projectileRight: {fileID: 0}
+  projectileUp: {fileID: 548763811815287608, guid: 3fee0a542c55f9e4d8270b3ca55752fe,
+    type: 3}
+  projectileDown: {fileID: 3330655882009119167, guid: e72e086fb52ce394e996c633094686fe,
+    type: 3}
+  projectileLeft: {fileID: 7466050464318178900, guid: aa9e1f572da04a74e9fe4f8b5863b6a2,
+    type: 3}
+  projectileRight: {fileID: 2217562180063790081, guid: 185411bf9b51d724589aa379cf2753ab,
+    type: 3}
   ShotPoint: {fileID: 0}
-  joy: {fileID: 0}
+  attackPosCacUp: {fileID: 0}
+  attackPosCacDown: {fileID: 0}
+  attackPosCacLeft: {fileID: 0}
+  attackPosCacRight: {fileID: 0}
+  attackPosRangeMid: {fileID: 0}
+  distance: 0
+  angle: 0
+  attackRangeCac: 0
+  damageCac: 0
+  damageMid: 0
+  joy: {fileID: 6196341752435756742}
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 2048
 --- !u!1 &6196341754485599915
 GameObject:
   m_ObjectHideFlags: 0

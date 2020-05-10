@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &169735551 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1990423710269567012, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 745398203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &186624572
 GameObject:
   m_ObjectHideFlags: 0
@@ -17713,6 +17719,18 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!4 &288371151 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5285287420971066064, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 745398203}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &427499109 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2145131257388301709, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 745398203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &517942352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17761,12 +17779,72 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -142.2
       objectReference: {fileID: 0}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacUp
+      value: 
+      objectReference: {fileID: 2120746176}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: ShotPoint
+      value: 
+      objectReference: {fileID: 169735551}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacDown
+      value: 
+      objectReference: {fileID: 288371151}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacLeft
+      value: 
+      objectReference: {fileID: 427499109}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacRight
+      value: 
+      objectReference: {fileID: 1310954175}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosRangeMid
+      value: 
+      objectReference: {fileID: 1841983454}
     - target: {fileID: 6196341753933967194, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 010a6e5305fa7004f89c5d317b7b47d4,
         type: 3}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: ShotPoint
+      value: 
+      objectReference: {fileID: 169735551}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacUp
+      value: 
+      objectReference: {fileID: 2120746176}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacDown
+      value: 
+      objectReference: {fileID: 288371151}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacLeft
+      value: 
+      objectReference: {fileID: 427499109}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacRight
+      value: 
+      objectReference: {fileID: 1310954175}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosRangeMid
+      value: 
+      objectReference: {fileID: 1841983454}
     - target: {fileID: 6196341753933967197, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -17777,6 +17855,36 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -101
       objectReference: {fileID: 0}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: ShotPoint
+      value: 
+      objectReference: {fileID: 169735551}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacUp
+      value: 
+      objectReference: {fileID: 2120746176}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacDown
+      value: 
+      objectReference: {fileID: 288371151}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacLeft
+      value: 
+      objectReference: {fileID: 427499109}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacRight
+      value: 
+      objectReference: {fileID: 1310954175}
+    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosRangeMid
+      value: 
+      objectReference: {fileID: 1841983454}
     - target: {fileID: 6196341754485435416, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_Sprite
@@ -18150,6 +18258,12 @@ MonoBehaviour:
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 5
+--- !u!4 &1310954175 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5488448483418735260, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 745398203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1413324779
 GameObject:
   m_ObjectHideFlags: 0
@@ -20916,6 +21030,12 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!4 &1841983454 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1030109155, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 745398203}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1930464386
 GameObject:
   m_ObjectHideFlags: 0
@@ -21866,3 +21986,9 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &2120746176 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 999159881260327165, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 745398203}
+  m_PrefabAsset: {fileID: 0}

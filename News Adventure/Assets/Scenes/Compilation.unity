@@ -237,7 +237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -447,7 +447,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -576,7 +576,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -960,7 +960,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1129,7 +1129,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1258,7 +1258,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1393,7 +1393,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -2894,7 +2894,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3023,7 +3023,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3112,7 +3112,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -30113,7 +30113,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -30717,7 +30717,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -30858,7 +30858,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -30987,7 +30987,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31116,7 +31116,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31129,6 +31129,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1611512002 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1030109155, guid: b36c10a5a83416745a075427698269ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1990423710802245446}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1656996320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31324,7 +31330,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31453,7 +31459,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31582,7 +31588,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 4
   m_Sprite: {fileID: -285368519267060425, guid: b21af09a631a16444aaafd4e1de5c1fb,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -32464,19 +32470,34 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
-      propertyPath: damageMid
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: WhatIsEnemies.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: joy
+      propertyPath: attackPosRangeMid
       value: 
-      objectReference: {fileID: 1437083121}
+      objectReference: {fileID: 1611512002}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacLeft
+      value: 
+      objectReference: {fileID: 1990423710802245447}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacRight
+      value: 
+      objectReference: {fileID: 1990423710802245448}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacDown
+      value: 
+      objectReference: {fileID: 1990423710802245449}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: attackPosCacUp
+      value: 
+      objectReference: {fileID: 1990423710802245450}
+    - target: {fileID: 6196341753076511935, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: ShotPoint
+      value: 
+      objectReference: {fileID: 1007042623}
     - target: {fileID: 6196341753419704281, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -32545,19 +32566,14 @@ PrefabInstance:
       objectReference: {fileID: 1990423710802245449}
     - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
-      propertyPath: damageCac
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: WhatIsEnemies.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: joy
+      propertyPath: attackPosRangeMid
       value: 
-      objectReference: {fileID: 1437083121}
+      objectReference: {fileID: 1611512002}
+    - target: {fileID: 6196341753933967196, guid: a3611bf9c4a957341ae034722299b6b9,
+        type: 3}
+      propertyPath: ShotPoint
+      value: 
+      objectReference: {fileID: 1007042623}
     - target: {fileID: 6196341753933967197, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -32575,62 +32591,24 @@ PrefabInstance:
       objectReference: {fileID: 1007042623}
     - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
-      propertyPath: projectileLeft
-      value: 
-      objectReference: {fileID: 7466050464318178900, guid: aa9e1f572da04a74e9fe4f8b5863b6a2,
-        type: 3}
-    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: projectileDown
-      value: 
-      objectReference: {fileID: 3330655882009119167, guid: e72e086fb52ce394e996c633094686fe,
-        type: 3}
-    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: projectileRight
-      value: 
-      objectReference: {fileID: 2217562180063790081, guid: 185411bf9b51d724589aa379cf2753ab,
-        type: 3}
-    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: projectileUp
-      value: 
-      objectReference: {fileID: 548763811815287608, guid: 3fee0a542c55f9e4d8270b3ca55752fe,
-        type: 3}
-    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: joy
-      value: 
-      objectReference: {fileID: 1437083121}
-    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
       propertyPath: attackPosCacUp
       value: 
-      objectReference: {fileID: 8755389196211267283, guid: a8822056195b1d04e89599a25be255a0,
-        type: 3}
+      objectReference: {fileID: 1990423710802245450}
     - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: attackPosCacRight
       value: 
-      objectReference: {fileID: 6333559797025718612, guid: 8abe12940a7526d4b998be88490f05ab,
-        type: 3}
+      objectReference: {fileID: 1990423710802245448}
     - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: attackPosCacDown
       value: 
-      objectReference: {fileID: 6391918958992699299, guid: 28d24bd51136b4349b6054fa26c915ba,
-        type: 3}
+      objectReference: {fileID: 1990423710802245449}
     - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: attackPosCacLeft
       value: 
-      objectReference: {fileID: 1949752527682909451, guid: 0069b3030d9b4644bad0abf78e18e483,
-        type: 3}
-    - target: {fileID: 6196341754485435398, guid: a3611bf9c4a957341ae034722299b6b9,
-        type: 3}
-      propertyPath: WhatIsEnemies.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1990423710802245447}
     - target: {fileID: 6196341754485435416, guid: a3611bf9c4a957341ae034722299b6b9,
         type: 3}
       propertyPath: m_Sprite

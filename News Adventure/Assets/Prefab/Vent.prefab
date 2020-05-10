@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 7
+  m_SortingOrder: 3
   m_Sprite: {fileID: -221748720076683506, guid: 8701440a6078b174f81d5bb78dec933a,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,10 +186,11 @@ MonoBehaviour:
     m_Bits: 1024
   speed: 5
   detection_dist: 4
-  moveTime: 0.1
   health: 5
   damage: 1
   ptsAtDeath: 7
+  range_cac: 0
+  moveTime: 0.1
   shootingError: 0.5
 --- !u!1 &3962771851240683193
 GameObject:
