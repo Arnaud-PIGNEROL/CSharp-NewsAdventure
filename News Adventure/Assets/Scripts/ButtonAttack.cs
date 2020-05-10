@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ButtonAttack : MonoBehaviour
 {
-    private static float timeBtwAttack;
-    private static float startTimeBtwAttack = 0.1f;
+    public static float timeBtwAttack;
+    private static float startTimeBtwAttack = 0.7f;
     private Transform PLAYER;
-    private Animator anim;
+    public Animator animator;
 
     public GameObject projectileUp;
     public GameObject projectileDown;
@@ -31,16 +31,19 @@ public class ButtonAttack : MonoBehaviour
     public void Start()
     {
         PLAYER = GameObject.FindGameObjectWithTag("Player").transform;
-        anim = GetComponent<Animator>();
     }
 
     public void CAC() // button attack cac
     {
         if (timeBtwAttack <= 0)
         {
+            animator.SetBool("Attack", true);
+            animator.SetFloat("Vertical", joy.Vertical);
+            animator.SetFloat("Horizontal", joy.Horizontal);
 
             if (PLAYER.GetComponent<Player>().getDirection() == "Up") 
             {
+                
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacUp.position, attackRangeCac, WhatIsEnemies); // on recupere les ennemis touches par l'attaque
 
                 if (enemiesToDamage.Length >= 1) // si on touche au moins 1 ennemis
@@ -95,7 +98,6 @@ public class ButtonAttack : MonoBehaviour
                     }
                 }
             }
-
             timeBtwAttack = startTimeBtwAttack;
             timeBtwAttack -= Time.deltaTime;
         }

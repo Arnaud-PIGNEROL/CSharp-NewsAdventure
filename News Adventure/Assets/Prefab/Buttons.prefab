@@ -114,7 +114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.0999756, y: -61.5}
+  m_AnchoredPosition: {x: 2.1000977, y: -61.5}
   m_SizeDelta: {x: -448.1, y: -331.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6104295800206273406
@@ -331,7 +331,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: 100.20001}
+  m_AnchoredPosition: {x: 0, y: 100.19995}
   m_SizeDelta: {x: 0, y: -199.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7708328698234441085
@@ -488,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.0999756, y: -61.5}
+  m_AnchoredPosition: {x: 2.1000977, y: -61.5}
   m_SizeDelta: {x: -448.1, y: -331.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1904282022979911345
@@ -571,7 +571,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1766488774694440013}
-        m_MethodName: change
+        m_MethodName: numBchange
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -848,12 +848,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ebfeed41b71c242a6d147e9da1de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   projectileUp: {fileID: 0}
   projectileDown: {fileID: 0}
   projectileLeft: {fileID: 0}
   projectileRight: {fileID: 0}
   ShotPoint: {fileID: 0}
+  attackPosCacUp: {fileID: 0}
+  attackPosCacDown: {fileID: 0}
+  attackPosCacLeft: {fileID: 0}
+  attackPosCacRight: {fileID: 0}
+  attackPosRangeMid: {fileID: 0}
+  distance: 0
+  angle: 0
+  attackRangeCac: 0
+  damageCac: 0
+  damageMid: 0
   joy: {fileID: 0}
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6196341753419704282
 GameObject:
   m_ObjectHideFlags: 0
@@ -1146,12 +1160,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ebfeed41b71c242a6d147e9da1de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   projectileUp: {fileID: 0}
   projectileDown: {fileID: 0}
   projectileLeft: {fileID: 0}
   projectileRight: {fileID: 0}
   ShotPoint: {fileID: 0}
+  attackPosCacUp: {fileID: 0}
+  attackPosCacDown: {fileID: 0}
+  attackPosCacLeft: {fileID: 0}
+  attackPosCacRight: {fileID: 0}
+  attackPosRangeMid: {fileID: 0}
+  distance: 0
+  angle: 0
+  attackRangeCac: 0
+  damageCac: 0
+  damageMid: 0
   joy: {fileID: 0}
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6196341754373388372
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,12 +1399,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ebfeed41b71c242a6d147e9da1de9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   projectileUp: {fileID: 0}
   projectileDown: {fileID: 0}
   projectileLeft: {fileID: 0}
   projectileRight: {fileID: 0}
   ShotPoint: {fileID: 0}
+  attackPosCacUp: {fileID: 0}
+  attackPosCacDown: {fileID: 0}
+  attackPosCacLeft: {fileID: 0}
+  attackPosCacRight: {fileID: 0}
+  attackPosRangeMid: {fileID: 0}
+  distance: 0
+  angle: 0
+  attackRangeCac: 0
+  damageCac: 0
+  damageMid: 0
   joy: {fileID: 0}
+  WhatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &6196341754485599915
 GameObject:
   m_ObjectHideFlags: 0

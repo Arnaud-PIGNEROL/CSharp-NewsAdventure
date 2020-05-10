@@ -109,7 +109,6 @@ public class Dash : MonoBehaviour
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(this.transform.position, target.transform.position, playerLayer);
         boxCollider.enabled = true;
-        Debug.Log(minRrange_dash + " <= " + hit.distance + " <= " + maxRange_dash + "   , && timeBtwAttack : " + timeBtwAttack  + "<? 0");
         if (hit.distance <= maxRange_dash && hit.distance >= minRrange_dash)
             return true;
 

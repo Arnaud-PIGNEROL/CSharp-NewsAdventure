@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -26,7 +27,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (this.GetComponent<Animator>().GetBool("Attack") == true && (ButtonAttack.timeBtwAttack <= 0))
+        {
+            this.GetComponent<Animator>().SetBool("Attack", false);
+        }
         if (joy.Vertical > 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
         {
             this.direction = "Right";
@@ -43,7 +47,8 @@ public class Player : MonoBehaviour
         {
             this.direction = "Up";
         }
-
+        ButtonAttack.timeBtwAttack -= Time.deltaTime;
+        Debug.Log(ButtonAttack.timeBtwAttack);
     }
 
     public bool getDrop()

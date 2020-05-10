@@ -10,4 +10,9 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(MapToLoad);
     }
+
+    public void numBchange()
+    {
+        SceneManager.LoadScene(1);
+    }
 }
