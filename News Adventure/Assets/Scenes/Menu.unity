@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9c742bc85ee884bb708b151c36eae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapToLoad: Compilation
+  MapToLoad: Feu_Australie
 --- !u!114 &40958011
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -61,9 +61,9 @@ public class Enemy : MonoBehaviour
             GameManager.instance.enemy.RemoveAt(index);
             Destroy(gameObject);
 
-            if (this.name == "Boss(Clone)" && this.health <= 0 && FindObjectOfType<GameMan>().victory.activeInHierarchy == false && FindObjectOfType<GameMan>().defeat.activeInHierarchy == false)
+            if (this.name == "Boss(Clone)" && this.health <= 0 && FindObjectOfType<EcranFin>().victory.activeInHierarchy == false && FindObjectOfType<EcranFin>().defeat.activeInHierarchy == false)
             {
-                FindObjectOfType<GameMan>().Win();
+                FindObjectOfType<EcranFin>().Win();
             }
 
         }
@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
 
     public void MoveEnemy()
     {
-        if(FindObjectOfType<GameMan>().end == false)
+        if(FindObjectOfType<EcranFin>().end == false)
         {
             //animator.SetFloat("xAxis", 0);
             //animator.SetFloat("yAxis", 0);

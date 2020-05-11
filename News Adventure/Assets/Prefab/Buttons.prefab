@@ -1520,7 +1520,6 @@ GameObject:
   - component: {fileID: 6196341754491618182}
   - component: {fileID: 6196341754491618183}
   - component: {fileID: 6196341754491618200}
-  - component: {fileID: 6196341754491618181}
   - component: {fileID: 2391358729050695084}
   m_Layer: 0
   m_Name: Buttons
@@ -1614,14 +1613,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
---- !u!362 &6196341754491618181
-WorldAnchor:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6196341754491618202}
-  serializedVersion: 2
 --- !u!114 &2391358729050695084
 MonoBehaviour:
   m_ObjectHideFlags: 0

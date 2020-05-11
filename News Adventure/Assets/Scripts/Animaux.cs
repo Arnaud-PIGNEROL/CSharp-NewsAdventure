@@ -50,7 +50,7 @@ public class Animaux : MonoBehaviour
 
     public void MoveAnimal()
     {
-        if(FindObjectOfType<GameMan>().end == false)
+        if(FindObjectOfType<EcranFin>().end == false)
         {
             if (out_of_range() || isSafe)
                 return;

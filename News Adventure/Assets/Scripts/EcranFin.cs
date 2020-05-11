@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameMan : MonoBehaviour
+public class EcranFin : MonoBehaviour
 {
 
     public bool end;
