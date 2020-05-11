@@ -48,7 +48,6 @@ public class Player : MonoBehaviour
             this.direction = "Up";
         }
         ButtonAttack.timeBtwAttack -= Time.deltaTime;
-        Debug.Log(ButtonAttack.timeBtwAttack);
     }
 
     public bool getDrop()
