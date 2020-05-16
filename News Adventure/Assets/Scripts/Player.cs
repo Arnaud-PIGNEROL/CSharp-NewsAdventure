@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("x : " + this.transform.position.x + ", y :" + this.transform.position.y);
         if (this.GetComponent<Animator>().GetBool("Attack") == true && (ButtonAttack.timeBtwAttack <= 0))
         {
             this.GetComponent<Animator>().SetBool("Attack", false);

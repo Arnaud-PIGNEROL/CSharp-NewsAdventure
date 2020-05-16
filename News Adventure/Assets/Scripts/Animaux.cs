@@ -187,7 +187,7 @@ public class Animaux : MonoBehaviour
 
     private bool Safe()
     {
-        if ((int)this.transform.position.x == 9 && ((int)this.transform.position.y > 24 && (int)this.transform.position.y < 30))
+        if (((int)this.transform.position.x < -8.25 && (int)this.transform.position.x > -10.75) && ((int)this.transform.position.y > 19.75 && (int)this.transform.position.y < 22.25))
         {
             isSafe = true;
             handled_by_player = false;
