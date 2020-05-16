@@ -23,9 +23,9 @@ public class GameManager : MonoBehaviour
             Destroy(dontDestroy);         //Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 
 
-       // DontDestroyOnLoad(dontDestroy);
+        // DontDestroyOnLoad(dontDestroy);
 
-        if(enemyTiles.Length > 0)
+        if (enemyTiles.Length > 0)
             LayoutEnemyPosition();
         //LayoutAnimalsPosition();
     }
@@ -38,34 +38,34 @@ public class GameManager : MonoBehaviour
 
     IEnumerator MoveEntities()
     {
-        
+
         for (int i = 0; i < enemy.Count; i++)
         {
             enemy[i].MoveEnemy();
             yield return new WaitForSeconds(enemy[i].moveTime);
         }
-       
+
         for (int i = 0; i < animals.Count; i++)
         {
             animals[i].MoveAnimal();
             yield return new WaitForSeconds(animals[i].moveTime);
         }
-        
-        
+
+
     }
 
     void LayoutEnemyPosition() // makes spawn the tile at a random position
     {
         //le premier ennemy qui bug je sais pas pourquoi on le fou en arrière plan, methode de shlag mais qui marche
-        
+
         Vector3 Vposition = new Vector3(-1, 13, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
-        
+
         //creation des braizes
         Vposition = new Vector3(5, 23, 0);
         Instantiate(enemyTiles[0], Vposition, Quaternion.identity);
 
-        
+
         //creation du vent
         Vposition = new Vector3(-5, 22, 0);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
@@ -73,12 +73,12 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
         Vposition = new Vector3(3, 36, 0);
         Instantiate(enemyTiles[1], Vposition, Quaternion.identity);
-        
-        
+
+
         //creation du BOSS
         Vposition = new Vector3(1, 33, 0);
         Instantiate(enemyTiles[2], Vposition, Quaternion.identity);
-        
+
     }
 
     void LayoutAnimalsPosition()

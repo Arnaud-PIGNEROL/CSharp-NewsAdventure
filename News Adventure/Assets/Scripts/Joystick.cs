@@ -71,7 +71,7 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
 
         handle.anchoredPosition = input * radius * handleRange;
 
-        
+
     }
 
     //A partir de quand le bouton revient à sa position originale ===========> Empêche le joystick de quitter la zone prévue à cet effet
@@ -106,7 +106,4 @@ public class Joystick : MonoBehaviour, IPointerDownHandler, IDragHandler, IPoint
         }
         return Vector2.zero;
     }
-
-    
-
 }

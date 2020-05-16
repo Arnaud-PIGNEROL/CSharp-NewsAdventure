@@ -22,12 +22,12 @@ public class EcranFin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.V) && end == false)
+        if (Input.GetKey(KeyCode.V) && end == false)
         {
             Win();
             end = true;
         }
-         
+
         if (Input.GetKey(KeyCode.L) && end == false)
         {
             Lose();
@@ -44,7 +44,7 @@ public class EcranFin : MonoBehaviour
 
         if (PlayerPrefs.HasKey(scene_actuelle))  // if there is already a score on the scene
         {
-            if(PlayerPrefs.GetInt(scene_actuelle) < player.score) // save only if we have made a better score
+            if (PlayerPrefs.GetInt(scene_actuelle) < player.score) // save only if we have made a better score
                 PlayerPrefs.SetInt(scene_actuelle, player.score); // save of the final score
         }
         else
@@ -54,13 +54,12 @@ public class EcranFin : MonoBehaviour
 
         end = true;
     }
-    
+
     public void Lose()
     {
         FindObjectOfType<AudioManager>().Play("Loss");
         defeat.SetActive(true);
         FindObjectOfType<AudioManager>().Stop("Game");
-
         end = true;
     }
 }

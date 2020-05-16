@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     public GameObject projectileLeft;
     public GameObject projectileRight;
     public LayerMask blockingLayer;  //is the space open (no collision?)
-    public LayerMask playerLayer;  
+    public LayerMask playerLayer;
     public int speed;
     public int detection_dist;
     public int health;
@@ -40,7 +40,7 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         target = GameObject.FindGameObjectWithTag("Player");
-        inverseMoveTime = 1f / moveTime;    
+        inverseMoveTime = 1f / moveTime;
     }
 
     void Update()
@@ -72,11 +72,11 @@ public class Enemy : MonoBehaviour
 
     public void MoveEnemy()
     {
-        if(FindObjectOfType<EcranFin>().end == false)
+        if (FindObjectOfType<EcranFin>().end == false)
         {
-            //animator.SetFloat("xAxis", 0);
-            //animator.SetFloat("yAxis", 0);
-            //animator.SetFloat("Magnitude", 0);
+            animator.SetFloat("xAxis", 0);
+            animator.SetFloat("yAxis", 0);
+            animator.SetFloat("Magnitude", 0);
             if (out_of_range() || Time.time < time_next_move)
                 return;
 
@@ -89,7 +89,7 @@ public class Enemy : MonoBehaviour
                 onMoove = true;
             }
 
-            if (player_targeted) 
+            if (player_targeted)
             {
                 // each AI has its proprer way of thinking
                 if (this.name == "Braize(Clone)")
@@ -150,9 +150,9 @@ public class Enemy : MonoBehaviour
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
-        //animator.SetFloat("xAxis", xDir);
-        //animator.SetFloat("yAxis", yDir);
-        //animator.SetFloat("Magnitude", end.magnitude);
+        animator.SetFloat("xAxis", xDir);
+        animator.SetFloat("yAxis", yDir);
+        animator.SetFloat("Magnitude", end.magnitude);
         RaycastHit2D hitWall, hitPlayer;
 
         boxCollider.enabled = false;
@@ -163,8 +163,8 @@ public class Enemy : MonoBehaviour
         //Check if anything was hit
         if (hitWall.transform == null && hitPlayer.transform == null)
         {
-           StartCoroutine(SmoothMovement(end)); 
-           return true;
+            StartCoroutine(SmoothMovement(end));
+            return true;
         }
         return false;
     }
@@ -190,7 +190,7 @@ public class Enemy : MonoBehaviour
 
         if (hit.distance > 20)
             return true;
-        
+
         return false;
     }
 
@@ -226,8 +226,8 @@ public class Enemy : MonoBehaviour
         else
         {
             Path = ia_Escape(); // because run down is the inverse of run out
-            Path[0] = (-Path[0])/2; // we /2 because we don't want that the ia CAC goes too fast
-            Path[1] = (-Path[1])/2;
+            Path[0] = (-Path[0]) / 2; // we /2 because we don't want that the ia CAC goes too fast
+            Path[1] = (-Path[1]) / 2;
 
         }
 
@@ -364,7 +364,7 @@ public class Enemy : MonoBehaviour
 
         int attack = Random.Range(0, 200);
 
-        if(attack == 0)
+        if (attack == 0)
         {
             ;
         }
@@ -428,7 +428,7 @@ public class Enemy : MonoBehaviour
         this.boxCollider.enabled = false; // to avoid the destruction of the projetcile at the frame of the instantiation
         if (DDp < 0) // Up or right
         {
-            if(DDm > 0)
+            if (DDm > 0)
             {
                 Instantiate(projectileUp, ShotPoint.position, transform.rotation);
             }

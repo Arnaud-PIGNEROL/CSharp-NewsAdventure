@@ -34,11 +34,11 @@ public class Player : MonoBehaviour
         if (joy.Vertical > 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
         {
             this.direction = "Right";
-            }
+        }
         if (joy.Vertical < 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
         {
             this.direction = "Left";
-         }
+        }
         if (joy.Horizontal < 0 && (Mathf.Abs(joy.Horizontal) > Mathf.Abs(joy.Vertical)))
         {
             this.direction = "Down";
