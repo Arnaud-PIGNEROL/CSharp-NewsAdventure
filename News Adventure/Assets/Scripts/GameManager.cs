@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
         if (enemyTiles.Length > 0)
             LayoutEnemyPosition();
-        //LayoutAnimalsPosition();
+        LayoutAnimalsPosition();
     }
 
     // Update is called once per frame
