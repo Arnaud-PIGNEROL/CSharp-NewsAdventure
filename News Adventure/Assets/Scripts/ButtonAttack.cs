@@ -41,9 +41,9 @@ public class ButtonAttack : MonoBehaviour
             animator.SetFloat("Vertical", joy.Vertical);
             animator.SetFloat("Horizontal", joy.Horizontal);
 
-            if (PLAYER.GetComponent<Player>().getDirection() == "Up") 
+            if (PLAYER.GetComponent<Player>().getDirection() == "Up")
             {
-                
+
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPosCacUp.position, attackRangeCac, WhatIsEnemies); // on recupere les ennemis touches par l'attaque
 
                 if (enemiesToDamage.Length >= 1) // si on touche au moins 1 ennemis
@@ -112,13 +112,11 @@ public class ButtonAttack : MonoBehaviour
     {
         if (timeBtwAttack <= 0)
         {
-            Debug.Log("Mid");
             timeBtwAttack = startTimeBtwAttack;
             timeBtwAttack -= Time.deltaTime;
         }
         else
         {
-            Debug.Log("time : " + timeBtwAttack);
             timeBtwAttack -= Time.deltaTime;
         }
     }
@@ -133,26 +131,20 @@ public class ButtonAttack : MonoBehaviour
             if (joy.Vertical > 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
             {
                 Instantiate(projectileRight, ShotPoint.position, transform.rotation);
-                Debug.Log("Right");
 
             }
             else if (joy.Vertical < 0 && (Mathf.Abs(joy.Vertical) > Mathf.Abs(joy.Horizontal)))
             {
                 Instantiate(projectileLeft, ShotPoint.position, transform.rotation);
-                Debug.Log("Left");
 
             }
             else if (joy.Horizontal < 0 && (Mathf.Abs(joy.Horizontal) > Mathf.Abs(joy.Vertical)))
             {
                 Instantiate(projectileDown, ShotPoint.position, transform.rotation);
-                Debug.Log("Down");
-
             }
             else
             {
                 Instantiate(projectileUp, ShotPoint.position, transform.rotation);
-                Debug.Log("Up");
-
             }
             PLAYER.GetComponent<Player>().setDrop(true);
             timeBtwAttack = Time.time + startTimeBtwAttack;

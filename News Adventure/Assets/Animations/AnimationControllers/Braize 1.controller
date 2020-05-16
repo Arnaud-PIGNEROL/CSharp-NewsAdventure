@@ -177,13 +177,13 @@ AnimatorController:
   m_Name: Braize 1
   serializedVersion: 5
   m_AnimatorParameters:
-  - m_Name: Xaxis
+  - m_Name: xAxis
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Yaxis
+  - m_Name: yAxis
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -274,8 +274,8 @@ BlendTree:
     m_CycleOffset: 0
     m_DirectBlendParameter: Blend
     m_Mirror: 0
-  m_BlendParameter: Xaxis
-  m_BlendParameterY: Yaxis
+  m_BlendParameter: xAxis
+  m_BlendParameterY: yAxis
   m_MinThreshold: 0
   m_MaxThreshold: 1
   m_UseAutomaticThresholds: 1

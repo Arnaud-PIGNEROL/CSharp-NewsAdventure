@@ -100,7 +100,7 @@ public class Dash : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
-        
+
     }
 
     private bool is_usefull_to_dash()

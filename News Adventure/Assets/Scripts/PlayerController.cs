@@ -9,12 +9,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = new Vector2(fixedJoystick.Vertical, fixedJoystick.Horizontal);
-        
+
         moveVelocity = moveInput.normalized * speed;
     }
     public void FixedUpdate()
     {
-        Vector2 direction = new Vector3 (fixedJoystick.Vertical, fixedJoystick.Horizontal);
+        Vector2 direction = new Vector3(fixedJoystick.Vertical, fixedJoystick.Horizontal);
         rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
     }
 }

@@ -5,7 +5,7 @@ public class ChangeScene : MonoBehaviour
 {
     public string MapToLoad;
 
-   //Function called when page pressed
+    //Function called when page pressed
     public void change()
     {
         SceneManager.LoadScene(MapToLoad);
