@@ -30,7 +30,7 @@ public class Animaux : MonoBehaviour
         GameManager.instance.animals.Add(this);
 
         boxCollider = GetComponent<BoxCollider2D>();
-        animator = GetComponent<Animator>();
+        animator = this.GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
     }
 
@@ -116,7 +116,6 @@ public class Animaux : MonoBehaviour
         //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
         Vector2 end = start + new Vector2(xDir, yDir);
-
         RaycastHit2D hit;
         boxCollider.enabled = false;
         hit = Physics2D.Linecast(start, end, blockingLayer);
@@ -149,7 +148,7 @@ public class Animaux : MonoBehaviour
                 break;
             default:
                 break;
-
+                
         }
         StartCoroutine(SmoothMovement(dir));
 

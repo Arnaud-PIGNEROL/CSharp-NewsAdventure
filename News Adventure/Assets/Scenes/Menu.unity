@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e9c742bc85ee884bb708b151c36eae2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MapToLoad: Feu_Australie
+  MapToLoad: OpeningCutscene
 --- !u!114 &40958011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2489,7 +2489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 10, y: -62.000015}
+  m_AnchoredPosition: {x: 10, y: -62}
   m_SizeDelta: {x: -17, y: 20}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1951102904
@@ -2535,7 +2535,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 674069830}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.57101834
+  m_Size: 0.6601179
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

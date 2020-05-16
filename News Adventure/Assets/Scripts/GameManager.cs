@@ -89,7 +89,7 @@ public class GameManager : MonoBehaviour
         Instantiate(animalsTiles[0], Vposition, Quaternion.identity);
 
         Vposition = new Vector3(4, -4, 10);
-        Instantiate(animalsTiles[1], Vposition, Quaternion.identity);
+        Instantiate(animalsTiles[0], Vposition, Quaternion.identity);
     }
 
     void OnDrawGizmos()
