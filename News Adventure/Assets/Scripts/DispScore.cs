@@ -11,22 +11,28 @@ public class DispScore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!PlayerPrefs.HasKey("Feu_Australie"))
+            PlayerPrefs.SetInt("Feu_Australie", 0);
+        if (!PlayerPrefs.HasKey("Corona"))
+            PlayerPrefs.SetInt("Corona", 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("x :" + content.transform.position.x);
+        //Debug.Log("x :" + content.transform.position.x);
 
         if(content.transform.position.x > -10 && content.transform.position.x < -5)
         {
-            this.enabled = true;
-            this.GetComponent<UnityEngine.UI.Text>().text = PlayerPrefs.GetInt("Feu_Australie").ToString();
+            this.GetComponent<UnityEngine.UI.Text>().text = ("Best score : " + PlayerPrefs.GetInt("Feu_Australie").ToString());
+        }
+        else if (content.transform.position.x > -25 && content.transform.position.x < -20)
+        {
+            this.GetComponent<UnityEngine.UI.Text>().text = ("Best score : " + PlayerPrefs.GetInt("Corona").ToString());
         }
         else
         {
-            this.enabled = false;
+            this.GetComponent<UnityEngine.UI.Text>().text = "";
         }
     }
 }
