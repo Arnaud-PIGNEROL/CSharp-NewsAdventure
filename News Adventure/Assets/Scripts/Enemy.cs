@@ -398,10 +398,15 @@ public class Enemy : MonoBehaviour
 
     private void attack_cac()
     {
-        Collider2D[] hitInfo = Physics2D.OverlapBoxAll(attackPosRangeMid.position, new Vector3(1.2f, 0.4f, 1), 0, playerLayer);
+        Collider2D[] hitInfo = Physics2D.OverlapCircleAll(attackPosRangeMid.position, range_cac, 0, playerLayer);
         FindObjectOfType<AudioManager>().Play("FireAttack");
-        if (hitInfo.Length >= 1)
+        Debug.Log("degat de " + hitInfo.Length);
+        if (hitInfo.Length >= 0)
+        {
             target.GetComponent<Player>().takeDamage(damage);
+        }
+
+
 
         time_next_move = (Time.time + 1);
     }

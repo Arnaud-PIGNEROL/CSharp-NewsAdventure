@@ -182,7 +182,7 @@ MonoBehaviour:
     m_Bits: 1024
   speed: 1
   detection_dist: 5
-  health: 10
+  health: 15
   damage: 5
   ptsAtDeath: 20
   range_cac: 2.5
