@@ -56,8 +56,8 @@ public class Dash : MonoBehaviour
                 else if (Input.GetKey(KeyCode.DownArrow))
                 {
                     direction = 4;
-                }*/
-
+                }
+                */
                 if (DDp < 0) // Up or right
                 {
                     if (DDm > 0)

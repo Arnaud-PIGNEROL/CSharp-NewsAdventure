@@ -185,7 +185,7 @@ MonoBehaviour:
   health: 15
   damage: 5
   ptsAtDeath: 20
-  range_cac: 2.5
+  range_cac: 2.75
   moveTime: 0.1
   shootingError: 0
 --- !u!114 &-7007603509583204897
