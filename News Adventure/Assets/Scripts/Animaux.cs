@@ -13,7 +13,9 @@ public class Animaux : MonoBehaviour
 
     private bool isSafe;
     public float time_next_move;
-    private Transform player;
+    
+    private GameObject player;
+
     private Animator animator;
     private Rigidbody2D rb2D;
     private BoxCollider2D boxCollider;
@@ -24,10 +26,9 @@ public class Animaux : MonoBehaviour
         handled_by_player = false;
         isSafe = false;
         time_next_move = 0;
-
+        player = GameObject.FindGameObjectWithTag("Player");
         GameManager.instance.animals.Add(this);
 
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         boxCollider = GetComponent<BoxCollider2D>();
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
@@ -42,7 +43,7 @@ public class Animaux : MonoBehaviour
 
     private bool out_of_range()
     {
-        if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y))) > 20)
+        if (Mathf.Sqrt((Mathf.Abs(transform.position.x) - Mathf.Abs(player.transform.position.x)) * (Mathf.Abs(transform.position.x) - Mathf.Abs(player.transform.position.x)) + (Mathf.Abs(transform.position.y) - Mathf.Abs(player.transform.position.y)) * (Mathf.Abs(transform.position.y) - Mathf.Abs(player.transform.position.y))) > 20)
             return true;
 
         return false;
@@ -57,9 +58,9 @@ public class Animaux : MonoBehaviour
 
             if (handled_by_player && !Safe())
             {
-                if (player.GetComponent<Player>().getDrop())
+                if (player.GetComponent<Player>().getDrop()) // if the player has attacked last frame
                 {
-                    player.GetComponent<Player>().setDrop(false);
+                    player.GetComponent<Player>().setDrop(false); // the animal stop following the player
                     player.GetComponent<Player>().setHand(false);
                     time_next_move = Time.time + 1;
                     handled_by_player = false;
@@ -67,7 +68,7 @@ public class Animaux : MonoBehaviour
                 }
                 else
                 {
-                    Move(player.position); //the player still have the animal
+                    Move(player.transform.position); //the player still have the animal
                 }
             }
             else
@@ -89,7 +90,7 @@ public class Animaux : MonoBehaviour
             {
                 if (Move(Random.Range(-1, 2), Random.Range(-1, 2)))
                 {
-                    time_next_move = Time.time + Random.Range(2, 3); //we wait bewteen 1s and 3s before to start a new move
+                    time_next_move = Time.time + Random.Range(1, 2); //we wait bewteen 1s and 3s before to start a new move
                 }   
             }
         }
@@ -132,7 +133,27 @@ public class Animaux : MonoBehaviour
 
     protected bool Move(Vector3 dir)
     {
+        switch (player.GetComponent<Player>().getDirection()) // the animal is following the player, not on the player so we shift a bit the position
+        {
+            case "Up":
+                dir.y -= 0.6f;
+                break;
+            case "Down":
+                dir.y += 0.6f;
+                break;
+            case "Right":
+                dir.x -= 0.5f;
+                break;
+            case "Left":
+                dir.x += 0.3f;
+                break;
+            default:
+                break;
+
+        }
         StartCoroutine(SmoothMovement(dir));
+
+
         return true;
     }
 
@@ -152,7 +173,7 @@ public class Animaux : MonoBehaviour
     {
         if (!player.GetComponent<Player>().getHand())
         {
-            if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.position.y), 2)) <= 1)
+            if (Mathf.Sqrt(Mathf.Pow(Mathf.Abs(transform.position.x) - Mathf.Abs(player.transform.position.x), 2) + Mathf.Pow(Mathf.Abs(transform.position.y) - Mathf.Abs(player.transform.position.y), 2)) <= 1)
             {
                 // ANIMATION DE L'ANIMAL QUI VAS SUR LE JOUEUR
                 player.GetComponent<Player>().setHand(true);

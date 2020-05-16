@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6562519862289615357}
   - component: {fileID: 6562519862289615356}
   - component: {fileID: -2301428554174280779}
-  - component: {fileID: 6562519862289615359}
+  - component: {fileID: 8466471413597039468}
   m_Layer: 9
   m_Name: Koala
   m_TagString: Animal
@@ -152,7 +152,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6562519862289615359
+--- !u!114 &8466471413597039468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,5 +170,6 @@ MonoBehaviour:
   handled_by_player: 0
   blockingLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2304
   time_next_move: 0
+  player: {fileID: 1990423711877836394, guid: b36c10a5a83416745a075427698269ce, type: 3}
